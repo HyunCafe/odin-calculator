@@ -3,20 +3,105 @@
     margin: 0;
     padding: 0;
   }
+  
+  body {
+    min-height: 100vh;
+    background: #212534;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
   .calc-grid {
     display: flex;
     flex-wrap: wrap;
+    background-color: #191c29;
+    width: var(--card-width);
+    height: var(--card-height);
+    margin-top: 5em;
+    padding: .5em;
+    position: relative;
+    border-radius: .1em;
+    justify-content: center;
+    align-items: center;
   }
   
+  .calc-grid::before {
+    content: "";
+    width: 103%;
+    height: 103%;
+    border-radius: .4em;
+    background-image: linear-gradient(
+      var(--rotate), #76e1ff, #1c54ff 43%, #3f009e
+    );
+    position: absolute;
+    z-index: -1;
+    animation: spin 2.5s linear infinite;
+  }
+  
+  .calc-grid::after {
+    content: "";
+    position: absolute;
+    top: calc(var(--card-height) / 6);
+    z-index: -1;
+    height: 103%;
+    width: 103%;
+    transform: scale(0.8);
+    filter: blur(calc(var(--card-height) / 6));
+    background-image: linear-gradient(
+        var(--rotate), #76e1ff, #1c54ff 43%, #3f009e
+    );
+    opacity: 1;
+    animation: spin 2.5s linear infinite;
+  }
+  
+  .display {
+    border: 2px solid rgb(6, 114, 236);
+    border-radius: .5em;
+    text-align: center;
+    padding: 3em;
+    width: 100%;
+    height: 30%;
+    margin: .1em;
+  }
+
   .calc-row {
     display: flex;
+        border-radius: .4em;
     flex-direction: row;
+    justify-content: center;
     flex-wrap: wrap;
-    width: 100%;
   }
   
   .calc-cell {
-    font-size: 2.3rem;
-    padding: .5em;
+    font-size: 1.7rem;
+    border-radius: .7em;
+    padding: .4em .6em;
+    margin: 0;
   }
   
+
+
+
+
+  @property --rotate {
+    syntax: "<angle>";
+    initial-value: 132deg;
+    inherits: false;
+  }
+  
+  :root {
+    --card-height: 65vh;
+    --card-width: calc(var(--card-height) / 1.5);
+  }
+  
+  @keyframes spin {
+    0% {
+      --rotate: 0deg;
+    }
+    100% {
+      --rotate: 360deg;
+    }
+  }
