@@ -1,0 +1,22 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  .calc-grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .calc-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  .calc-cell {
+    font-size: 2.3rem;
+    padding: .5em;
+  }
+  
