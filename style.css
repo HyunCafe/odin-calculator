@@ -12,6 +12,7 @@
     flex-direction: column;
     padding-top: 2rem;
     padding-bottom: 2rem;
+    color: aliceblue;
   }
 
   .calc-grid {
@@ -58,10 +59,13 @@
   }
   
   .display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 2px solid rgb(6, 114, 236);
     border-radius: .5em;
-    text-align: center;
-    padding: 3em;
+    font-size: 1.5rem;;
+    padding: .5em;
     width: 100%;
     height: 30%;
     margin: .1em;
@@ -69,7 +73,7 @@
 
   .calc-row {
     display: flex;
-        border-radius: .4em;
+    border-radius: .4em;
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
@@ -78,8 +82,13 @@
   .calc-cell {
     font-size: 1.7rem;
     border-radius: .7em;
-    padding: .4em .6em;
+    padding: .4em .7em;
     margin: 0;
+    border: 2px solid rgb(6, 114, 236);
+    text-shadow: .1rem 0.1rem .1rem #3f009e;
+    -webkit-background-clip: text;
+    color: aliceblue;
+    
   }
   
 
