@@ -66,8 +66,8 @@ body {
 
 .display {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
+  align-items: flex-end;
   border: 2px solid rgb(6, 114, 236);
   border-radius: 0.5em;
   font-size: 1.5rem;
@@ -107,6 +107,18 @@ body {
 #eq-btn {
   min-width: 50%;
 }
+
+button:hover {
+    background-color: green;
+    transform: scale(1.1);
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  button:active {
+    background-color: #2eb62c;
+    box-shadow: 0px 0px 10px #ffffff;
+    transform: scale(1);
+  }
 
 @property --rotate {
   syntax: "<angle>";
