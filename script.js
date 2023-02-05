@@ -1,20 +1,47 @@
 // Clear Display Function
+function displayResult(result) {
+  const resultElement = document.getElementsByClassName("display");
+  resultElement.textContent = result;
+}
+
+// multiply function
+function multiplyCalc() {
+
+  }
+  
+
+
+// division function
+function divisionCalc() {
+
+}
+
+// addition function
+function additionCalc() {
+
+}
+
+// subtraction function
+function subtractionCalc() {
+
+}
+
+// percentage function
+function percentCalc() {
+
+}
+
+// equal calculate
+function equalCalc() {
+
+}
+
+// clear all function
+
 
 // Delete last input function
 
-// percentage function
-
-// division function
-
-// multiply function
-
-// subtraction function
-
-// addition function
-
-// equal calculate
-
-// create maximum input value for display
+// History Function Display
 
 // have a short history of passed calculations show up toward the top and disappear as more inputs come in a scrolling like effect
 // OR have a little history button that pops up a short display of history calculations
