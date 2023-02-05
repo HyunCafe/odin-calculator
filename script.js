@@ -63,7 +63,7 @@ buttons.forEach((button) => {
     }
     return;
   }
-  // Add a click event listener to each button
+  // Add a click event listener to each button 
   button.addEventListener("click", () => {
     // Get the text content of the button
     let text = button.textContent;
