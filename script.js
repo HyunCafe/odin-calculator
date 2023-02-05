@@ -28,6 +28,11 @@ function deleteButton() {
 // Calculate Function
 
 // History Function Display
+const historySpan = document.querySelector("#history-span");
+
+historySpan.addEventListener("click", () => {
+  // Your code to handle the history button press
+});
 
 // have a short history of passed calculations show up toward the top and disappear as more inputs come in a scrolling like effect
 // OR have a little history button that pops up a short display of history calculations
@@ -44,20 +49,23 @@ function smallDisplay(result) {
 }
 
 buttons.forEach((button) => {
-  button.addEventListener("click", () => {
-    let text = button.textContent;
-    let result = parseFloat(display.textContent + text);
-    if (!isNaN(result) && display.textContent.length >= 18) {
-      result = result.toExponential();
-      if (result.length > 20) {
-        result = "..." + result.substring(result.length - 15, result.length);
+    button.addEventListener("click", () => {
+      if (!button.classList.contains("history-btn") && button.id !== "del-btn") {
+        let text = button.textContent;
+        if (display.textContent.length >= 18) {
+          let result = parseFloat(display.textContent + text).toExponential();
+          if (result.length > 20) {
+            result = "..." + result.substring(result.length - 15, result.length);
+          }
+          displayResult(result);
+        } else {
+          display.textContent += text;
+        }
       }
-      displayResult(result);
-    } else {
-      display.textContent += text;
-    }
+    });
   });
-});
+
+  
 
 // Event Listeners
 buttons.forEach((button) => {

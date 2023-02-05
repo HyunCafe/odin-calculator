@@ -94,20 +94,9 @@ body {
 }
 
 .history-btn {
-  text-shadow: 0.1rem 0.1rem 0.1rem #3f009e;
-  -webkit-background-clip: text;
-  font-size: 1rem;
-  color: aliceblue;
-  border: none;
-  border-radius: 3em;
-  z-index: 4;
-}
-
-.history-btn:active {
-  box-shadow: none;
-  text-shadow: none;
-  transform: none;
-}
+    cursor: pointer;
+  }
+  
 
 .calc-row {
   display: flex;
