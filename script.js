@@ -48,24 +48,49 @@ function smallDisplay(result) {
   resultElement.textContent = result;
 }
 
+// Loop through all buttons
 buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-      if (!button.classList.contains("history-btn") && button.id !== "del-btn") {
-        let text = button.textContent;
-        if (display.textContent.length >= 18) {
-          let result = parseFloat(display.textContent + text).toExponential();
-          if (result.length > 20) {
-            result = "..." + result.substring(result.length - 15, result.length);
-          }
-          displayResult(result);
-        } else {
-          display.textContent += text;
-        }
-      }
-    });
-  });
+  // Skip buttons with text "history" or "del"
+  if (
+    button.textContent === "history" ||
+    button.textContent === "del" ||
+    button.classList.contains("history-btn") ||
+    button.id === "del-btn"
+  ) {
+    // If the display is empty, set the display to "history"
+    if (display.textContent === "") {
+      display.textContent = "history";
+    }
+    return;
+  }
+  // Add a click event listener to each button
+  button.addEventListener("click", () => {
+    // Get the text content of the button
+    let text = button.textContent;
 
-  
+    // Compute display result by adding button text
+    let result = parseFloat(display.textContent + text);
+
+    // If result isn't a number or display text is short
+    if (isNaN(result) || display.textContent.length < 18) {
+      display.textContent += text;
+      return;
+    }
+
+    // if num > 20 Convert the result to exponential notation
+    result = result.toExponential();
+
+    // If the length of the result is less than or equal to 20
+    if (result.length <= 20) {
+      displayResult(result);
+      return;
+    }
+
+    // If length >20 Display last 15 chars of the result preceded by "..."
+    result = "..." + result.substring(result.length - 15, result.length);
+    displayResult(result);
+  });
+});
 
 // Event Listeners
 buttons.forEach((button) => {
