@@ -96,10 +96,6 @@ body {
   box-shadow: 0em 0em #76e1ff;
 }
 
-.history-btn {
-  cursor: pointer;
-}
-
 .calc-row {
   display: flex;
   border-radius: 0.4em;
@@ -107,6 +103,16 @@ body {
   justify-content: center;
   width: 17.5em;
 }
+
+.history-btn {
+    -webkit-background-clip: text;
+    color: aliceblue;
+    border: none;
+  }
+  
+  .history-btn:active {
+    box-shadow: none;
+  }
 
 #top-row .calc-cell {
   font-size: 1.5rem;

@@ -2,16 +2,64 @@
 const buttons = document.querySelectorAll(".calc-cell");
 const display = document.querySelector(".display");
 const smallerDisplay = document.querySelector(".small-display");
+const operator = ['+', '-', '*', '/', '%'];
+
 
 // Multiply function
+// function multiply(...operands) {
+//     let numbers = Array.from(arguments);
+//     let result = 1;
+//     for (let num of numbers) {
+//       result *= num;
+//     }
+//     return result;
+//   }
+function multiply(...operands) {
+    return operands.reduce((result, num) => result * num, 1);
+  }
+  
 
 // Division function
-
+function divide () {
+    
+}
 // Addition function
-
+function add () {
+    
+}
 // Subtraction function
+function subtract () {
+    
+}
 
-// Equal calculate
+// Percent function
+function percent () {
+    
+}
+// Calculate Function
+
+function calculate(operator, ...operands) {
+    switch (operator) {
+        case '*':
+    multiply(...operands);
+      case '/':
+        divide(...operands);
+        break;
+      case '+':
+        add(...operands);
+        break;
+      case '-':
+        subtract(...operands);
+        break;
+      case '%':
+        percent(...operands);
+        break;
+      default:
+        throw new Error(`Invalid operator: ${operator}`);
+    }
+
+    displayResult(result);
+  }
 
 // Clear all function
 function clearDisplay() {
@@ -25,14 +73,7 @@ function deleteButton() {
     display.textContent.length - 1
   );
 }
-// Calculate Function
 
-// History Function Display
-const historySpan = document.querySelector("#history-span");
-
-historySpan.addEventListener("click", () => {
-  // Your code to handle the history button press
-});
 
 // have a short history of passed calculations show up toward the top and disappear as more inputs come in a scrolling like effect
 // OR have a little history button that pops up a short display of history calculations
@@ -48,49 +89,55 @@ function smallDisplay(result) {
   resultElement.textContent = result;
 }
 
-// Loop through all buttons
+// all button loops
+
 buttons.forEach((button) => {
-  // Skip buttons with text "history" or "del"
-  if (
-    button.textContent === "history" ||
-    button.textContent === "del" ||
-    button.classList.contains("history-btn") ||
-    button.id === "del-btn"
-  ) {
-    // If the display is empty, set the display to "history"
-    if (display.textContent === "") {
-      display.textContent = "history";
-    }
-    return;
-  }
-  // Add a click event listener to each button 
-  button.addEventListener("click", () => {
-    // Get the text content of the button
-    let text = button.textContent;
-
-    // Compute display result by adding button text
-    let result = parseFloat(display.textContent + text);
-
-    // If result isn't a number or display text is short
-    if (isNaN(result) || display.textContent.length < 18) {
-      display.textContent += text;
+    // Skip buttons with text "history" or "del"
+    if (
+      button.textContent === "history" ||
+      button.textContent === "=" ||
+      button.textContent === "del" ||
+      button.classList.contains("history-btn") ||
+      button.id === "del-btn"
+    ) {
+      // If the display is empty, set the display to "history"
+      if (display.textContent === "") {
+        display.textContent = "history";
+      }
       return;
     }
-
-    // if num > 20 Convert the result to exponential notation
-    result = result.toExponential();
-
-    // If the length of the result is less than or equal to 20
-    if (result.length <= 20) {
+    // Add a click event listener to each button 
+    button.addEventListener("click", () => {
+      // Get the text content of the button
+      let text = button.textContent;
+      // Check if the display text is equal to infinity
+      if (display.textContent === "Infinity") {
+        // If the text is infinity, then return
+        return;
+      }
+      // Compute display result by adding button text
+      let result = parseFloat(display.textContent + text);
+  
+      // If result isn't a number or display text is short
+      if (isNaN(result) || display.textContent.length < 18) {
+        display.textContent += text;
+        return;
+      }
+  
+      // if num > 20 Convert the result to exponential notation
+      result = result.toExponential();
+  
+      // If the length of the result is less than or equal to 20
+      if (result.length <= 20) {
+        displayResult(result);
+        return;
+      }
+    
+      // If length >20 Display last 15 chars of the result preceded by "..."
+      result = "..." + result.substring(result.length - 15, result.length);
       displayResult(result);
-      return;
-    }
-
-    // If length >20 Display last 15 chars of the result preceded by "..."
-    result = "..." + result.substring(result.length - 15, result.length);
-    displayResult(result);
+    });
   });
-});
 
 // Event Listeners
 buttons.forEach((button) => {
@@ -103,18 +150,32 @@ buttons.forEach((button) => {
         deleteButton();
         break;
       case "perc-btn":
+        percent();
         break;
       case "div-btn":
+        divide();
         break;
       case "x-btn":
+        multiply();
         break;
       case "min-btn":
+        subtract();
         break;
       case "plus-btn":
+        add();
         break;
       case "eq-btn":
+        calculate();
       default:
     }
   });
 });
 // Maybe have a cute gif/animation play around the top borders of the calculator
+
+
+// History Function Display
+// const historySpan = document.querySelector("#history-span");
+
+// historySpan.addEventListener("click", () => {
+//   //  code
+// });
