@@ -1,6 +1,7 @@
+"use strict";
 const buttons = document.querySelectorAll(".calc-cell");
 const display = document.querySelector(".display");
-const smallDisplay = document.querySelector(".small-display");
+const smallerDisplay = document.querySelector(".small-display");
 
 // Multiply function
 
@@ -19,8 +20,12 @@ function clearDisplay() {
 
 // Delete last input function
 function deleteButton() {
-  display.textContent = display.textContent.slice(0, -1);
+  display.textContent = display.textContent.slice(
+    0,
+    display.textContent.length - 1
+  );
 }
+// Calculate Function
 
 // History Function Display
 
@@ -28,7 +33,6 @@ function deleteButton() {
 // OR have a little history button that pops up a short display of history calculations
 
 // Have all inputs visually display on the display class
-
 function displayResult(result) {
   display.textContent = result;
 }
@@ -39,13 +43,12 @@ function smallDisplay(result) {
   resultElement.textContent = result;
 }
 
-//// need to figure out a way for the contents in display to move to the small display once an arithmetic button is pressed
-
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     let text = button.textContent;
-    if (display.textContent.length >= 18) {
-      let result = parseFloat(display.textContent + text).toExponential();
+    let result = parseFloat(display.textContent + text);
+    if (!isNaN(result) && display.textContent.length >= 18) {
+      result = result.toExponential();
       if (result.length > 20) {
         result = "..." + result.substring(result.length - 15, result.length);
       }
@@ -56,4 +59,29 @@ buttons.forEach((button) => {
   });
 });
 
-// Maybe have a cute gif/animation play around the top borders of the calcula
+// Event Listeners
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    switch (button.id) {
+      case "ac-btn":
+        clearDisplay();
+        break;
+      case "del-btn":
+        deleteButton();
+        break;
+      case "perc-btn":
+        break;
+      case "div-btn":
+        break;
+      case "x-btn":
+        break;
+      case "min-btn":
+        break;
+      case "plus-btn":
+        break;
+      case "eq-btn":
+      default:
+    }
+  });
+});
+// Maybe have a cute gif/animation play around the top borders of the calculator
