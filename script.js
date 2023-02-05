@@ -1,45 +1,26 @@
-// Clear Display Function
-function displayResult(result) {
-  const resultElement = document.getElementsByClassName("display");
-  resultElement.textContent = result;
+const buttons = document.querySelectorAll(".calc-cell");
+const display = document.querySelector(".display");
+const smallDisplay = document.querySelector(".small-display");
+
+// Multiply function
+
+// Division function
+
+// Addition function
+
+// Subtraction function
+
+// Equal calculate
+
+// Clear all function
+function clearDisplay() {
+  display.textContent = "";
 }
-
-// multiply function
-function multiplyCalc() {
-
-  }
-  
-
-
-// division function
-function divisionCalc() {
-
-}
-
-// addition function
-function additionCalc() {
-
-}
-
-// subtraction function
-function subtractionCalc() {
-
-}
-
-// percentage function
-function percentCalc() {
-
-}
-
-// equal calculate
-function equalCalc() {
-
-}
-
-// clear all function
-
 
 // Delete last input function
+function deleteButton() {
+  display.textContent = display.textContent.slice(0, -1);
+}
 
 // History Function Display
 
@@ -47,12 +28,18 @@ function equalCalc() {
 // OR have a little history button that pops up a short display of history calculations
 
 // Have all inputs visually display on the display class
-const buttons = document.querySelectorAll(".calc-cell");
-const display = document.querySelector(".display");
 
 function displayResult(result) {
   display.textContent = result;
 }
+
+// Small Display Function
+function smallDisplay(result) {
+  const resultElement = document.getElementsByClassName("small-display")[0];
+  resultElement.textContent = result;
+}
+
+//// need to figure out a way for the contents in display to move to the small display once an arithmetic button is pressed
 
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
@@ -69,4 +56,4 @@ buttons.forEach((button) => {
   });
 });
 
-// Maybe have a cute gif/animation play around the top borders of the calculator
+// Maybe have a cute gif/animation play around the top borders of the calcula

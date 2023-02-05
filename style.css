@@ -100,6 +100,7 @@ body {
     color: aliceblue;
     border: none;
     border-radius:3em;
+    z-index:4;
   }
   
   .history-btn:active {
