@@ -15,25 +15,24 @@ const operator = ['+', '-', '*', '/', '%'];
 //     return result;
 //   }
 function multiply(...operands) {
-    return operands.reduce((result, num) => result * num, 1);
+    return operands.reduce((result, num) => result * num);
   }
-  
-
 // Division function
-function divide () {
-    
+function divide (...operands) {
+    return operands.reduce((result, num) => result / num);
 }
+
 // Addition function
-function add () {
-    
+function add (...operands) {
+    return operands.reduce((result, num) => result + num);
 }
 // Subtraction function
-function subtract () {
-    
+function subtract (...operands) {
+    return operands.reduce((result, num) => result - num);
 }
 
 // Percent function
-function percent () {
+function percent (num1, num2) {
     
 }
 // Calculate Function
