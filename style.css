@@ -76,7 +76,7 @@ body {
   font-size: 2rem;
   padding: 0.5em;
   width: 100%;
-  height: 25%;
+  min-height: 25%;
   box-shadow: 0em 0em #76e1ff;
 }
 
@@ -90,7 +90,7 @@ body {
   border-radius: 0.5em;
   font-size: 1.2rem;
   width: 100%;
-  height: 10%;
+  min-height: 10%;
   margin: 0;
   padding: 0.5em;
   box-shadow: 0em 0em #76e1ff;
@@ -128,7 +128,7 @@ body {
   border: 2px solid rgb(6, 114, 236);
   text-shadow: 0.1rem 0.1rem 0.1rem #3f009e;
   -webkit-background-clip: text;
-  height: 2.1em;
+  min-height: 2.1em;
   color: aliceblue;
   min-width: 23%;
   box-shadow: 0.1em 0.1em #76e1ff, -0.1em -0.1em #3f009e;
