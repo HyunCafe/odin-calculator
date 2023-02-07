@@ -48,16 +48,14 @@ function calculate(operator, ...operands) {
     default:
       throw new Error(`Invalid operator: ${operator}`);
   }
-
   displayResult(result);
-  smallDisplay(result);
-  return result;
 }
 
-// Clear all function
+// Clear the main display
 function clearDisplay() {
-  display.textContent = "";
-}
+    mainDisplayText = '';
+    display.textContent = '';
+    }
 
 // Delete last input function
 function deleteButton() {
@@ -83,9 +81,11 @@ function smallDisplay(text) {
 
 // Main Display Function
 function displayResult(result) {
-  mainDisplayText = result;
-  display.textContent = result;
-}
+    const resultElement = document.getElementsByClassName("display")[0];
+    resultElement.textContent = result;
+    mainDisplayText = result;
+  }
+  
 
 // Clear Display Function
 function clearDisplay() {
@@ -94,8 +94,8 @@ function clearDisplay() {
   smallDisplayText = "";
   isOperatorPressed = false;
 }
-// all button loops
 
+// all button loops
 buttons.forEach((button) => {
   // Skip buttons with text "history" or "del"
   if (
@@ -122,22 +122,18 @@ buttons.forEach((button) => {
     }
     // Compute display result by adding button text
     let result = parseFloat(display.textContent + text);
-
     // If result isn't a number or display text is short
     if (isNaN(result) || display.textContent.length < 18) {
       display.textContent += text;
       return;
     }
-
     // if num > 20 Convert the result to exponential notation
     result = result.toExponential();
-
     // If the length of the result is less than or equal to 20
     if (result.length <= 20) {
       displayResult(result);
       return;
     }
-
     // If length >20 Display last 15 chars of the result preceded by "..."
     result = "..." + result.substring(result.length - 15, result.length);
     displayResult(result);
@@ -150,13 +146,13 @@ buttons.forEach((button) => {
     switch (button.id) {
       case "ac-btn":
         clearDisplay();
+        smallDisplay('');
         break;
       case "del-btn":
         deleteButton();
         break;
       case "perc-btn":
         smallDisplay(mainDisplayText + " % ");
-        clearDisplay();
         percent();
         isOperatorPressed = true;
         break;
