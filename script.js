@@ -3,10 +3,10 @@ const buttons = document.querySelectorAll(".calc-cell");
 const display = document.querySelector(".display");
 const smallerDisplay = document.querySelector(".small-display");
 
-let num1 = "";
-let num2 = "";
-let operator = "";
-let result = "";
+let num1 = '';
+let num2 = '';
+let operator = '';
+let result = '';
 
 // Main Display Function
 const displayResult = (value) => {
@@ -14,20 +14,21 @@ const displayResult = (value) => {
 };
 
 // Small Display Function
-let smallDisplayText = "";
-function smallDisplay(text) {
+let smallDisplayText = '';
+const smallDisplay = (text) => {
   smallDisplayText += text;
   smallerDisplay.textContent = smallDisplayText;
 }
 
 // Clear the main display
 const clearDisplay = () => {
-  num1 = "";
-  num2 = "";
-  operator = "";
-  result = "";
-  display.textContent = "";
-  displayResult("");
+  num1 = '';
+  num2 = '';
+  operator = '';
+  result = '';
+  displayResult('');
+  smallDisplayText = '';
+  smallerDisplay.textContent = '';
 };
 
 // Delete last input function
@@ -38,6 +39,7 @@ function deleteButton() {
   );
 }
 
+// Number Values
 const operands = (e) => {
   const value = e.target.textContent;
   if (!operator) {
@@ -49,6 +51,7 @@ const operands = (e) => {
   }
 };
 
+// Operator Values
 const operators = (e) => {
   operator = e.target.textContent;
   displayResult(`${num1} ${operator}`);
@@ -73,12 +76,12 @@ const calculate = () => {
       result = n1 % n2;
       break;
     default:
-      result = "";
+      result = '';
   }
   displayResult(result);
   num1 = result;
-  num2 = "";
-  operator = "";
+  num2 = '';
+  operator = '';
 };
 
 buttons.forEach((button) => {
@@ -89,7 +92,7 @@ buttons.forEach((button) => {
   } else if (button.textContent.match(/\d/)) {
     button.addEventListener("click", operands);
   } else if (button.textContent.match(/[\+\-\*\%\/]/)) {
-    button.addEventListener("click", operators);
+    button.addEventListener("click", (e) => operators(e, smallDisplay(display.textContent + ` ${operator} `)));
   } else if (button.textContent === "=") {
     button.addEventListener("click", calculate);
   }
