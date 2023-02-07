@@ -69,6 +69,8 @@ const calculate = () => {
       break;
     case "/":
       result = n1 / n2;
+      case "%":
+      result = n1 % n2;
       break;
     default:
       result = "";
@@ -86,7 +88,7 @@ buttons.forEach((button) => {
     button.addEventListener("click", deleteButton);
   } else if (button.textContent.match(/\d/)) {
     button.addEventListener("click", operands);
-  } else if (button.textContent.match(/[\+\-\*\/]/)) {
+  } else if (button.textContent.match(/[\+\-\*\%\/]/)) {
     button.addEventListener("click", operators);
   } else if (button.textContent === "=") {
     button.addEventListener("click", calculate);
