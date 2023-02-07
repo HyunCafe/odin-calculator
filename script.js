@@ -99,7 +99,7 @@ buttons.forEach((button) => {
   }
 });
 
-// Maybe have a cute gif/animation play around the top borders of the calculator
+// Maybe have a cute gif/animation play around the top borders of the calculator 
 
 // History Function Display
 // const historySpan = document.querySelector("#history-span");
