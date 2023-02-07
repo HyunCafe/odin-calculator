@@ -31,7 +31,7 @@ const clearDisplay = () => {
   smallerDisplay.textContent = '';
 };
 
-// Delete last input function
+// Delete last input function 
 function deleteButton() {
   display.textContent = display.textContent.slice(
     0,
