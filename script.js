@@ -3,13 +3,13 @@ const buttons = document.querySelectorAll(".calc-cell");
 const display = document.querySelector(".display");
 const smallerDisplay = document.querySelector(".small-display");
 
-let num1 = '';
-let num2 = '';
-let operator = '';
-let result = '';
+let num1 = "";
+let num2 = "";
+let operator = "";
+let result = "";
 
 // Main Display Function
-const displayResult = value => {
+const displayResult = (value) => {
   display.textContent = value;
 };
 
@@ -22,21 +22,21 @@ function smallDisplay(text) {
 
 // Clear the main display
 const clearDisplay = () => {
-let mainDisplayText = "";
-mainDisplayText = '';
-display.textContent = '';
-displayResult('');
+  let mainDisplayText = "";
+  mainDisplayText = "";
+  display.textContent = "";
+  displayResult("");
 };
 
 // Delete last input function
 function deleteButton() {
-    display.textContent = display.textContent.slice(
-      0,
-      display.textContent.length - 1
-    );
-    }
+  display.textContent = display.textContent.slice(
+    0,
+    display.textContent.length - 1
+  );
+}
 
-const operands = e => {
+const operands = (e) => {
   const value = e.target.textContent;
   if (!operator) {
     num1 += value;
@@ -47,7 +47,7 @@ const operands = e => {
   }
 };
 
-const operators = e => {
+const operators = (e) => {
   operator = e.target.textContent;
   displayResult(`${num1} ${operator}`);
 };
@@ -56,36 +56,38 @@ const calculate = () => {
   const n1 = +num1;
   const n2 = +num2;
   switch (operator) {
-    case '+':
+    case "+":
       result = n1 + n2;
       break;
-    case '-':
+    case "-":
       result = n1 - n2;
       break;
-    case '*':
+    case "*":
       result = n1 * n2;
       break;
-    case '/':
+    case "/":
       result = n1 / n2;
       break;
     default:
-      result = '';
+      result = "";
   }
   displayResult(result);
   num1 = result;
-  num2 = '';
-  operator = '';
+  num2 = "";
+  operator = "";
 };
 
-buttons.forEach(button => {
-  if (button.textContent === 'AC') {
-    button.addEventListener('click', clearDisplay);
+buttons.forEach((button) => {
+  if (button.textContent === "AC") {
+    button.addEventListener("click", clearDisplay);
+  } else if (button.textContent === "Del") {
+    button.addEventListener("click", deleteButton);
   } else if (button.textContent.match(/\d/)) {
-    button.addEventListener('click', operands);
+    button.addEventListener("click", operands);
   } else if (button.textContent.match(/[\+\-\*\/]/)) {
-    button.addEventListener('click', operators);
-  } else if (button.textContent === '=') {
-    button.addEventListener('click', calculate);
+    button.addEventListener("click", operators);
+  } else if (button.textContent === "=") {
+    button.addEventListener("click", calculate);
   }
 });
 
