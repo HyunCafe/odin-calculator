@@ -48,6 +48,9 @@ const operands = (e) => {
   } else {
     num2 += value;
     displayResult(`${num1} ${operator} ${num2}`);
+    if (operator) {
+      displayResult(value);
+    }
   }
 };
 
@@ -80,11 +83,8 @@ const calculate = () => {
       result = '';
   }
   displayResult(result);
-  num1 = result;
-  num2 = '';
-  operator = '';
-  smallDisplayText = '';
-  smallDisplay(smallDisplayText);
+  smallDisplayText = `${n1} ${operator} ${n2} = `;
+  smallDisplay('');
 };
 
 buttons.forEach((button) => {
