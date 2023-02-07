@@ -40,7 +40,6 @@ function deleteButton() {
 }
 
 // Number Values
-
 const operands = (e) => {
   const value = e.target.textContent;
   if (!operator) {
@@ -99,16 +98,17 @@ buttons.forEach((button) => {
   }
 });
 
-// Maybe have a cute gif/animation play around the top borders of the calculator 
 
-// History Function Display
-// const historySpan = document.querySelector("#history-span");
+// Bugs 
+//Bug 1: History Button disappears on AC clear because its connect to small display
+//Bug 2: Repeated press of operators display on small window, want it only once
+//Bug 3: set toFixed(4) decimal places for results, currently too many decimals
 
-// historySpan.addEventListener("click", () => {
-//   //  code
-// });
-
-// have a short history of passed calculations show up toward the top and disappear as more inputs come in a scrolling like effect
-// OR have a little history button that pops up a short display of history calculations
-
-// Move the numbers and operator / equal sign used from main display to the small display but after pressing equal the answer stays on the main display only
+// Add Features
+//Feat 1: Add history button with working history on new window
+//Feat 2: cute gif/animation play around the top borders of the calculator 
+//Feat 3: Re-add feature of:
+    // Check if the display text is equal to infinity
+        // if num > 20 Convert the result to exponential notation
+            // If the length of the result is less than or equal to 20
+                // If length >20 Display last 15 chars of the result preceded by "..."
