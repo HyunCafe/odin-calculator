@@ -22,8 +22,10 @@ function smallDisplay(text) {
 
 // Clear the main display
 const clearDisplay = () => {
-  let mainDisplayText = "";
-  mainDisplayText = "";
+  num1 = "";
+  num2 = "";
+  operator = "";
+  result = "";
   display.textContent = "";
   displayResult("");
 };
