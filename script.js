@@ -40,6 +40,7 @@ function deleteButton() {
 }
 
 // Number Values
+
 const operands = (e) => {
   const value = e.target.textContent;
   if (!operator) {
@@ -48,9 +49,6 @@ const operands = (e) => {
   } else {
     num2 += value;
     displayResult(`${num1} ${operator} ${num2}`);
-    if (operator) {
-      displayResult(value);
-    }
   }
 };
 
@@ -77,7 +75,7 @@ const calculate = () => {
     case "/":
       result = n1 / n2;
       case "%":
-      result = n1 % n2;
+      result = n1 / 100 * n2;
       break;
     default:
       result = '';
@@ -95,7 +93,7 @@ buttons.forEach((button) => {
   } else if (button.textContent.match(/\d/)) {
     button.addEventListener("click", operands);
   } else if (button.textContent.match(/[\+\-\*\%\/]/)) {
-    button.addEventListener("click", (e) => operators(e, smallDisplay(display.textContent + ` ${operator} `)));
+    button.addEventListener("click", (e) => operators(e, smallDisplay(display.textContent + ` ${operator} ` + num2)));
   } else if (button.textContent === "=") {
     button.addEventListener("click", calculate);
   }
