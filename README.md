@@ -37,8 +37,8 @@ JS
 * Numbers when press move from display to small, AC clears small display
 
 #### Feb 7, 2023
-* Put original script on hold, changed to hiatus due to technical difficulties
-* Re-created script from scratch with simpler logic and Regex.
+##### * Put original script on hold, changed to hiatus due to technical difficulties
+##### * Re-created script from scratch with simpler logic and Regex.
 * Re-added delete button feature and it works correctly
 * Bug where upon AC, display clears but upon operand press numbers don't
 * Re-added percent feature, it works correctly
