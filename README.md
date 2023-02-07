@@ -40,5 +40,6 @@ JS
 ##### * Put original script on hold, changed to hiatus due to technical difficulties
 ##### * Re-created script from scratch with simpler logic and Regex.
 * Re-added delete button feature and it works correctly
-* Bug where upon AC, display clears but upon operand press numbers don't
-* Re-added percent feature, it works correctly
+* Bug where upon AC, display clears but upon operand press numbers show back up as if not deleted.
+* Fixed the issue by adjusting the clear function settings.
+* Re-added percent feature, working as intended.
