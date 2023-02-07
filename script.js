@@ -55,6 +55,7 @@ const operands = (e) => {
 const operators = (e) => {
   operator = e.target.textContent;
   displayResult(`${num1} ${operator}`);
+  smallDisplay(` ${operator} `);
 };
 
 const calculate = () => {
@@ -82,6 +83,8 @@ const calculate = () => {
   num1 = result;
   num2 = '';
   operator = '';
+  smallDisplayText = '';
+  smallDisplay(smallDisplayText);
 };
 
 buttons.forEach((button) => {
