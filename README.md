@@ -37,8 +37,8 @@ JS
 * Numbers when press move from display to small, AC clears small display
 
 #### Feb 7, 2023
-##### * Put original script on hold, changed to hiatus due to technical difficulties
-##### * Re-created script from scratch with simpler logic and Regex.
+##### * Put original script on hold, changed to hiatus due to technical difficulties (made the logic more complicated then it shoudl have been, and did not functionally test each feature before working on next)
+##### * Re-created script from scratch with simpler logic and Regex. (Will not test case each feature before moving onto creating more in order to be more efficient)
 * Re-added delete button feature and it works correctly
 * Bug where upon AC, display clears but upon operand press numbers show back up as if not deleted.
 * Fixed the issue by adjusting the clear function settings.
