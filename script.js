@@ -108,6 +108,7 @@ buttons.forEach((button) => {
 //Bug 2: Repeated press of operators display on small window, want it only once
 //Bug 3: set toFixed(4) decimal places for results, currently too many decimals
 //Bug 4: after doing an operation and adding more numbers it doesn't not clear the previous history
+//Bug 5: bug in how the small window displays a 2nd operation reusing old one
 
 // Add Features
 //Feat 1: Add history button with working history on new window --
