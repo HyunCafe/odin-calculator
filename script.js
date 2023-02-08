@@ -42,29 +42,40 @@ function deleteButton() {
 // Number Values
 const operands = (e) => {
   const value = e.target.textContent;
-  if (!operator) {
-    num1 += value;
-    displayResult(num1);
-  } else if (num1 && operator) {
+  if (operator) {
     num2 += value;
     displayResult(`${num1} ${operator} ${num2}`);
+  } else {
+    num1 += value;
+    displayResult(num1);
   }
 };
+
 
 
 // Operator Values
 const operators = (e) => {
   operator = e.target.textContent;
   currentValue = null;
-  displayResult(`${num1} ${operator}`);
-  smallDisplay(` ${operator} `);
+  if (operator !== prevOperator) {
+    if (prevOperator) {
+      calculate();
+      num1 = finalValue;
+      num2 = "";
+    }
+    displayResult(`${num1} ${operator}`);
+    smallDisplay(` ${operator} `);
+  }
+  prevOperator = operator;
 };
 
+
+// Calculate Function
 const calculate = () => {
   let n1 = +num1;
-  let n2 = +num2;
+  let n2 = '';
   if (!n2) {
-    n2 = +display.textContent;
+    n2 = +display.textContent.split(operator)[1];
   }
   switch (operator) {
     case "+":
@@ -107,9 +118,9 @@ buttons.forEach((button) => {
   } else if (button.textContent.match(/[\+\-\*\%\/]/)) {
     button.addEventListener("click", (e) => {
       if (previousValue && operator) {
-        // Store the new values and disregard the old values
-        previousValue = finalValue;
-        currentValue = null;
+        // Calculate the new values and store the new value as the current value
+        finalValue = calculate();
+        currentValue = finalValue;
         operator = e.target.innerText;
       } else {
         // Store the first values
