@@ -16,7 +16,7 @@ const displayResult = (value) => {
 // Small Display Function
 let smallDisplayText = "";
 const smallDisplay = (text) => {
-  smallDisplayText += text;
+  smallDisplayText = text;
   smallerDisplay.textContent = smallDisplayText;
 };
 
