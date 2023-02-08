@@ -94,21 +94,32 @@ buttons.forEach((button) => {
   } else if (button.textContent.match(/[\+\-\*\%\/]/)) {
     button.addEventListener("click", (e) => operators(e, smallDisplay(display.textContent + ` ${operator} ` + num2)));
   } else if (button.textContent === "=") {
-    button.addEventListener("click", calculate);
+    button.addEventListener("click", () => {
+      calculate();
+      num1 = result;
+      operator = null;
+      num2 = '';
+    });
   }
 });
-
 
 // Bugs 
 //Bug 1: History Button disappears on AC clear because its connect to small display
 //Bug 2: Repeated press of operators display on small window, want it only once
 //Bug 3: set toFixed(4) decimal places for results, currently too many decimals
+//Bug 4: after doing an operation and adding more numbers it doesn't not clear the previous history
 
 // Add Features
-//Feat 1: Add history button with working history on new window
+//Feat 1: Add history button with working history on new window --
+// to fix this issue I think i will just add the history button outside of the display
+// but for aesthetics I need to create a top bar, I will copy the windows default 
+// Calculator layout for this
+
+
 //Feat 2: cute gif/animation play around the top borders of the calculator 
 //Feat 3: Re-add feature of:
     // Check if the display text is equal to infinity
         // if num > 20 Convert the result to exponential notation
             // If the length of the result is less than or equal to 20
                 // If length >20 Display last 15 chars of the result preceded by "..."
+//Feat 4: repeatedly pressing equal button keeps doing the last operation
