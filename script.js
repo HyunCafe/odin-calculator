@@ -45,12 +45,12 @@ const operands = (e) => {
   if (!operator) {
     num1 += value;
     displayResult(num1);
-  } else {
-    num2 = "";
+  } else if (num1 && operator) {
     num2 += value;
     displayResult(`${num1} ${operator} ${num2}`);
   }
 };
+
 
 // Operator Values
 const operators = (e) => {
@@ -89,7 +89,7 @@ const calculate = () => {
   smallDisplayText = `${n1} ${operator} ${n2} =`;
   smallDisplay(smallDisplayText);
   num1 = finalValue;
-  num2 = null;
+  num2 = "";
   operator = null;
 };
 
