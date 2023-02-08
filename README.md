@@ -45,3 +45,16 @@ JS
 * Bug where upon AC, display clears but upon operand press numbers show back up as if not deleted.
 * Fixed the issue by adjusting the clear function settings.
 * Re-added percent feature, working as intended.
+* Added the functionality for the operands to move to the small display upon operator click
+* Fixed the bug where the operator does not transfer to the small display
+* Made the small display act the same as the windows calculator
+* Fixed the bug for the small window and operator, so everything works now
+* Fixed the bug where only one operand at a time shows after operator is pressed
+* Found two bugs, the history button disappears on clear and calculation decimals are too long
+* Added comments for 3 features and 3 bugs to be worked on
+* Fixed the bug where subsequent operator equations do not update with new results each time
+* Bug: Small window display on 2nd operation reuses old values
+* Fixed the bug where multiple calculations do not update new values with new calculations
+* Fixed the bug where the small window does not correctly display new calculation values for each subsequent new calculation
+* Fixed the bug where 10 + 10 showed as 10 + null10
+* Fixed the bug where 10 + 10 + 10 would not calculate correctly before "=" is pressed
