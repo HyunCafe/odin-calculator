@@ -48,8 +48,7 @@ JS
 * Added the functionality for the operands to move to the small display upon operator click
 * Fixed the bug where the operator does not transfer to the small display
 * Made the small display act the same as the windows calculator
-* Fixed the bug for the small window and operator, so everything works now
-* Fixed the bug where only one operand at a time shows after operator is pressed
+* Fixed the bug where only one operand at a time (instead of 12, it will show up as 1 then 2 with the 1 replaced) shows after operator is pressed
 * Found two bugs, the history button disappears on clear and calculation decimals are too long
 * Added comments for 3 features and 3 bugs to be worked on
 * Fixed the bug where subsequent operator equations do not update with new results each time
