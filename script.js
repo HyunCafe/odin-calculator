@@ -121,18 +121,13 @@ buttons.forEach((button) => {
 
 // Function for operator button press
 function operatorButtons(e) {
-  // Check if previous value and operator exist
+  // Reuse the last operator to keep recalculating the result.
   if (previousValue && operator) {
-    // Calculate the new value and store it as the final value
     finalValue = calculate();
-    // Set the current value to the final value
     currentValue = finalValue;
-    // Store the operator pressed
     operator = e.target.innerText;
   } else {
-    // Store the first value
     previousValue = +display.textContent;
-    // Store the operator pressed
     operator = e.target.innerText;
   }
   // Display the previous value and operator in the small display
@@ -164,7 +159,7 @@ function equalButton(e) {
 //Bug 1: History Button disappears on AC clear because its connect to small display
 //Bug 3: set toFixed(4) decimal places for results, currently too many decimals
 
-// Add Features
+// TODO
 //Feat 1: Add history button with working history on new window --
 // to fix this issue I think i will just add the history button outside of the display
 // but for aesthetics I need to create a top bar, I will copy the windows default
