@@ -2,7 +2,9 @@
 const buttons = document.querySelectorAll(".calc-cell");
 const display = document.querySelector(".display");
 const smallerDisplay = document.querySelector(".small-display");
-
+let previousValue = null;
+let currentValue = null;
+let finalValue = null;
 let num1 = "";
 let num2 = "";
 let operator = "";
@@ -51,8 +53,6 @@ const operands = (e) => {
   }
 };
 
-
-
 // Operator Values
 const operators = (e) => {
   operator = e.target.textContent;
@@ -69,11 +69,10 @@ const operators = (e) => {
   prevOperator = operator;
 };
 
-
 // Calculate Function
 const calculate = () => {
   let n1 = +num1;
-  let n2 = '';
+  let n2 = "";
   if (!n2) {
     n2 = +display.textContent.split(operator)[1];
   }
@@ -104,10 +103,7 @@ const calculate = () => {
   operator = null;
 };
 
-let previousValue = null;
-let currentValue = null;
-let finalValue = null;
-
+// Add Event Listener for all buttons
 buttons.forEach((button) => {
   if (button.textContent === "AC") {
     button.addEventListener("click", clearDisplay);
@@ -130,17 +126,22 @@ buttons.forEach((button) => {
       }
       smallDisplay(`${previousValue} ${operator}`);
     });
+    // repeatedly pressing equal button keeps doing the last operation
+    // Still working on logic here to do this
   } else if (button.textContent === "=") {
-    button.addEventListener("click", calculate);
+    button.addEventListener("click", (e) => {
+      if (previousValue && operator) {
+        // Calculate the new values and store the new value as the current value
+        finalValue = calculate();
+        currentValue = finalValue;
+      }
+    });
   }
 });
 
 // Bugs
 //Bug 1: History Button disappears on AC clear because its connect to small display
-//Bug 2: Repeated press of operators display on small window, want it only once
 //Bug 3: set toFixed(4) decimal places for results, currently too many decimals
-//Bug 4: after doing an operation and adding more numbers it doesn't not clear the previous history
-//Bug 5: bug in how the small window displays a 2nd operation reusing old one
 
 // Add Features
 //Feat 1: Add history button with working history on new window --
@@ -153,4 +154,3 @@ buttons.forEach((button) => {
 // if num > 20 Convert the result to exponential notation
 // If the length of the result is less than or equal to 20
 // If length >20 Display last 15 chars of the result preceded by "..."
-//Feat 4: repeatedly pressing equal button keeps doing the last operation
