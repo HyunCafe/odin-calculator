@@ -100,46 +100,65 @@ function calculate() {
 
 // Add Event Listener for all buttons
 buttons.forEach((button) => {
-  if (button.textContent === "AC") {
-    button.addEventListener("click", clearDisplay);
-  } else if (button.textContent === "Del") {
-    button.addEventListener("click", deleteButton);
-  } else if (button.textContent.match(/\d/)) {
-    button.addEventListener("click", operands);
-  } else if (button.textContent.match(/[\+\-\*\%\/]/)) {
-    button.addEventListener("click", (e) => {
-      if (previousValue && operator) {
-        // Calculate the new values and store the new value as the current value
-        finalValue = calculate();
-        currentValue = finalValue;
-        operator = e.target.innerText;
-      } else {
-        // Store the first values
-        previousValue = +display.textContent;
-        operator = e.target.innerText;
+  switch (button.textContent) {
+    case "AC":
+      button.addEventListener("click", clearDisplay);
+      break;
+    case "Del":
+      button.addEventListener("click", deleteButton);
+      break;
+    case "=":
+      button.addEventListener("click", equalButton);
+      break;
+    default:
+      if (button.textContent.match(/\d/)) {
+        button.addEventListener("click", operands);
+      } else if (button.textContent.match(/[\+\-\*\%\/]/)) {
+        button.addEventListener("click", operatorButtons);
       }
-      smallDisplay(`${previousValue} ${operator}`);
-    });
-    // repeatedly pressing equal button keeps doing the last operation
-    // Still working on logic here to do this
-  } else if (button.textContent === "=") {
-    button.addEventListener("click", (e) => {
-      if (previousValue && operator) {
-        // Calculate the new values and store the new value as the current value
-        finalValue = calculate();
-        lastCalculation = operator;
-        previousValue = finalValue;
-        operator = null;
-      } else if (finalValue) {
-        // If the = button is pressed multiple times, keep doing the last operation
-        previousValue = finalValue;
-        operator = lastCalculation;
-        finalValue = calculate();
-        display.textContent = finalValue;
-      }
-    });
   }
 });
+
+// Function for operator button press
+function operatorButtons(e) {
+  // Check if previous value and operator exist
+  if (previousValue && operator) {
+    // Calculate the new value and store it as the final value
+    finalValue = calculate();
+    // Set the current value to the final value
+    currentValue = finalValue;
+    // Store the operator pressed
+    operator = e.target.innerText;
+  } else {
+    // Store the first value
+    previousValue = +display.textContent;
+    // Store the operator pressed
+    operator = e.target.innerText;
+  }
+  // Display the previous value and operator in the small display
+  smallDisplay(`${previousValue} ${operator}`);
+}
+
+// Function for equal button press
+function equalButton(e) {
+  // Check if previous value and operator exist
+  if (previousValue && operator) {
+    // Calculate the new value and store it as the final value
+    finalValue = calculate();
+    // Store the last calculation
+    lastCalculation = operator;
+    // Set the previous value to the final value
+    previousValue = finalValue;
+    // Reset the operator
+    operator = null;
+  } else if (finalValue) {
+    // If the equal button is pressed multiple times, keep doing the last operation
+    previousValue = finalValue;
+    operator = lastCalculation;
+    finalValue = calculate();
+    display.textContent = finalValue;
+  }
+}
 
 // Bugs
 //Bug 1: History Button disappears on AC clear because its connect to small display
