@@ -2,28 +2,29 @@
 const buttons = document.querySelectorAll(".calc-cell");
 const display = document.querySelector(".display");
 const smallerDisplay = document.querySelector(".small-display");
+let smallDisplayText = "";
 let previousValue = null;
 let currentValue = null;
 let finalValue = null;
+let lastCalculation = null;
 let num1 = "";
 let num2 = "";
 let operator = "";
 let result = "";
 
 // Main Display Function
-const displayResult = (value) => {
+function displayResult(value) {
   display.textContent = value;
-};
+}
 
 // Small Display Function
-let smallDisplayText = "";
-const smallDisplay = (text) => {
+function smallDisplay(text) {
   smallDisplayText = text;
   smallerDisplay.textContent = smallDisplayText;
-};
+}
 
 // Clear the main display
-const clearDisplay = () => {
+function clearDisplay() {
   num1 = "";
   num2 = "";
   operator = "";
@@ -31,7 +32,7 @@ const clearDisplay = () => {
   displayResult("");
   smallDisplayText = "";
   smallerDisplay.textContent = "";
-};
+}
 
 // Delete last input function
 function deleteButton() {
@@ -42,7 +43,7 @@ function deleteButton() {
 }
 
 // Number Values
-const operands = (e) => {
+function operands(e) {
   const value = e.target.textContent;
   if (operator) {
     num2 += value;
@@ -51,26 +52,20 @@ const operands = (e) => {
     num1 += value;
     displayResult(num1);
   }
-};
+}
 
 // Operator Values
-const operators = (e) => {
+function operators(e) {
   operator = e.target.textContent;
-  currentValue = null;
-  if (operator !== prevOperator) {
-    if (prevOperator) {
-      calculate();
-      num1 = finalValue;
-      num2 = "";
-    }
-    displayResult(`${num1} ${operator}`);
-    smallDisplay(` ${operator} `);
-  }
-  prevOperator = operator;
-};
+  calculate();
+  num1 = finalValue;
+  num2 = "";
+  displayResult(`${num1} ${operator}`);
+  smallDisplay(`${operator}`);
+}
 
 // Calculate Function
-const calculate = () => {
+function calculate() {
   let n1 = +num1;
   let n2 = "";
   if (!n2) {
@@ -101,7 +96,7 @@ const calculate = () => {
   num1 = finalValue;
   num2 = "";
   operator = null;
-};
+}
 
 // Add Event Listener for all buttons
 buttons.forEach((button) => {
@@ -121,7 +116,6 @@ buttons.forEach((button) => {
       } else {
         // Store the first values
         previousValue = +display.textContent;
-        currentValue = null;
         operator = e.target.innerText;
       }
       smallDisplay(`${previousValue} ${operator}`);
@@ -133,7 +127,15 @@ buttons.forEach((button) => {
       if (previousValue && operator) {
         // Calculate the new values and store the new value as the current value
         finalValue = calculate();
-        currentValue = finalValue;
+        lastCalculation = operator;
+        previousValue = finalValue;
+        operator = null;
+      } else if (finalValue) {
+        // If the = button is pressed multiple times, keep doing the last operation
+        previousValue = finalValue;
+        operator = lastCalculation;
+        finalValue = calculate();
+        display.textContent = finalValue;
       }
     });
   }
