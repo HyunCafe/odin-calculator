@@ -66,9 +66,6 @@ function operators(e) {
 function calculate() {
   let n1 = +num1;
   let n2 = +num2;
-  if (!n2) {
-    n2 = +display.textContent.split(operator)[1];
-  }
   switch (operator) {
     case "+":
       result = n1 + n2;
