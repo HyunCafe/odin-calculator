@@ -5,7 +5,6 @@ const smallerDisplay = document.querySelector(".small-display");
 let smallDisplayText = "";
 let previousValue = null;
 let currentValue = null;
-let finalValue = null;
 let lastCalculation = null;
 let num1 = "";
 let num2 = "";
@@ -57,8 +56,7 @@ function operands(e) {
 // Operator Values
 function operators(e) {
   operator = e.target.textContent;
-  calculate();
-  num1 = finalValue;
+  num1 = result || num1;
   num2 = "";
   displayResult(`${num1} ${operator}`);
   smallDisplay(`${operator}`);
@@ -67,35 +65,35 @@ function operators(e) {
 // Calculate Function
 function calculate() {
   let n1 = +num1;
-  let n2 = "";
+  let n2 = +num2;
   if (!n2) {
     n2 = +display.textContent.split(operator)[1];
   }
   switch (operator) {
     case "+":
-      finalValue = n1 + n2;
+      result = n1 + n2;
       break;
     case "-":
-      finalValue = n1 - n2;
+      result = n1 - n2;
       break;
     case "*":
-      finalValue = n1 * n2;
+      result = n1 * n2;
       break;
     case "/":
-      finalValue = n1 / n2;
+      result = n1 / n2;
       break;
     case "%":
-      finalValue = (n1 / 100) * n2;
+      result = (n1 / 100) * n2;
       break;
     default:
-      finalValue = "";
+      result = "";
   }
-  displayResult(finalValue);
+  displayResult(result);
   smallDisplayText = `${n1} ${operator} ${n2} =`;
   smallDisplay(smallDisplayText);
-  num1 = finalValue;
+  num1 = result;
   num2 = "";
-  operator = null;
+  return result;
 }
 
 // Add Event Listener for all buttons
@@ -121,10 +119,10 @@ buttons.forEach((button) => {
 
 // Function for operator button press
 function operatorButtons(e) {
-  // Reuse the last operator to keep recalculating the result.
-  if (previousValue && operator) {
-    finalValue = calculate();
-    currentValue = finalValue;
+  // Reuse the last operator to keep recalculating the result for repeat operators press.
+  if (previousValue && operator && num2) {
+    result = calculate();
+    currentValue = result;
     operator = e.target.innerText;
   } else {
     previousValue = +display.textContent;
@@ -135,24 +133,10 @@ function operatorButtons(e) {
 }
 
 // Function for equal button press
-function equalButton(e) {
-  // Check if previous value and operator exist
-  if (previousValue && operator) {
-    // Calculate the new value and store it as the final value
-    finalValue = calculate();
-    // Store the last calculation
-    lastCalculation = operator;
-    // Set the previous value to the final value
-    previousValue = finalValue;
-    // Reset the operator
-    operator = null;
-  } else if (finalValue) {
-    // If the equal button is pressed multiple times, keep doing the last operation
-    previousValue = finalValue;
-    operator = lastCalculation;
-    finalValue = calculate();
-    display.textContent = finalValue;
-  }
+function equalButton() {
+  let lastNum2 = num2;
+  result = calculate();
+  if (!num2) num2 = lastNum2;
 }
 
 // Bugs
