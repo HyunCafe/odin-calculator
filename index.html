@@ -11,15 +11,28 @@
       rel="stylesheet"
     />
   </head>
+
   <body>
     <div class="calc-grid">
-        <div class="small-display">
-            <button class="history-btn" id="history-btn">
-              <i class="material-icons">history</i>
-            </button>
-          </div>
-      <div class="display">
+      <div class="top-nav">
+        Calculator
+        <button class="history-btn" id="history-btn">
+          <i class="material-icons">history</i>
+        </button>
+        <div class="size-buttons">
+          <button class="top-nav-btns" id="minimize">
+            <span class="material-icons">minimize</span>
+          </button>
+          <button class="top-nav-btns" id="maximize">
+            <i class="material-icons">maximize</i>
+          </button>
+          <button class="top-nav-btns" id="close">
+            <span class="material-icons">close</span>
+          </button>
+        </div>
       </div>
+      <div class="small-display"></div>
+      <div class="display"></div>
       <div class="calc-row" id="top-row">
         <button class="calc-cell" id="ac-btn">AC</button>
         <button class="calc-cell" id="del-btn">Del</button>
