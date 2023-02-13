@@ -151,3 +151,7 @@ function equalButton() {
 // if num > 20 Convert the result to exponential notation
 // If the length of the result is less than or equal to 20
 // If length >20 Display last 15 chars of the result preceded by "..."
+// Feat 4: add minimize option
+// Feat 5: add mazimize option
+// Feat 6: add close option
+// Feat 7: add ability to move calculator around using top nav bar
