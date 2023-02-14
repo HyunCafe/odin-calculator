@@ -31,8 +31,8 @@ body {
 
 .calc-grid::before {
   content: "";
-  width: 103%;
-  height: 103%;
+  width: 102%;
+  height: 102%;
   border-radius: 0.4em;
   background-image: linear-gradient(
     var(--rotate),
@@ -51,8 +51,8 @@ body {
   position: absolute;
   top: calc(var(--card-height) / 6);
   z-index: -1;
-  height: 103%;
-  width: 103%;
+  height: 102%;
+  width: 102%;
   transform: scale(0.8);
   filter: blur(calc(var(--card-height) / 6));
   background-image: linear-gradient(
@@ -78,7 +78,7 @@ body {
   justify-content: space-between;
 }
 
-.top-nav-btns {
+.top-nav-btn {
   padding: 0em 0.3em;
   border: 1px solid rgb(6, 114, 236);
   text-shadow: 0.1rem 0.1rem 0.1rem #3f009e;
@@ -88,6 +88,7 @@ body {
   font-size: 23%;
   height: 88%;
 }
+
 
 .display {
   display: flex;
