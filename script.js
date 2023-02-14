@@ -1,7 +1,14 @@
-"use strict";
+// DOM Selectors
 const buttons = document.querySelectorAll(".calc-cell");
 const display = document.querySelector(".display");
 const smallerDisplay = document.querySelector(".small-display");
+const calculator = document.querySelector(".calc-grid");
+const topNav = document.querySelector(".top-nav");
+const hideBtn = document.querySelector("#history-btn");
+const minimizeBtn = document.querySelector("#minimize");
+const closeBtn = document.querySelector("#close");
+
+// Variables
 let smallDisplayText = "";
 let previousValue = null;
 let currentValue = null;
@@ -33,7 +40,7 @@ function clearDisplay() {
   smallerDisplay.textContent = "";
 }
 
-// Delete last input function
+// Function to Delete Last Input on Main Display
 function deleteButton() {
   display.textContent = display.textContent.slice(
     0,
@@ -41,7 +48,7 @@ function deleteButton() {
   );
 }
 
-// Number Values
+// Handle Input of Operand (Number) Values
 function operands(e) {
   const value = e.target.textContent;
   if (operator) {
@@ -53,7 +60,7 @@ function operands(e) {
   }
 }
 
-// Operator Values
+// Store and Display Operator Selection
 function operators(e) {
   operator = e.target.textContent;
   num1 = result || num1;
@@ -62,7 +69,7 @@ function operators(e) {
   smallDisplay(`${operator}`);
 }
 
-// Calculate Function
+// Perform calculation based on operator
 function calculate() {
   let n1 = +num1;
   let n2 = +num2;
@@ -85,6 +92,7 @@ function calculate() {
     default:
       result = "";
   }
+  // Displays the result, updates the smaller display, sets result as new num1 and resets num2.
   displayResult(result);
   smallDisplayText = `${n1} ${operator} ${n2} =`;
   smallDisplay(smallDisplayText);
@@ -136,6 +144,42 @@ function equalButton() {
   if (!num2) num2 = lastNum2;
 }
 
+// Move calculator using TopNav bar hold
+topNav.addEventListener("mousedown", mousedown);
+
+function mousedown(e) {
+  let isDown = true;
+  const rect = calculator.getBoundingClientRect();
+  const overflow = {
+    x: e.clientX - rect.x,
+    y: e.clientY - rect.y,
+  };
+
+  if (e.target != hideBtn && e.target != minimizeBtn && e.target != closeBtn) {
+    document.body.addEventListener("mousemove", mousemove);
+  }
+
+  function mousemove(e) {
+    if (isDown) {
+      calculator.style.left = notNegative(e.clientX - overflow.x) + "px";
+      calculator.style.top = notNegative(e.clientY - overflow.y) + "px";
+    }
+  }
+
+  document.addEventListener("mouseup", mouseup);
+
+  function mouseup() {
+    document.body.removeEventListener("mousemove", mousemove);
+    document.removeEventListener("mouseup", mouseup);
+    isDown = false;
+  }
+}
+
+function notNegative(value) {
+  if (value < 0) value = 0;
+  return value;
+}
+
 // Bugs
 //Bug 1: History Button disappears on AC clear because its connect to small display
 //Bug 3: set toFixed(4) decimal places for results, currently too many decimals
@@ -154,4 +198,3 @@ function equalButton() {
 // Feat 4: add minimize option
 // Feat 5: add mazimize option
 // Feat 6: add close option
-// Feat 7: add ability to move calculator around using top nav bar

@@ -21,9 +21,8 @@ body {
   background-color: #191c29;
   width: var(--card-width);
   height: var(--card-height);
-  margin-top: 5em;
   padding: 0.5em;
-  position: relative;
+  position: absolute;
   border-radius: 0.1em;
   justify-content: center;
   align-items: center;
