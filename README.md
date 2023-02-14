@@ -57,3 +57,25 @@ JS
 * Fixed the bug where the small window does not correctly display new calculation values for each subsequent new calculation
 * Fixed the bug where 10 + 10 showed as 10 + null10
 * Fixed the bug where 10 + 10 + 10 would not calculate correctly before "=" is pressed
+
+
+
+
+## Summary of Key Features:
+
+### Display Features:
+Large display for current value and result
+Small display for previous value and operator
+Decimal support
+
+### Operations:
+Basic arithmetic operations (addition, subtraction, multiplication, division)
+Ability to chain multiple operations (e.g. 2 + 2 + 2 + 2)
+Equal button that performs the last calculation when pressed repeatedly
+Delete button to remove the last input
+Clear button to reset the calculator
+
+###User Interface:
+Buttons with hover effect for visual feedback
+Top navigation bar with minimize, hide, and close buttons
+Ability to move the calculator around using the top navigation bar.
