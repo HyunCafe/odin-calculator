@@ -4,8 +4,9 @@ const display = document.querySelector(".display");
 const smallerDisplay = document.querySelector(".small-display");
 const calculator = document.querySelector(".calc-grid");
 const topNav = document.querySelector(".top-nav");
-const hideBtn = document.querySelector("#history-btn");
+const historyBtn = document.querySelector("#history-btn");
 const minimizeBtn = document.querySelector("#minimize");
+const maximizeBtn = document.querySelector("#maximize");
 const closeBtn = document.querySelector("#close");
 
 // Variables
@@ -141,33 +142,40 @@ function operatorButtons(e) {
 function equalButton() {
   let lastNum2 = num2;
   result = calculate();
+  // Ability to recalculate last operation with pressing = alone
   if (!num2) num2 = lastNum2;
 }
 
 // Move calculator using TopNav bar hold
 topNav.addEventListener("mousedown", mousedown);
+// Get the rectangle around the calculator
+let rect = calculator.getBoundingClientRect();
 
 function mousedown(e) {
   let isDown = true;
-  const rect = calculator.getBoundingClientRect();
+
+  // Overflow values for mouse movement
   const overflow = {
     x: e.clientX - rect.x,
     y: e.clientY - rect.y,
   };
 
+  // If mouse is not clicking a control button, add mouse move event
   if (e.target != hideBtn && e.target != minimizeBtn && e.target != closeBtn) {
     document.body.addEventListener("mousemove", mousemove);
   }
 
+  // Function for handling mouse movement
   function mousemove(e) {
+    // If mouse is down, move the calculator
     if (isDown) {
       calculator.style.left = notNegative(e.clientX - overflow.x) + "px";
       calculator.style.top = notNegative(e.clientY - overflow.y) + "px";
     }
   }
-
   document.addEventListener("mouseup", mouseup);
 
+  // Function for handling mouse up event
   function mouseup() {
     document.body.removeEventListener("mousemove", mousemove);
     document.removeEventListener("mouseup", mouseup);
@@ -175,10 +183,41 @@ function mousedown(e) {
   }
 }
 
+// Function to ensure value is not negative
 function notNegative(value) {
   if (value < 0) value = 0;
   return value;
 }
+
+// Function to minimize
+function minimizeCalculator() {
+  calculator.style.height = "30px";
+  calculator.style.width = "150px";
+  calculator.style.overflow = "hidden";
+  minimizeBtn.style.transform = "rotate(180deg)";
+}
+
+// Function to maximize
+function maximizeCalculator() {
+  calculator.style.height = "100%";
+  calculator.style.width = "100%";
+  maximizeBtn.style.transform = "rotate(0deg)";
+}
+
+// Function to close
+function closeCalculator(element, delay) {
+  element.style.transition = `${delay}ms`;
+  setTimeout(() => {
+    element.style.display = "none";
+  }, delay);
+}
+
+// Add Event Listener for the Top Nav Features
+minimizeBtn.addEventListener("click", minimizeCalculator);
+maximizeBtn.addEventListener("click", maximizeCalculator);
+closeBtn.addEventListener("click", () => {
+  closeCalculator(calculator, 500);
+});
 
 // Bugs
 //Bug 1: History Button disappears on AC clear because its connect to small display
