@@ -8,58 +8,81 @@ JS
 ## Project Timeline
 
 #### Feb 2, 2023
-* Initial Commit
-* Started project and created basic layout for calculator
-* Added feature for neon blue theme
-* Improved visual appearance and alignment of cells
-* Added button inputs to display and scientific notation
-* Improved alignment of cells and visual appearance
-* Added pseudo code and ideas to implement
+* Initial Commit: Started the calculator project and created the basic layout
+* Basic layout and appearance: Improved the visual appearance and alignment of cells
+* Theme addition: Added neon blue theme to the calculator
+* Display input: Added button inputs to the calculator display and enabled scientific notation
+* Alignment improvement: Improved the visual appearance and alignment of cells
+* Project planning: Added pseudo code and ideas for future implementation
 
 #### Feb 4, 2023
-* Added history button and history display
-* Found bug, history icon disappears on display input
-* Added delete and clear functions
+* Implement history feature and display
+* Debugging: history button disappears on display input
+* Implement delete and clear functions
 
 #### Feb 5, 2023
-* Fixed bug NaN showing up on any button press
-* Fixed bug where Del and History shows in display
-* Seperated the small and big windows and blended borders of them
-* Made code more readable for inputs and fixed history/NaN bug
-* New bug, scientific notation numbers show on first reload and bug exists
-* Added multiply and equate features and working out logic for rest
-* Verified the features mult, div, sub, add work as intended
+* Fixed NaN display bug on button press
+* Resolved Del and History display issue
+* Improved UI by separating small and big display windows with blended borders
+* Improved code readability for inputs and resolved history/NaN bugs
+* Addressed new bug with scientific notation numbers appearing on first reload
+* Implemented working multiply and equate features and continued logic development for remaining features
+* Verified the functionality of multiply, divide, subtract, and add features.
 
 #### Feb 6, 2023
-* Changed some height to min-height for best practices
-* Fixed history button to stay on left
-* Added feature for small display
-* Numbers when press move from display to small, AC clears small display
+* Changed height properties to min-height for better maintainability and performance
+* Resolved issue with history button not staying on the left-side as intended
+* Implemented small display feature for improved functionality
+* Adjusted clear functionality to clear small display upon pressing "AC" button
+* Improved number transfer from display to small display for better user experience
 
 #### Feb 7, 2023
-##### * Put original script on hold, changed to hiatus due to technical difficulties 
-(made the logic more complicated then it should have been, and did not functionally test each feature before working on next)
-##### * Re-created script from scratch with simpler logic and Regex. 
-(Will test case each feature before moving onto creating more in order to be more efficient, looking at it with fresh eye's made me realize it was better to just start the logic over)
-* Re-added delete button feature and it works correctly
-* Bug where upon AC, display clears but upon operand press numbers show back up as if not deleted.
-* Fixed the issue by adjusting the clear function settings.
-* Re-added percent feature, working as intended.
-* Added the functionality for the operands to move to the small display upon operator click
-* Fixed the bug where the operator does not transfer to the small display
-* Made the small display act the same as the windows calculator
-* Fixed the bug where only one operand at a time (instead of 12, it will show up as 1 then 2 with the 1 replaced) shows after operator is pressed
-* Found two bugs, the history button disappears on clear and calculation decimals are too long
-* Added comments for 3 features and 3 bugs to be worked on
-* Fixed the bug where subsequent operator equations do not update with new results each time
-* Bug: Small window display on 2nd operation reuses old values
-* Fixed the bug where multiple calculations do not update new values with new calculations
-* Fixed the bug where the small window does not correctly display new calculation values for each subsequent new calculation
-* Fixed the bug where 10 + 10 showed as 10 + null10
-* Fixed the bug where 10 + 10 + 10 would not calculate correctly before "=" is pressed
+##### * Put original script on hold and switched to a new approach
+      *  Realized the original script had a complicated logic and did not adequately test each feature before moving on to the next.
+      *  Started a new script with a simpler logic and using Regex for better efficiency.
+* Started a new script with a simpler logic and using Regex for better efficiency.
+* Re-added and fixed delete button feature
+* Re-added the delete button feature to the new script
+* Fixed a bug where the display would clear upon "AC" press, but numbers would reappear after an operand press.
+* Re-added and fixed percent feature
+* Re-added the percent feature to the new script.
+* Verified that the feature is working as intended.
+* Added operand transfer to small display
+* Added the functionality for operands to move to the small display after an operator is clicked.
+* Fixed bugs in small display
+* Fixed a bug where the operator was not transferred to the small display.
+* Fixed a bug where only one operand would show up on the small display instead of two.
+* Added comments for future bug fixes and improvements
+* Added comments for 3 features and 3 bugs to be worked on in the future.
+* Fixed issues with calculation updates and display of results
+* Fixed a bug where subsequent operator equations did not update with new results each time.
+* Fixed a bug where the small window display reused old values on the second operation.
+* Fixed a bug where multiple calculations did not update with new values.
+* Fixed a bug where the small window did not correctly display new calculation values for each subsequent new calculation.
+* Fixed a bug where the result of 10 + 10 was displayed as "10 + null10".
+* Fixed a bug where 10 + 10 + 10 did not calculate correctly before the "=" button was pressed.
 
+#### Feb 9, 2023
+* Implemented the ability to repeat the last calculation when the "=" button is pressed.
 
+#### Feb 10, 2023
+* Refactored and improved the code readability by adding meaningful comments and renaming anonymous functions to named functions.
 
+#### Feb 12, 2023
+* Added a top navigation bar to allow for customization of the calculator size.
+* Removed redundant code to optimize performance.
+* Enabled the calculator to automatically perform the last calculation each time the "=" button is pressed.
+* Added several planned features to be implemented in the future to the bottom comments section.
+
+#### Feb 13, 2023
+* Updated the project's README file to keep track of important features and updates.
+* Implemented the ability to move the calculator by adding a feature for the movable calculator and improved the existing comments for better understanding.
+
+#### Feb 14, 2023
+* Improved the visual appearance of the calculator by adjusting the border neon aesthetic size.
+* Implemented the ability to minimize, maximize, and close the calculator, although further fine tuning is required.
+
+------------
 
 ## Summary of Key Features:
 
