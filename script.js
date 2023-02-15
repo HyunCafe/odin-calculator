@@ -161,7 +161,11 @@ function mousedown(e) {
   };
 
   // If mouse is not clicking a control button, add mouse move event
-  if (e.target != hideBtn && e.target != minimizeBtn && e.target != closeBtn) {
+  if (
+    e.target != historyBtn &&
+    e.target != minimizeBtn &&
+    e.target != closeBtn
+  ) {
     document.body.addEventListener("mousemove", mousemove);
   }
 
@@ -220,7 +224,6 @@ closeBtn.addEventListener("click", () => {
 });
 
 // Bugs
-//Bug 1: History Button disappears on AC clear because its connect to small display
 //Bug 3: set toFixed(4) decimal places for results, currently too many decimals
 
 // TODO
@@ -237,3 +240,5 @@ closeBtn.addEventListener("click", () => {
 // Feat 4: add minimize option
 // Feat 5: add mazimize option
 // Feat 6: add close option
+
+//during the adding of features 4-6 im running into an issue where the minimize bar goes on the same spot, and the maximize feature creates unresponsive calculator, the close button also makes everything disappear, I think I will try to create a windows login layout where the minimize and close button act in a simliar way but with different animation styles that default towards the bottom pretend windows bar
