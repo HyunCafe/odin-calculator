@@ -18,8 +18,8 @@ let num1 = "";
 let num2 = "";
 let operator = "";
 let result = "";
-let minimizedPositionX = 0;
-let minimizedPositionY = 0;
+let positionX = 0;
+let positionY = 0;
 
 // Main Display Function
 function displayResult(value) {
@@ -206,8 +206,8 @@ function notNegative(value) {
 function minimizeCalculator() {
   // Get the current position of the calculator before adding the minimized class
   let rect = calculator.getBoundingClientRect();
-  minimizedPositionX = rect.x;
-  minimizedPositionY = rect.y;
+  positionX = rect.x;
+  positionY = rect.y;
   // Add the minimized class to the calculator
   calculator.classList.add("minimized");
 }
@@ -221,10 +221,12 @@ function maximizeCalculator() {
 
 // Function to close
 function closeCalculator(element, delay) {
-  element.style.transition = `${delay}ms`;
+  let rect = calculator.getBoundingClientRect();
   setTimeout(() => {
     element.style.display = "none";
   }, delay);
+  // Add the minimized class to the calculator
+  calculator.classList.add("closed");
 }
 
 // Add Event Listener for the Top Nav Features
@@ -236,14 +238,10 @@ closeBtn.addEventListener("click", () => {
 
 // Add event listener to calcLogo element to restore calculator
 document.querySelector(".calcLogo").addEventListener("click", function () {
-  if (calculator.classList.contains("minimized")) {
-    // If the calculator was minimized, restore it to the last minimized position
-    calculator.style.left = minimizedPositionX - window.scrollX + "px";
-    calculator.style.top = minimizedPositionY - window.scrollY + "px";
-  }
+  console.log("calcLogo clicked");
   calculator.classList.remove("minimized");
-  minimizeBtn.style.transform = "";
-  minimizeBtn.title = "Minimize";
+  calculator.classList.remove("closed");
+  calculator.style.display = "flex";
 });
 
 // Bugs
