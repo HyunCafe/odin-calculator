@@ -119,3 +119,35 @@ JS
 * Movable area for the calculator that expands and contracts as the calculator is moved
 * Improved minimize and restore feature that remembers the last position of the calculator
 * Windows desktop simulation with a search box and enhanced hover effect over icons for aesthetics
+
+------------
+
+## Challenges:
+
+##### Chaining Operations Challenge
+* Faced an issue with the ability to chain multiple operations (e.g. 2 + 2 + 2 + 2) together
+* Attempted to solve the issue by creating a single operation variable to hold the current operation being performed, and updating it as new numbers were entered
+* Explored using an array to hold the entered numbers and operations, and then iterating through the array to calculate the result
+* Found that both approaches did not fully solve the issue and added unnecessary complexity
+* Finally, achieved the desired result by keeping track of the current operation and number entered separately, and then storing the previous operation and number in separate variables when a new operation was initiated. This allowed for chaining multiple operations together, while also keeping the code simple and readable.
+
+##### Equal Button Challenge
+* Ran into an issue where pressing the equal button repeatedly did not perform the last calculation.
+* Tried several different solutions, including using a flag variable to keep track of the last calculation and adding an event listener to the equal button.
+* Eventually came up with a solution to store the last num2 value and calculate the result, and then check if num2 is falsy and if so, set it to the last num2 value before calculating the result again.
+* Final solution involved modifying the equalButton function to include this check and properly recalculate the last operation when the equal button is pressed repeatedly.
+
+##### Main and Small Display Challenge
+* The main and small displays of the calculator posed a challenge in displaying the numbers and calculations in a clear and organized manner.
+* Initially, the small display was placed within the main display, which caused issues with the positioning and visibility of the numbers.
+* I tried to fix this by adjusting the position of the small display and changing its CSS properties, but this didn't fully resolve the issue.
+* I also experimented with different methods of displaying the numbers and calculations, including using separate displays for each and incorporating a history feature, but these approaches didn't fully meet the desired outcome.
+* Finally, I achieved the desired result by blending the borders of the main and small displays together and separating the two windows to mimic the layout of the Windows calculator, which provided a clear and organized way of displaying the numbers and calculations.
+
+##### Resizing Challenge
+* I encountered difficulties resizing the calculator in a direction that mirrored the handle clicked on, specifically with the ne and se handles not * growing and shrinking in the intended direction.
+* I tried various solutions to solve the issue, including adding additional if statements and adjusting the code in different ways.
+* I did research on similar issues and looked for guidance in online forums, but didn't find a solution that fully addressed my problem.
+* Through trial and error, I eventually realized that I needed to separate the logic depending on which resizing corner was clicked on, and created an additional else if statement to address the issue.
+* After implementing this solution and thoroughly testing it, I was able to achieve the desired result and complete the resizing functionality for the calculator.
+
