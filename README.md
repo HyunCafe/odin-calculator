@@ -124,6 +124,13 @@ JS
 
 ## Challenges:
 
+##### Main and Small Display Challenge
+* The main and small displays of the calculator posed a challenge in displaying the numbers and calculations in a clear and organized manner.
+* Initially, the small display was placed within the main display, which caused issues with the positioning and visibility of the numbers.
+* I tried to fix this by adjusting the position of the small display and changing its CSS properties, but this didn't fully resolve the issue.
+* I also experimented with different methods of displaying the numbers and calculations, including using separate displays for each and incorporating a history feature, but these approaches didn't fully meet the desired outcome.
+* Finally, I achieved the desired result by blending the borders of the main and small displays together and separating the two windows to mimic the layout of the Windows calculator, which provided a clear and organized way of displaying the numbers and calculations.
+
 ##### Chaining Operations Challenge
 * Faced an issue with the ability to chain multiple operations (e.g. 2 + 2 + 2 + 2) together
 * Attempted to solve the issue by creating a single operation variable to hold the current operation being performed, and updating it as new numbers were entered
@@ -136,13 +143,6 @@ JS
 * Tried several different solutions, including using a flag variable to keep track of the last calculation and adding an event listener to the equal button.
 * Eventually came up with a solution to store the last num2 value and calculate the result, and then check if num2 is falsy and if so, set it to the last num2 value before calculating the result again.
 * Final solution involved modifying the equalButton function to include this check and properly recalculate the last operation when the equal button is pressed repeatedly.
-
-##### Main and Small Display Challenge
-* The main and small displays of the calculator posed a challenge in displaying the numbers and calculations in a clear and organized manner.
-* Initially, the small display was placed within the main display, which caused issues with the positioning and visibility of the numbers.
-* I tried to fix this by adjusting the position of the small display and changing its CSS properties, but this didn't fully resolve the issue.
-* I also experimented with different methods of displaying the numbers and calculations, including using separate displays for each and incorporating a history feature, but these approaches didn't fully meet the desired outcome.
-* Finally, I achieved the desired result by blending the borders of the main and small displays together and separating the two windows to mimic the layout of the Windows calculator, which provided a clear and organized way of displaying the numbers and calculations.
 
 ##### Resizing Challenge
 * I encountered difficulties resizing the calculator in a direction that mirrored the handle clicked on, specifically with the ne and se handles not * growing and shrinking in the intended direction.
