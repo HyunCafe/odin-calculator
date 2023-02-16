@@ -204,6 +204,24 @@ button:active {
   font-size: 1.5rem;
 }
 
+/* Styles for the minimized calculator */
+.calc-grid.minimized {
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  padding: 0;
+  transition: height 0.2s ease-out, width 0.2s ease-out;
+}
+
+/* Styles for the minimized calculator button */
+#minimize-btn.minimized {
+  transform: rotate(0);
+}
+
+#minimize-btn.minimized::after {
+  content: "Restore";
+}
+
 /* Bottom Navbar */
 .bottomNavBar {
   position: fixed;
@@ -242,6 +260,12 @@ button:active {
   background-color: transparent;
   border: none;
   color: aliceblue;
+}
+
+.bottom-nav-bar:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1);
+  transition: background-color 0s ease-in-out;
 }
 
 @property --rotate {
