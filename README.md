@@ -92,6 +92,7 @@ JS
 * Refined the minimize feature to improve functionality and user experience.
 * Added feature to remember the last position of the calculator when minimized and restored.
 * Fixed a bug in the top nav bar double-click behavior.
+* Refactor: Deleted unnecessary code, Added restore option for closed state of calculator.
 ------------
 
 ## Summary of Key Features:
