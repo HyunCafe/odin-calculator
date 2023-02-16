@@ -55,10 +55,12 @@ body {
   width: 102%;
   height: 102%;
   border-radius: 0.4em;
-  background-image: linear-gradient(var(--rotate),
-      #76e1ff,
-      #1c54ff 43%,
-      #3f009e);
+  background-image: linear-gradient(
+    var(--rotate),
+    #76e1ff,
+    #1c54ff 43%,
+    #3f009e
+  );
   position: absolute;
   z-index: -1;
   animation: spin 2.5s linear infinite;
@@ -74,10 +76,12 @@ body {
   width: 102%;
   transform: scale(0.8);
   filter: blur(calc(var(--card-height) / 6));
-  background-image: linear-gradient(var(--rotate),
-      #76e1ff,
-      #1c54ff 43%,
-      #3f009e);
+  background-image: linear-gradient(
+    var(--rotate),
+    #76e1ff,
+    #1c54ff 43%,
+    #3f009e
+  );
   opacity: 1;
   animation: spin 2.5s linear infinite;
 }

@@ -18,6 +18,8 @@ let num1 = "";
 let num2 = "";
 let operator = "";
 let result = "";
+let minimizedPositionX = 0;
+let minimizedPositionY = 0;
 
 // Main Display Function
 function displayResult(value) {
@@ -148,42 +150,49 @@ function equalButton() {
 
 // Move calculator using TopNav bar hold
 topNav.addEventListener("mousedown", mousedown);
-// Get the rectangle around the calculator
-let rect = calculator.getBoundingClientRect();
+
+let isMouseDown = false;
 
 function mousedown(e) {
-  let isDown = true;
+  // Only move the calculator when the mouse is clicked once
+  if (e.detail === 1) {
+    isMouseDown = true;
 
-  // Overflow values for mouse movement
-  const overflow = {
-    x: e.clientX - rect.x,
-    y: e.clientY - rect.y,
-  };
+    // Get the rectangle around the calculator
+    const rect = calculator.getBoundingClientRect();
 
-  // If mouse is not clicking a control button, add mouse move event
-  if (
-    e.target != historyBtn &&
-    e.target != minimizeBtn &&
-    e.target != closeBtn
-  ) {
-    document.body.addEventListener("mousemove", mousemove);
-  }
+    // Overflow values for mouse movement
+    const overflow = {
+      x: e.clientX - rect.x,
+      y: e.clientY - rect.y,
+    };
 
-  // Function for handling mouse movement
-  function mousemove(e) {
-    // If mouse is down, move the calculator
-    if (isDown) {
-      calculator.style.left = notNegative(e.clientX - overflow.x) + "px";
-      calculator.style.top = notNegative(e.clientY - overflow.y) + "px";
+    // If mouse is not clicking a control button, add mouse move event
+    if (
+      e.target != historyBtn &&
+      e.target != minimizeBtn &&
+      e.target != closeBtn
+    ) {
+      document.body.addEventListener("mousemove", mousemove);
     }
-  }
-  document.addEventListener("mouseup", mouseup);
 
-  // Function for handling mouse up event
-  function mouseup() {
-    document.body.removeEventListener("mousemove", mousemove);
-    document.removeEventListener("mouseup", mouseup);
-    isDown = false;
+    // Function for handling mouse movement
+    function mousemove(e) {
+      // If mouse is down, move the calculator
+      if (isMouseDown) {
+        calculator.style.left = notNegative(e.clientX - overflow.x) + "px";
+        calculator.style.top = notNegative(e.clientY - overflow.y) + "px";
+      }
+    }
+
+    document.addEventListener("mouseup", mouseup);
+
+    // Function for handling mouse up event
+    function mouseup() {
+      document.body.removeEventListener("mousemove", mousemove);
+      document.removeEventListener("mouseup", mouseup);
+      isMouseDown = false;
+    }
   }
 }
 
@@ -195,10 +204,12 @@ function notNegative(value) {
 
 // Function to minimize
 function minimizeCalculator() {
-  calculator.style.height = "30px";
-  calculator.style.width = "150px";
-  calculator.style.overflow = "hidden";
-  minimizeBtn.style.transform = "rotate(180deg)";
+  // Get the current position of the calculator before adding the minimized class
+  let rect = calculator.getBoundingClientRect();
+  minimizedPositionX = rect.x;
+  minimizedPositionY = rect.y;
+  // Add the minimized class to the calculator
+  calculator.classList.add("minimized");
 }
 
 // Function to maximize
@@ -221,6 +232,18 @@ minimizeBtn.addEventListener("click", minimizeCalculator);
 maximizeBtn.addEventListener("click", maximizeCalculator);
 closeBtn.addEventListener("click", () => {
   closeCalculator(calculator, 500);
+});
+
+// Add event listener to calcLogo element to restore calculator
+document.querySelector(".calcLogo").addEventListener("click", function () {
+  if (calculator.classList.contains("minimized")) {
+    // If the calculator was minimized, restore it to the last minimized position
+    calculator.style.left = minimizedPositionX - window.scrollX + "px";
+    calculator.style.top = minimizedPositionY - window.scrollY + "px";
+  }
+  calculator.classList.remove("minimized");
+  minimizeBtn.style.transform = "";
+  minimizeBtn.title = "Minimize";
 });
 
 // Bugs
