@@ -297,7 +297,7 @@ document.addEventListener("mousemove", (e) => {
     (resizeHandle.classList.contains("top-right") ||
       resizeHandle.classList.contains("bottom-right"))
   ) {
-    // code for resizing ne or se
+    // code for resizing nw or sw
     const diffX = e.clientX - startX;
     const diffY = e.clientY - startY;
 
@@ -323,7 +323,7 @@ document.addEventListener("mousemove", (e) => {
     (resizeHandle.classList.contains("top-left") ||
       resizeHandle.classList.contains("bottom-left"))
   ) {
-    // code for resizing nw or sw
+       // code for resizing ne or se
     const diffX = startX - e.clientX;
     const diffY = e.clientY - startY;
 
