@@ -24,6 +24,11 @@ let positionY = 0;
 let isResizing = false;
 let lastX;
 let lastY;
+let isMoving = false;
+let startX;
+let startY;
+let startWidth;
+let startHeight;
 
 // Main Display Function
 function displayResult(value) {
@@ -248,25 +253,56 @@ document.querySelector(".calcLogo").addEventListener("click", function () {
   calculator.style.display = "flex";
 });
 
+// Add event listeners to the corners for resizing
+resizeHandles.forEach((handle) => {
+  handle.addEventListener("mousedown", (e) => {
+    e.preventDefault();
+    isResizing = true;
+    startWidth = parseInt(
+      document.defaultView.getComputedStyle(calculator).width,
+      10
+    );
+    startHeight = parseInt(
+      document.defaultView.getComputedStyle(calculator).height,
+      10
+    );
+    startX = e.clientX;
+    startY = e.clientY;
+  });
+});
+
 // Handle mousedown event on resize handles
 document.querySelectorAll(".resize-handle").forEach((handle) => {
   handle.addEventListener("mousedown", (e) => {
     e.preventDefault();
     isResizing = true;
-    lastX = e.clientX;
-    lastY = e.clientY;
+    resizeHandle = handle;
+    startX = e.clientX;
+    startY = e.clientY;
+    startWidth = parseInt(
+      document.defaultView.getComputedStyle(calculator).width,
+      10
+    );
+    startHeight = parseInt(
+      document.defaultView.getComputedStyle(calculator).height,
+      10
+    );
   });
 });
 
 // Handle mousemove event on document
 document.addEventListener("mousemove", (e) => {
-  if (isResizing) {
-    const diffX = e.clientX - lastX;
-    const diffY = e.clientY - lastY;
+  if (
+    isResizing &&
+    (resizeHandle.classList.contains("top-right") ||
+      resizeHandle.classList.contains("bottom-right"))
+  ) {
+    // code for resizing ne or se
+    const diffX = e.clientX - startX;
+    const diffY = e.clientY - startY;
 
-    const rect = calculator.getBoundingClientRect();
-    let newWidth = rect.width - diffX;
-    let newHeight = rect.height + diffY;
+    let newWidth = startWidth + diffX;
+    let newHeight = startHeight + diffY;
 
     if (newWidth < 250) {
       newWidth = 250;
@@ -282,9 +318,32 @@ document.addEventListener("mousemove", (e) => {
 
     calculator.style.width = `${newWidth}px`;
     calculator.style.height = `${newHeight}px`;
+  } else if (
+    isResizing &&
+    (resizeHandle.classList.contains("top-left") ||
+      resizeHandle.classList.contains("bottom-left"))
+  ) {
+    // code for resizing nw or sw
+    const diffX = startX - e.clientX;
+    const diffY = e.clientY - startY;
 
-    lastX = e.clientX;
-    lastY = e.clientY;
+    let newWidth = startWidth + diffX;
+    let newHeight = startHeight + diffY;
+
+    if (newWidth < 250) {
+      newWidth = 250;
+    } else if (newWidth > 700) {
+      newWidth = 700;
+    }
+
+    if (newHeight < 450) {
+      newHeight = 450;
+    } else if (newHeight > 730) {
+      newHeight = 730;
+    }
+
+    calculator.style.width = `${newWidth}px`;
+    calculator.style.height = `${newHeight}px`;
   }
 });
 
@@ -308,8 +367,8 @@ document.addEventListener("mouseup", () => {
 // if num > 20 Convert the result to exponential notation
 // If the length of the result is less than or equal to 20
 // If length >20 Display last 15 chars of the result preceded by "..."
-// Feat 4: add minimize option
-// Feat 5: add mazimize option
-// Feat 6: add close option
+// Feat: Add Desktop Icon for my Github Profile
+// Feat: Add Desktop Icon for Calculator
+// Feat: Add Fake menu for windows logo press
 
 //during the adding of features 4-6 im running into an issue where the minimize bar goes on the same spot, and the maximize feature creates unresponsive calculator, the close button also makes everything disappear, I think I will try to create a windows login layout where the minimize and close button act in a simliar way but with different animation styles that default towards the bottom pretend windows bar
