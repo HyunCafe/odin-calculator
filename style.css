@@ -87,11 +87,10 @@ body {
   position: relative;
   justify-content: center;
   align-items: center;
-  top: -4px;
-  left: 21px;
+  top: -10px;
+  left: 19px;
   width: 86%;
-  height: 2.5%;
-  margin: 2px;
+  height: 6%;
   display: flex;
   justify-content: space-between;
 }
@@ -124,6 +123,8 @@ body {
 
 /* Small Calc Display */
 .small-display {
+  position: relative;
+  top: -13px;
   display: flex;
   overflow: hidden;
   justify-content: flex-end;
@@ -151,7 +152,7 @@ body {
 .history-btn {
   position: absolute;
   left: -35px;
-  top: -5px;
+  top: 4px;
   -webkit-background-clip: text;
   color: aliceblue;
   border: none;
