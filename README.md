@@ -82,6 +82,16 @@ JS
 * Improved the visual appearance of the calculator by adjusting the border neon aesthetic size.
 * Implemented the ability to minimize, maximize, and close the calculator, although further fine tuning is required.
 
+#### Feb 15, 2023
+* Refactored the code for layout clarity and added comments for future bug fixes and improvements.
+* Polished the Windows desktop look further to improve its visual appearance.
+* Enhanced the hover effect over bottom navbar icons to better simulate the Windows desktop.
+* Added the search box simulated look from the Windows desktop.
+* Fixed a bug where moving the calculator outside of the screen caused a scroll option to appear and shifted elements on the site.
+* Fixed a bug where the clickable area for the top nav bar was too small, by increasing the height offset of other elements and using relative positions with negative position values as a workaround.
+* Refined the minimize feature to improve functionality and user experience.
+* Added feature to remember the last position of the calculator when minimized and restored.
+* Fixed a bug in the top nav bar double-click behavior.
 ------------
 
 ## Summary of Key Features:
@@ -102,3 +112,6 @@ JS
 * Buttons with hover effect for visual feedback
 * Top navigation bar with minimize, hide, and close buttons
 * Ability to move the calculator around using the top navigation bar.
+* Movable area for the calculator that expands and contracts as the calculator is moved
+* Improved minimize and restore feature that remembers the last position of the calculator
+* Windows desktop simulation with a search box and enhanced hover effect over icons for aesthetics
