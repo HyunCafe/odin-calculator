@@ -8,12 +8,20 @@
 :root {
   --card-height: 72vh;
   --card-width: calc(var(--card-height) / 1.72);
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
 /* Body styles */
 body {
   background-image: url("assets/windowsbg.jpg");
+  background-size: cover;
   min-height: 100vh;
+  min-width: 100vh;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -42,6 +50,7 @@ body {
   background-color: #191c29;
   width: var(--card-width);
   height: var(--card-height);
+  max-width: 100%;
   padding: 0.5em;
   position: absolute;
   border-radius: 0.1em;
@@ -121,6 +130,7 @@ body {
   font-size: 2rem;
   padding: 0.5em;
   width: 100%;
+  max-width: 100%;
   min-height: 20%;
   box-shadow: 0em 0em #76e1ff;
 }
@@ -170,6 +180,7 @@ body {
 .calc-cell {
   display: flex;
   justify-content: center;
+  flex: 1 1 70%;
   font-size: 1.8rem;
   border-radius: 0.7em;
   padding: 0.4em 0.7em;
@@ -177,6 +188,7 @@ body {
   border: 2px solid rgb(6, 114, 236);
   min-height: 2.1em;
   min-width: 23%;
+  max-width: 2.2rem;
   color: aliceblue;
   text-shadow: 0.1rem 0.1rem 0.1rem #3f009e;
   -webkit-background-clip: text;
@@ -222,6 +234,37 @@ button:active {
 
 #minimize-btn.minimized::after {
   content: "Restore";
+}
+
+/* the Resize portion for corners of calc */
+.resize-handle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+}
+
+.top-left {
+  top: -10px;
+  left: -10px;
+  cursor: nwse-resize;
+}
+
+.top-right {
+  top: -10px;
+  right: -10px;
+  cursor: nesw-resize;
+}
+
+.bottom-left {
+  bottom: -10px;
+  left: -10px;
+  cursor: nesw-resize;
+}
+
+.bottom-right {
+  bottom: -10px;
+  right: -10px;
+  cursor: nwse-resize;
 }
 
 /* Bottom Navbar */
