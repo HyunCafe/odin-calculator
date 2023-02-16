@@ -93,6 +93,9 @@ JS
 * Added feature to remember the last position of the calculator when minimized and restored.
 * Fixed a bug in the top nav bar double-click behavior.
 * Refactor: Deleted unnecessary code, Added restore option for closed state of calculator.
+* Implemented resizing features for all four corners of the calculator.
+* Styled the corners to be invisible, but to prompt the resizing cursor when hovered over.
+* Refined the logic for maximum and minimum sizes when resizing.
 ------------
 
 ## Summary of Key Features:

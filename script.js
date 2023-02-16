@@ -295,6 +295,7 @@ document.addEventListener("mouseup", () => {
 
 // Bugs
 //Bug 3: set toFixed(4) decimal places for results, currently too many decimals
+// Bug 4: fix responsiveness for the calculator
 
 // TODO
 //Feat 1: Add history button with working history on new window --
