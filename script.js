@@ -8,6 +8,7 @@ const historyBtn = document.querySelector("#history-btn");
 const minimizeBtn = document.querySelector("#minimize");
 const maximizeBtn = document.querySelector("#maximize");
 const closeBtn = document.querySelector("#close");
+const resizeHandles = document.querySelectorAll(".resize-handle");
 
 // Variables
 let smallDisplayText = "";
@@ -20,6 +21,9 @@ let operator = "";
 let result = "";
 let positionX = 0;
 let positionY = 0;
+let isResizing = false;
+let lastX;
+let lastY;
 
 // Main Display Function
 function displayResult(value) {
@@ -242,6 +246,51 @@ document.querySelector(".calcLogo").addEventListener("click", function () {
   calculator.classList.remove("minimized");
   calculator.classList.remove("closed");
   calculator.style.display = "flex";
+});
+
+// Handle mousedown event on resize handles
+document.querySelectorAll(".resize-handle").forEach((handle) => {
+  handle.addEventListener("mousedown", (e) => {
+    e.preventDefault();
+    isResizing = true;
+    lastX = e.clientX;
+    lastY = e.clientY;
+  });
+});
+
+// Handle mousemove event on document
+document.addEventListener("mousemove", (e) => {
+  if (isResizing) {
+    const diffX = e.clientX - lastX;
+    const diffY = e.clientY - lastY;
+
+    const rect = calculator.getBoundingClientRect();
+    let newWidth = rect.width - diffX;
+    let newHeight = rect.height + diffY;
+
+    if (newWidth < 250) {
+      newWidth = 250;
+    } else if (newWidth > 700) {
+      newWidth = 700;
+    }
+
+    if (newHeight < 450) {
+      newHeight = 450;
+    } else if (newHeight > 730) {
+      newHeight = 730;
+    }
+
+    calculator.style.width = `${newWidth}px`;
+    calculator.style.height = `${newHeight}px`;
+
+    lastX = e.clientX;
+    lastY = e.clientY;
+  }
+});
+
+// Handle mouseup event on document
+document.addEventListener("mouseup", () => {
+  isResizing = false;
 });
 
 // Bugs
