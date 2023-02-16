@@ -54,12 +54,10 @@ body {
   width: 102%;
   height: 102%;
   border-radius: 0.4em;
-  background-image: linear-gradient(
-    var(--rotate),
-    #76e1ff,
-    #1c54ff 43%,
-    #3f009e
-  );
+  background-image: linear-gradient(var(--rotate),
+      #76e1ff,
+      #1c54ff 43%,
+      #3f009e);
   position: absolute;
   z-index: -1;
   animation: spin 2.5s linear infinite;
@@ -75,12 +73,10 @@ body {
   width: 102%;
   transform: scale(0.8);
   filter: blur(calc(var(--card-height) / 6));
-  background-image: linear-gradient(
-    var(--rotate),
-    #76e1ff,
-    #1c54ff 43%,
-    #3f009e
-  );
+  background-image: linear-gradient(var(--rotate),
+      #76e1ff,
+      #1c54ff 43%,
+      #3f009e);
   opacity: 1;
   animation: spin 2.5s linear infinite;
 }
@@ -236,19 +232,10 @@ button:active {
   background-color: #191c29;
 }
 
-/* Bottom Navbar Links */
-.bottomNavBar a {
-  color: aliceblue;
-}
-
 /* Bottom Navbar Logos */
 .bottomNavBar .windLogo,
 .bottomNavBar .calcLogo {
   height: 32px;
-}
-
-.bottomNavBar .windLogo {
-  margin-right: 0.5em;
 }
 
 /* Bottom Navbar Buttons */
@@ -266,6 +253,28 @@ button:active {
   background-color: rgba(255, 255, 255, 0.1);
   transform: scale(1);
   transition: background-color 0s ease-in-out;
+}
+
+.search-box {
+  border: 1px solid rgb(112, 112, 112);
+  position: absolute;
+  left: 44px;
+  align-items: center;
+  padding: 0.5em;
+  background-color: #25262c;
+}
+
+.search-box input[type="text"] {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  font-size: 1.2em;
+  outline: none;
+}
+
+.calcLogo {
+  position: relative;
+  left: 0;
 }
 
 @property --rotate {
