@@ -268,25 +268,7 @@ resizeHandles.forEach((handle) => {
     );
     startX = e.clientX;
     startY = e.clientY;
-  });
-});
-
-// Handle mousedown event on resize handles
-document.querySelectorAll(".resize-handle").forEach((handle) => {
-  handle.addEventListener("mousedown", (e) => {
-    e.preventDefault();
-    isResizing = true;
     resizeHandle = handle;
-    startX = e.clientX;
-    startY = e.clientY;
-    startWidth = parseInt(
-      document.defaultView.getComputedStyle(calculator).width,
-      10
-    );
-    startHeight = parseInt(
-      document.defaultView.getComputedStyle(calculator).height,
-      10
-    );
   });
 });
 
@@ -323,7 +305,7 @@ document.addEventListener("mousemove", (e) => {
     (resizeHandle.classList.contains("top-left") ||
       resizeHandle.classList.contains("bottom-left"))
   ) {
-       // code for resizing ne or se
+    // code for resizing ne or se
     const diffX = startX - e.clientX;
     const diffY = e.clientY - startY;
 
