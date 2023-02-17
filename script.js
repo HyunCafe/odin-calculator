@@ -185,9 +185,9 @@ closeBtn.addEventListener("click", () => {
 
 // Add event listener to calcLogo element to restore calculator
 document.querySelector(".calcLogo").addEventListener("click", function () {
-  console.log("calcLogo clicked");
   calculator.classList.remove("minimized");
   calculator.classList.remove("closed");
+  calculator.style.display = "flex";
 });
 
 // Resize Corner Logic
