@@ -106,6 +106,7 @@ body {
   height: 6%;
   display: flex;
   justify-content: space-between;
+  z-index: 2;
 }
 
 .top-nav-btn {
@@ -237,34 +238,36 @@ button:active {
 }
 
 /* the Resize portion for corners of calc */
-.resize-handle {
+.resizer {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  height: 12px;
+  width: 12px;
+  border: solid 2px red;
+  z-index: 2;
 }
 
-.top-left {
+.nw {
   top: -10px;
   left: -10px;
-  cursor: nwse-resize;
+  cursor: nw-resize;
 }
 
-.top-right {
+.ne {
   top: -10px;
   right: -10px;
-  cursor: nesw-resize;
+  cursor: ne-resize;
 }
 
-.bottom-left {
+.sw {
   bottom: -10px;
   left: -10px;
-  cursor: nesw-resize;
+  cursor: sw-resize;
 }
 
-.bottom-right {
+.se {
   bottom: -10px;
   right: -10px;
-  cursor: nwse-resize;
+  cursor: se-resize;
 }
 
 /* Bottom Navbar */
