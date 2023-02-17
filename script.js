@@ -253,11 +253,15 @@ document.querySelector(".calcLogo").addEventListener("click", function () {
   calculator.style.display = "flex";
 });
 
-// Add event listeners to the corners for resizing
-resizeHandles.forEach((handle) => {
-  handle.addEventListener("mousedown", (e) => {
+// Add event listener to document for mousedown on resize handles
+document.addEventListener("mousedown", (e) => {
+  const handle = e.target;
+  if (handle.classList.contains("resize-handle")) {
     e.preventDefault();
     isResizing = true;
+    resizeHandle = handle;
+    startX = e.clientX;
+    startY = e.clientY;
     startWidth = parseInt(
       document.defaultView.getComputedStyle(calculator).width,
       10
@@ -266,10 +270,7 @@ resizeHandles.forEach((handle) => {
       document.defaultView.getComputedStyle(calculator).height,
       10
     );
-    startX = e.clientX;
-    startY = e.clientY;
-    resizeHandle = handle;
-  });
+  }
 });
 
 // Handle mousemove event on document
@@ -283,20 +284,8 @@ document.addEventListener("mousemove", (e) => {
     const diffX = e.clientX - startX;
     const diffY = e.clientY - startY;
 
-    let newWidth = startWidth + diffX;
-    let newHeight = startHeight + diffY;
-
-    if (newWidth < 250) {
-      newWidth = 250;
-    } else if (newWidth > 700) {
-      newWidth = 700;
-    }
-
-    if (newHeight < 450) {
-      newHeight = 450;
-    } else if (newHeight > 730) {
-      newHeight = 730;
-    }
+    let newWidth = clamp(startWidth + diffX, 250, 700);
+    let newHeight = clamp(startHeight + diffY, 450, 730);
 
     calculator.style.width = `${newWidth}px`;
     calculator.style.height = `${newHeight}px`;
@@ -309,20 +298,8 @@ document.addEventListener("mousemove", (e) => {
     const diffX = startX - e.clientX;
     const diffY = e.clientY - startY;
 
-    let newWidth = startWidth + diffX;
-    let newHeight = startHeight + diffY;
-
-    if (newWidth < 250) {
-      newWidth = 250;
-    } else if (newWidth > 700) {
-      newWidth = 700;
-    }
-
-    if (newHeight < 450) {
-      newHeight = 450;
-    } else if (newHeight > 730) {
-      newHeight = 730;
-    }
+    let newWidth = clamp(startWidth + diffX, 250, 700);
+    let newHeight = clamp(startHeight + diffY, 450, 730);
 
     calculator.style.width = `${newWidth}px`;
     calculator.style.height = `${newHeight}px`;
@@ -333,6 +310,10 @@ document.addEventListener("mousemove", (e) => {
 document.addEventListener("mouseup", () => {
   isResizing = false;
 });
+
+function clamp(value, min, max) {
+  return Math.min(Math.max(value, min), max);
+}
 
 // Bugs
 //Bug 3: set toFixed(4) decimal places for results, currently too many decimals
