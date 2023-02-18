@@ -96,6 +96,18 @@ JS
 * Implemented resizing features for all four corners of the calculator.
 * Styled the corners to be invisible, but to prompt the resizing cursor when hovered over.
 * Refined the logic for maximum and minimum sizes when resizing.
+
+#### Feb 16, 2023:
+Refactor: Refactored the code more to improve its structure and performance.
+Refactor: Further refactored the code to remove redundancies and improve its efficiency.
+Refactor: Attempted to solve bug of resizer corner options moving the mouse while resizing by trying different approaches.
+
+#### Feb 17, 2023:
+Doc: Fixed comments in the code for better understanding and maintenance.
+Feat: Completed the resize feature and direction to mimic windows calc, improving the calculator's functionality.
+Refactor: Deleted unneeded code lines and continued working on improving the resizer function.
+Fix: Fixed the restore function for close, adding flex display to improve its appearance and usability.
+Refactor: Simplified the code and finalized the resizer and moving logic to improve the calculator's stability and user experience.
 ------------
 
 ## Summary of Key Features:
@@ -116,7 +128,7 @@ JS
 * Buttons with hover effect for visual feedback
 * Top navigation bar with minimize, hide, and close buttons
 * Ability to move the calculator around using the top navigation bar.
-* Movable area for the calculator that expands and contracts as the calculator is moved
+* Resizing feature works like the Windows calculator, with the ability to resize the calculator by dragging from any corner and maintains aspect ratio.
 * Improved minimize and restore feature that remembers the last position of the calculator
 * Windows desktop simulation with a search box and enhanced hover effect over icons for aesthetics
 
