@@ -98,16 +98,16 @@ JS
 * Refined the logic for maximum and minimum sizes when resizing.
 
 #### Feb 16, 2023:
-Refactor: Refactored the code more to improve its structure and performance.
-Refactor: Further refactored the code to remove redundancies and improve its efficiency.
-Refactor: Attempted to solve bug of resizer corner options moving the mouse while resizing by trying different approaches.
+* Refactor: Refactored the code more to improve its structure and performance.
+* Refactor: Further refactored the code to remove redundancies and improve its efficiency.
+* Refactor: Attempted to solve bug of resizer corner options moving the mouse while resizing by trying different approaches.
 
 #### Feb 17, 2023:
-Doc: Fixed comments in the code for better understanding and maintenance.
-Feat: Completed the resize feature and direction to mimic windows calc, improving the calculator's functionality.
-Refactor: Deleted unneeded code lines and continued working on improving the resizer function.
-Fix: Fixed the restore function for close, adding flex display to improve its appearance and usability.
-Refactor: Simplified the code and finalized the resizer and moving logic to improve the calculator's stability and user experience.
+* Doc: Fixed comments in the code for better understanding and maintenance.
+* Feat: Completed the resize feature and direction to mimic windows calc, improving the calculator's functionality.
+* Refactor: Deleted unneeded code lines and continued working on improving the resizer function.
+* Fix: Fixed the restore function for close, adding flex display to improve its appearance and usability.
+* Refactor: Simplified the code and finalized the resizer and moving logic to improve the calculator's stability and user experience.
 ------------
 
 ## Summary of Key Features:
