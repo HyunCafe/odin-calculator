@@ -163,7 +163,7 @@ JS
 * Tried various solutions, including adding additional if statements and adjusting the code in different ways, but none of them fully addressed the problem.
 * Realized that the logic needed to be separated depending on which resizing corner was clicked on.
 * Added an additional else if statement to address the issue, which allowed the calculator to be resized in the intended direction.
-* The code now had a problem where the calculator was being moved instead of being resized when the user clicked on a resize handle.
+* The code now had a problem where the calculator was being moved and being resized when the user clicked on a resize handle.
 * The updated code fixes this by using separate event listeners for moving and resizing the calculator.
 * The mousedown event on the top navigation bar triggers the code to move the calculator, while the mousedown event on the resize handle triggers the code to resize the calculator.
 * The code also checks for a single-click event on the top navigation bar to ensure that the calculator is only moved when the user intends to move it, and not when they double-click or click and drag.
