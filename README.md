@@ -144,10 +144,18 @@ JS
 * Eventually came up with a solution to store the last num2 value and calculate the result, and then check if num2 is falsy and if so, set it to the last num2 value before calculating the result again.
 * Final solution involved modifying the equalButton function to include this check and properly recalculate the last operation when the equal button is pressed repeatedly.
 
-##### Resizing Challenge
-* I encountered difficulties resizing the calculator in a direction that mirrored the handle clicked on, specifically with the ne and se handles not * growing and shrinking in the intended direction.
-* I tried various solutions to solve the issue, including adding additional if statements and adjusting the code in different ways.
-* I did research on similar issues and looked for guidance in online forums, but didn't find a solution that fully addressed my problem.
-* Through trial and error, I eventually realized that I needed to separate the logic depending on which resizing corner was clicked on, and created an additional else if statement to address the issue.
-* After implementing this solution and thoroughly testing it, I was able to achieve the desired result and complete the resizing functionality for the calculator.
+##### Resizing Challenge (Hardest Part of all)
+* Tried to resize the calculator by calculating the new width and height of the calculator based on the difference between the mouse position and the position of the handle clicked on.
+* Encountered difficulty when resizing the calculator in a direction that mirrored the handle clicked on, particularly with the ne and se handles.
+* Researched similar issues and looked for guidance in online forums, but didn't find a solution that fully addressed the problem.
+* Tried various solutions, including adding additional if statements and adjusting the code in different ways, but none of them fully addressed the problem.
+* Realized that the logic needed to be separated depending on which resizing corner was clicked on.
+* Added an additional else if statement to address the issue, which allowed the calculator to be resized in the intended direction.
+* The code now had a problem where the calculator was being moved instead of being resized when the user clicked on a resize handle.
+* The updated code fixes this by using separate event listeners for moving and resizing the calculator.
+* The mousedown event on the top navigation bar triggers the code to move the calculator, while the mousedown event on the resize handle triggers the code to resize the calculator.
+* The code also checks for a single-click event on the top navigation bar to ensure that the calculator is only moved when the user intends to move it, and not when they double-click or click and drag.
+* With these updates, the calculator is only moved when the user intends to move it and resized when the user intends to resize it.
+* Thoroughly tested the solution and verified that the resizing functionality for the calculator was working as intended.
+
 

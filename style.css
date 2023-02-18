@@ -242,7 +242,6 @@ button:active {
   position: absolute;
   height: 12px;
   width: 12px;
-  border: solid 2px red;
   z-index: 2;
 }
 

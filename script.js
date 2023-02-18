@@ -11,6 +11,10 @@ const closeBtn = document.querySelector("#close");
 const resizers = document.querySelectorAll(".resizer");
 
 // Variables
+const minWidth = 300;
+const minHeight = 400;
+const maxWidth = 1000;
+const maxHeight = 800;
 let smallDisplayText = "";
 let previousValue = null;
 let currentValue = null;
@@ -20,7 +24,6 @@ let operator = "";
 let result = "";
 let positionX = 0;
 let positionY = 0;
-let isResizing = false;
 
 // Main Display Function
 function displayResult(value) {
@@ -191,11 +194,83 @@ document.querySelector(".calcLogo").addEventListener("click", function () {
 });
 
 // Resize Corner Logic
-const minWidth = 300;
-const minHeight = 400;
-const maxWidth = 1000;
-const maxHeight = 800;
 
+// Function to Resize Calculator
+for (let resizer of resizers) {
+  resizer.addEventListener("mousedown", startResize);
+}
+
+function startResize(e) {
+  let currentResizer = e.target;
+  const rect = calculator.getBoundingClientRect();
+
+  const mousemove = (e) => {
+    const dynamicValue = {};
+    switch (currentResizer.className) {
+      case "resizer nw":
+        dynamicValue.width = rect.right - e.clientX;
+        dynamicValue.height = rect.bottom - e.clientY;
+        setTop();
+        setLeft();
+        break;
+      case "resizer sw":
+        dynamicValue.width = rect.right - e.clientX;
+        dynamicValue.height = Math.max(e.clientY - rect.top, minHeight);
+        setLeft();
+        break;
+      case "resizer se":
+        dynamicValue.width = Math.max(e.clientX - rect.left, minWidth);
+        dynamicValue.height = Math.max(e.clientY - rect.top, minHeight);
+        break;
+      case "resizer ne":
+        dynamicValue.width = Math.max(
+          rect.width - (e.clientX - rect.left),
+          minWidth
+        );
+        dynamicValue.height = rect.bottom - e.clientY;
+        setTop();
+        break;
+    }
+    // Top position of the calculator during resize.
+    function setTop() {
+      if (dynamicValue.height > minHeight) {
+        if (dynamicValue.height > maxHeight) {
+          calculator.style.top = rect.bottom - maxHeight + "px";
+        } else {
+          calculator.style.top = notNegative(e.clientY) + "px";
+        }
+      } else {
+        calculator.style.top = rect.bottom - minHeight + "px";
+      }
+    }
+    // Left position of the calculator during resize.
+    function setLeft() {
+      if (dynamicValue.width > minWidth) {
+        if (dynamicValue.width > maxWidth) {
+          calculator.style.left = rect.right - maxWidth + "px";
+        } else {
+          calculator.style.left = notNegative(e.clientX) + "px";
+        }
+      } else {
+        calculator.style.left = rect.right - minWidth + "px";
+      }
+    }
+    calculator.style.height =
+      controlMinSize(dynamicValue.height, minHeight, maxHeight) + "px";
+    calculator.style.width =
+      controlMinSize(dynamicValue.width, minWidth, maxWidth) + "px";
+  };
+
+  // Stop Resizing Event
+  const mouseup = () => {
+    window.removeEventListener("mousemove", mousemove);
+    window.removeEventListener("mouseup", mouseup);
+  };
+  window.addEventListener("mousemove", mousemove);
+  window.addEventListener("mouseup", mouseup);
+}
+
+// Min and Max Size of Calc
 function controlMinSize(size, minSize, maxSize) {
   return Math.min(Math.max(size, minSize), maxSize);
 }
@@ -203,64 +278,6 @@ function controlMinSize(size, minSize, maxSize) {
 function notNegative(value) {
   return Math.max(value, 0);
 }
-
-function resize(e) {
-  isResizing = true;
-  const rect = calculator.getBoundingClientRect();
-  const dynamicValue = {};
-  const startPos = { x: rect.x, y: rect.y };
-
-  switch (e.target.className) {
-    case "resizer nw":
-      dynamicValue.width = rect.right - e.clientX;
-      dynamicValue.height = rect.bottom - e.clientY;
-      break;
-    case "resizer sw":
-      dynamicValue.width = rect.right - e.clientX;
-      dynamicValue.height = e.clientY - rect.y;
-      break;
-    case "resizer se":
-      dynamicValue.width = e.clientX - rect.left;
-      dynamicValue.height = e.clientY - rect.top;
-      break;
-    case "resizer ne":
-      dynamicValue.width = e.clientX - rect.left;
-      dynamicValue.height = rect.bottom - e.clientY;
-      break;
-  }
-
-  function handleMousemove(e) {
-    dynamicValue.width += e.movementX;
-    dynamicValue.height += e.movementY;
-
-    const newWidth = controlMinSize(dynamicValue.width, minWidth, maxWidth);
-    const newHeight = controlMinSize(dynamicValue.height, minHeight, maxHeight);
-    calculator.style.width = newWidth + "px";
-    calculator.style.height = newHeight + "px";
-
-    const newTop = notNegative(rect.y + (dynamicValue.height - newHeight));
-    const newLeft = notNegative(rect.x + (dynamicValue.width - newWidth));
-    calculator.style.top = newTop + "px";
-    calculator.style.left = newLeft + "px";
-  }
-
-  function stopResize() {
-    isResizing = false;
-    window.removeEventListener("mousemove", handleMousemove);
-    window.removeEventListener("mouseup", stopResize);
-    // Set the final position of the calculator after the resize operation has completed
-    const rect = calculator.getBoundingClientRect();
-    const endPos = { x: rect.x, y: rect.y };
-    calculator.style.top = startPos.y + (endPos.y - startPos.y) + "px";
-    calculator.style.left = startPos.x + (endPos.x - startPos.x) + "px";
-  }
-
-  window.addEventListener("mousemove", handleMousemove);
-  window.addEventListener("mouseup", stopResize);
-}
-resizers.forEach((resizer) => {
-  resizer.addEventListener("mousedown", resize);
-});
 
 // Move calculator using TopNav bar hold
 topNav.addEventListener("mousedown", mousedown);
