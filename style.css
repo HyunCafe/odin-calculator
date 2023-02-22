@@ -154,7 +154,8 @@ body {
   align-items: center;
   font-size: 1.5rem;
   padding: 0.6em;
-  margin: 0.1em;
+
+  margin: 0.2em 0.1em 0.1em 0.1em;
   border-radius: 0.4em;
   border: 1px solid rgb(6, 114, 236);
   min-height: 2.1em;
@@ -290,10 +291,15 @@ button:active {
 
 .search-box input[type="text"] {
   background-color: transparent;
-  color: #fff;
+  color: aliceblue;
   border: none;
   font-size: 1.2em;
   outline: none;
+}
+
+.search-box input[type="text"]::placeholder {
+  color: rgba(240, 248, 255, 0.8);
+
 }
 
 .calcLogo {
