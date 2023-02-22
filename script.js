@@ -13,8 +13,8 @@ const resizers = document.querySelectorAll(".resizer");
 // Variables
 const minWidth = 300;
 const minHeight = 400;
-const maxWidth = 1000;
-const maxHeight = 800;
+const maxWidth = 900;
+const maxHeight = 900;
 let smallDisplayText = "";
 let previousValue = null;
 let currentValue = null;
@@ -310,7 +310,8 @@ function mousedown(e) {
 
 // Bugs
 //Bug 3: set toFixed(4) decimal places for results, currently too many decimals
-// Bug 4: fix responsiveness for the calculator
+// Bug 4: fix responsiveness for the calculator (Mostly responsive)
+// just need to fix shrink
 // bug 5: resizer not behaving how i want
 // bug 6: after calc is closed, clicking on calc logo should make calc reappear
 // bug 7: new bug found.. when increasing size of calc then trying to minimize leaves a shadow copy of the calc..
@@ -329,5 +330,3 @@ function mousedown(e) {
 // Feat: Add Desktop Icon for my Github Profile
 // Feat: Add Desktop Icon for Calculator
 // Feat: Add Fake menu for windows logo press
-
-//during the adding of features 4-6 im running into an issue where the minimize bar goes on the same spot, and the maximize feature creates unresponsive calculator, the close button also makes everything disappear, I think I will try to create a windows login layout where the minimize and close button act in a simliar way but with different animation styles that default towards the bottom pretend windows bar
