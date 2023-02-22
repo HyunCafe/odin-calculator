@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap");
 
 /* Global styles */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 1rem;
 }
 
@@ -27,7 +27,7 @@ body {
   min-width: 100vh;
   display: flex;
   align-items: center;
-  flex-direction: column;
+  justify-content: center;
   padding-top: 2rem;
   padding-bottom: 2rem;
   color: aliceblue;
@@ -55,7 +55,7 @@ body {
   height: var(--card-height);
   max-width: 100%;
   padding: 0.5em;
-  position: absolute;
+  position: relative;
   border-radius: 0.1em;
   justify-content: center;
   align-items: center;
@@ -160,10 +160,9 @@ body {
 
 .calc-row {
   display: flex;
-  border-radius: 0.4em;
   flex-direction: row;
   justify-content: center;
-  width: 17.5em;
+  width: 100%;
 }
 
 /* History button */
@@ -184,7 +183,6 @@ body {
 .calc-cell {
   display: flex;
   justify-content: center;
-  flex: 1 1 70%;
   font-size: 1.8rem;
   border-radius: 0.7em;
   padding: 0.4em 0.7em;
