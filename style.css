@@ -6,16 +6,8 @@
   margin: 0;
   padding: 0;
   font-family: "Oswald", sans-serif;
-  font-size: 1rem;
+  font-size: 1em;
   font-weight: 800;
-}
-
-:root {
-  height: 100%;
-  width: 100%;
-  -ms-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
 }
 
 /* Body styles */
@@ -24,6 +16,8 @@ body {
   background-size: cover;
   min-height: 100vh;
   min-width: 100vh;
+  height: 100%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,10 +46,12 @@ body {
   background-color: transparent;
   width: 20%;
   height: 72%;
+  min-width: 300px;
+  min-height: 500px;
   max-width: 100%;
   padding: 0.5em;
   position: absolute;
-  border-radius: 0.1em;
+  border-radius: 0.3em;
   justify-content: center;
   align-items: center;
   box-shadow: 1px 1px 17px 1px rgb(255, 255, 255, 0.7);
@@ -85,7 +81,6 @@ body {
   color: aliceblue;
   box-shadow: 0.1em 0.1em #76e1ff, -0.1em -0.1em #3f009e;
   font-size: 23%;
-  height: 88%;
 }
 
 /* Main Calc Display */
@@ -147,28 +142,35 @@ body {
 }
 
 .calc-cell {
+  aspect-ratio: 1 / 1;
   display: flex;
-  flex: 1 1 auto;
   flex-basis: 25%;
+  align-items: center;
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
-  padding: 0.6em;
-  margin: 0.2em 0.1em 0.1em 0.1em;
-  border-radius: 0.4em;
+  padding: 0.62em;
+  margin: 1px 2px;
+  border-radius: 0.3em;
   border: 1px solid rgb(6, 114, 236);
-  min-height: 20%;
-  min-width: 24%;
-  max-width: auto;
   color: aliceblue;
   text-shadow: 0.1rem 0.1rem 0.1rem #3f009e;
   -webkit-background-clip: text;
-  box-shadow: 2px 1px #76e1ff, -1px -1px #3f009e;
+  box-shadow: 1px 1px #76e1ff, -1px -1px #3f009e;
 }
 
 /* Equal Button */
 #eq-btn {
-  min-width: 50%;
+  flex-basis: 50%;
+  font-size: 1.5rem;
+  padding: 0.62em;
+  margin: 1px 2px;
+  border-radius: 0.3em;
+  border: 1px solid rgb(6, 114, 236);
+  color: aliceblue;
+  text-shadow: 0.1rem 0.1rem 0.1rem #3f009e;
+  -webkit-background-clip: text;
+  box-shadow: 1px 1px #76e1ff, -1px -1px #3f009e;
 }
 
 /* Button Hover */
@@ -182,11 +184,6 @@ button:active {
   box-shadow: 0 0 0.2em 0.1em #76e1ff;
   text-shadow: 0.1rem 0.1rem 0.1rem #1870f5;
   transform: scale(1);
-}
-
-/* Top Row Calculator Buttons */
-#top-row .calc-cell {
-  font-size: 1.5rem;
 }
 
 /* Styles for the minimized calculator */
@@ -298,7 +295,6 @@ button:active {
 
 .search-box input[type="text"]::placeholder {
   color: rgba(240, 248, 255, 0.8);
-
 }
 
 .calcLogo {
@@ -306,11 +302,18 @@ button:active {
   left: 0;
 }
 
-
 /* Media queries */
+/* @media (min-width: 1440px) {
+  .calc-cell {
+    font-size: 1.60rem;
+    padding: 1.11em;
+    margin: 0.1em 0.1em 0.1em 0.1em;
+  }
+}
+ */
 
 /* Small devices (portrait phones, less than 576px) */
-@media (max-width: 575.98px) {
+/* @media (max-width: 576px) {
   :root {
     --card-height: 100vh;
     --card-width: 100vw;
@@ -332,8 +335,7 @@ button:active {
     font-size: 1.5rem;
     padding: 0.8em;
     margin: 0.2em 0.1em 0.1em 0.1em;
-    min-height: 2.6em;
-    min-width: 2.6em;
+
   }
 
   .small-display {
@@ -357,4 +359,4 @@ button:active {
     font-size: 1rem;
     padding: 0.3em;
   }
-}
+} */
