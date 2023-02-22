@@ -1,11 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 
 /* Global styles */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Raleway", sans-serif;
+  font-family: 'Oswald', sans-serif;
   font-size: 1rem;
 }
 
@@ -50,7 +50,7 @@ body {
 .calc-grid {
   display: flex;
   flex-wrap: wrap;
-  background-color: #191c29;
+  background-color: transparent;
   width: var(--card-width);
   height: var(--card-height);
   max-width: 100%;
@@ -59,9 +59,12 @@ body {
   border-radius: 0.1em;
   justify-content: center;
   align-items: center;
-  box-shadow: 0.1em 0.1em #76e1ff, -0.1em -0.1em #3f009e;
+  background-color: transparent;
+  box-shadow: 1px 1px 17px 1px rgb(255, 255, 255, .7);
+  backdrop-filter: blur(15px);
 }
 
+/* 
 .calc-grid::before {
   content: "";
   width: 102%;
@@ -92,7 +95,7 @@ body {
       #3f009e);
   opacity: 1;
   animation: spin 2.5s linear infinite;
-}
+} */
 
 /* Top Calc Nav Bar */
 .top-nav {
@@ -102,6 +105,7 @@ body {
   top: -10px;
   left: 19px;
   width: 86%;
+  min-height: 2.3em;
   height: 6%;
   display: flex;
   justify-content: space-between;
@@ -280,7 +284,7 @@ button:active {
   align-items: center;
   padding: 0.3em;
   background-color: transparent;
-  box-shadow: 2px 2px 32px 2px rgb(255, 255, 255);
+  box-shadow: 2px 2px 20px 2px rgb(255, 255, 255);
   backdrop-filter: blur(9px);
 }
 
