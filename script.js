@@ -13,8 +13,8 @@ const resizers = document.querySelectorAll(".resizer");
 // Variables
 const minWidth = 300;
 const minHeight = 400;
-const maxWidth = 900;
-const maxHeight = 900;
+const maxWidth = 1200;
+const maxHeight = 1000;
 let smallDisplayText = "";
 let previousValue = null;
 let currentValue = null;
@@ -330,3 +330,4 @@ function mousedown(e) {
 // Feat: Add Desktop Icon for my Github Profile
 // Feat: Add Desktop Icon for Calculator
 // Feat: Add Fake menu for windows logo press
+// Feat: 
