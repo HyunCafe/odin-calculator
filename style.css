@@ -136,13 +136,14 @@ body {
 
 .calc-row {
   display: flex;
+  flex-grow: 1;
+  align-self: stretch;
   flex-direction: row;
   justify-content: space-around;
   width: 100%;
 }
 
 .calc-cell {
-  aspect-ratio: 1 / 1;
   display: flex;
   flex-basis: 25%;
   align-items: center;
@@ -301,62 +302,3 @@ button:active {
   position: relative;
   left: 0;
 }
-
-/* Media queries */
-/* @media (min-width: 1440px) {
-  .calc-cell {
-    font-size: 1.60rem;
-    padding: 1.11em;
-    margin: 0.1em 0.1em 0.1em 0.1em;
-  }
-}
- */
-
-/* Small devices (portrait phones, less than 576px) */
-/* @media (max-width: 576px) {
-  :root {
-    --card-height: 100vh;
-    --card-width: 100vw;
-  }
-
-  .calc-grid {
-    padding: 0.2em;
-    height: 100%;
-    width: 100%;
-    border-radius: 0.1em;
-    box-shadow: 1px 1px 17px 1px rgb(255, 255, 255, 0.7);
-  }
-
-  .calc-row {
-    flex-wrap: wrap;
-  }
-
-  .calc-cell {
-    font-size: 1.5rem;
-    padding: 0.8em;
-    margin: 0.2em 0.1em 0.1em 0.1em;
-
-  }
-
-  .small-display {
-    font-size: 1rem;
-    padding: 0.3em;
-    min-height: 8%;
-  }
-
-  .display {
-    font-size: 2rem;
-    padding: 0.3em;
-    min-height: 20%;
-  }
-
-  .history-btn {
-    font-size: 1rem;
-    padding: 0.3em;
-  }
-
-  .top-nav-btn {
-    font-size: 1rem;
-    padding: 0.3em;
-  }
-} */
