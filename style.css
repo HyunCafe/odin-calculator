@@ -1,12 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
 
 /* Global styles */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
   font-size: 1rem;
+  font-weight: 800;
 }
 
 :root {
@@ -59,43 +60,9 @@ body {
   border-radius: 0.1em;
   justify-content: center;
   align-items: center;
-  background-color: transparent;
-  box-shadow: 1px 1px 17px 1px rgb(255, 255, 255, .7);
-  backdrop-filter: blur(15px);
+  box-shadow: 1px 1px 17px 1px rgb(255, 255, 255, 0.7);
+  backdrop-filter: blur(14px) brightness(35%);
 }
-
-/* 
-.calc-grid::before {
-  content: "";
-  width: 102%;
-  height: 102%;
-  border-radius: 0.4em;
-  background-image: linear-gradient(var(--rotate),
-      #76e1ff,
-      #1c54ff 43%,
-      #3f009e);
-  position: absolute;
-  z-index: -1;
-  animation: spin 2.5s linear infinite;
-  box-shadow: 0.1em 0.1em #76e1ff, -0.1em -0.1em #3f009e;
-}
-
-.calc-grid::after {
-  content: "";
-  position: absolute;
-  top: calc(var(--card-height) / 6);
-  z-index: -1;
-  height: 102%;
-  width: 102%;
-  transform: scale(0.8);
-  filter: blur(calc(var(--card-height) / 6));
-  background-image: linear-gradient(var(--rotate),
-      #76e1ff,
-      #1c54ff 43%,
-      #3f009e);
-  opacity: 1;
-  animation: spin 2.5s linear infinite;
-} */
 
 /* Top Calc Nav Bar */
 .top-nav {
@@ -186,8 +153,8 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
-  padding: .6em;
-  margin: .1em;
+  padding: 0.6em;
+  margin: 0.1em;
   border-radius: 0.4em;
   border: 1px solid rgb(6, 114, 236);
   min-height: 2.1em;
@@ -243,32 +210,32 @@ button:active {
 /* the Resize portion for corners of calc */
 .resizer {
   position: absolute;
-  height: 12px;
-  width: 12px;
+  height: 22px;
+  width: 22px;
   z-index: 2;
 }
 
 .nw {
-  top: -10px;
-  left: -10px;
+  top: -8px;
+  left: -8px;
   cursor: nw-resize;
 }
 
 .ne {
-  top: -10px;
-  right: -10px;
+  top: -8px;
+  right: -8px;
   cursor: ne-resize;
 }
 
 .sw {
-  bottom: -10px;
-  left: -10px;
+  bottom: -8px;
+  left: -8px;
   cursor: sw-resize;
 }
 
 .se {
-  bottom: -10px;
-  right: -10px;
+  bottom: -8px;
+  right: -8px;
   cursor: se-resize;
 }
 
@@ -285,7 +252,7 @@ button:active {
   padding: 0.3em;
   background-color: transparent;
   box-shadow: 2px 2px 20px 2px rgb(255, 255, 255);
-  backdrop-filter: blur(9px);
+  backdrop-filter: blur(14px) brightness(35%);
 }
 
 /* Bottom Navbar Logos */
@@ -303,7 +270,6 @@ button:active {
   background-color: transparent;
   border: none;
   color: aliceblue;
-
 }
 
 .bottom-nav-bar:hover {
@@ -333,20 +299,4 @@ button:active {
 .calcLogo {
   position: relative;
   left: 0;
-}
-
-@property --rotate {
-  syntax: "<angle>";
-  initial-value: 132deg;
-  inherits: false;
-}
-
-@keyframes spin {
-  0% {
-    --rotate: 0deg;
-  }
-
-  100% {
-    --rotate: 360deg;
-  }
 }
