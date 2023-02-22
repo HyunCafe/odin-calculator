@@ -223,10 +223,7 @@ function startResize(e) {
         dynamicValue.height = Math.max(e.clientY - rect.top, minHeight);
         break;
       case "resizer ne":
-        dynamicValue.width = Math.max(
-          rect.width - (e.clientX - rect.left),
-          minWidth
-        );
+        dynamicValue.width = Math.max(e.clientX - rect.left, minWidth);
         dynamicValue.height = rect.bottom - e.clientY;
         setTop();
         break;
@@ -330,4 +327,4 @@ function mousedown(e) {
 // Feat: Add Desktop Icon for my Github Profile
 // Feat: Add Desktop Icon for Calculator
 // Feat: Add Fake menu for windows logo press
-// Feat: 
+// Feat:
