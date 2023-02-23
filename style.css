@@ -80,6 +80,11 @@ body {
   box-shadow: 0.1em 0.1em #76e1ff, -0.1em -0.1em #3f009e;
 }
 
+.calc-text {
+  position: relative;
+  left: -50px;
+}
+
 /* Main Calc Display */
 .display {
   display: flex;
@@ -119,8 +124,9 @@ body {
 
 /* History button */
 .history-btn {
-  position: absolute;
-  left: -35px;
+  position: relative;
+  order: -1;
+  left: -32px;
   top: 4px;
   -webkit-background-clip: text;
   color: aliceblue;
@@ -132,6 +138,11 @@ body {
 }
 
 /* Calculator Buttons */
+
+.calc-row.top {
+  margin-top: -.8em;
+}
+
 .calc-row {
   display: flex;
   flex-grow: 1;
@@ -159,7 +170,7 @@ body {
 
 /* Equal Button */
 #eq-btn {
-  flex-basis: 50%;
+  flex-basis: 51%;
   font-size: 100%;
   margin: 2px 2px;
   border-radius: 0.3em;

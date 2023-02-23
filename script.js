@@ -73,7 +73,6 @@ function operands(e) {
   }
 }
 
-
 // Store and Display Operator Selection
 function operators(e) {
   operator = e.target.textContent;
@@ -135,8 +134,6 @@ buttons.forEach((button) => {
       }
   }
 });
-
-
 
 // Function for operator button press
 function operatorButtons(e) {
@@ -286,10 +283,13 @@ function notNegative(value) {
 }
 
 // Move calculator using TopNav bar hold
-topNav.addEventListener("mousedown", mousedown);
+calculator.addEventListener("mousedown", mousedown);
 function mousedown(e) {
-  // Only move the calculator when the mouse is clicked once on the topNav element
-  if (e.target === topNav && e.detail === 1) {
+  // Only move the calculator when the mouse is clicked once on the calculator's top section
+  const calculatorTop = calculator.getBoundingClientRect().top;
+  const calculatorHeight = calculator.getBoundingClientRect().height;
+  const topSectionHeight = calculatorHeight * 0.08; // change the percentage here
+  if (e.clientY < calculatorTop + topSectionHeight && e.detail === 1) {
     isMouseDown = true;
     const rect = calculator.getBoundingClientRect();
     const overflow = {
