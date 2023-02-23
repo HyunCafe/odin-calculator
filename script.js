@@ -323,11 +323,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Bugs
 //Bug 3: set toFixed(4) decimal places for results, currently too many decimals
-// Bug 4: fix responsiveness for the calculator (Mostly responsive)
-// just need to fix shrink
+// Bug 4: fix bug so maximize takes up 100 viewport, and pressing maximize again puts it at last size
 // bug 5: resizer not behaving how i want
 // bug 6: after calc is closed, clicking on calc logo should make calc reappear
-// bug 7: new bug found.. when increasing size of calc then trying to minimize leaves a shadow copy of the calc..
+
 
 // TODO
 //Feat 1: Add history button with working history on new window --

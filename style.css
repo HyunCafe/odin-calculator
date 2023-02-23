@@ -109,7 +109,6 @@ body {
   position: relative;
   top: -13px;
   display: flex;
-  overflow: hidden;
   justify-content: flex-end;
   align-self: flex-start;
   border-bottom-color: transparent;
