@@ -154,6 +154,7 @@ JS
 * Refactor: made top draggable portion more responsive by adjusting from topnavbar to portion of top of the whole calculator
 * Refactor: Got rid of some useless code, topnav and comments
 * Style: Changed font-size for topnav buttons so its more responsive
+* Add: Added default size on page load so its uniform across view ports
 ------------
 
 ## Challenges:

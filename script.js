@@ -313,6 +313,13 @@ function mousedown(e) {
   }
 }
 
+// Default size on page load
+document.addEventListener("DOMContentLoaded", () => {
+  calculator.style.width = "350px";
+  calculator.style.height = "600px";
+});
+
+
 // Bugs
 //Bug 3: set toFixed(4) decimal places for results, currently too many decimals
 // Bug 4: fix responsiveness for the calculator (Mostly responsive)
