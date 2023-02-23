@@ -119,6 +119,7 @@ JS
 * Implemented resizing features for all four corners of the calculator.
 * Styled the corners to be invisible, but to prompt the resizing cursor when hovered over.
 * Refined the logic for maximum and minimum sizes when resizing.
+* Fixed bug where upon minimize after resizing, a duplicate calculator would be left behind
 
 #### Feb 16, 2023:
 * Refactor: Refactored the code more to improve its structure and performance.

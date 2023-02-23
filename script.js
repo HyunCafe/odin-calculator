@@ -191,6 +191,7 @@ closeBtn.addEventListener("click", () => {
   closeCalculator(calculator, 500);
 });
 
+
 // Add event listener to calcLogo element to restore calculator
 document.querySelector(".calcLogo").addEventListener("click", function () {
   calculator.classList.remove("minimized");

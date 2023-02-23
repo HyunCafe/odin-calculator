@@ -54,6 +54,7 @@ body {
   align-items: center;
   box-shadow: 1px 1px 17px 1px rgb(255, 255, 255, 0.7);
   backdrop-filter: blur(14px) brightness(35%);
+  transition: display 0.2s ease-out;
 }
 
 /* Top Calc Nav Bar */
@@ -197,11 +198,7 @@ button:active {
 
 /* Styles for the minimized calculator */
 .calc-grid.minimized {
-  height: 0;
-  width: 0;
-  overflow: hidden;
-  padding: 0;
-  transition: height 0.2s ease-out, width 0.2s ease-out;
+  display: none;
 }
 
 /* Styles for the minimized calculator button */
