@@ -22,6 +22,10 @@ let num1 = "";
 let num2 = "";
 let operator = "";
 let result = "";
+let originalWidth = calculator.offsetWidth;
+let originalHeight = calculator.offsetHeight;
+let originalLeft = calculator.offsetLeft;
+let originalTop = calculator.offsetTop;
 
 // Main Display Function
 function displayResult(value) {
@@ -155,6 +159,27 @@ function equalButton() {
   // Ability to recalculate last operation with pressing = alone
   if (!num2) num2 = lastNum2;
 }
+function maximizeCalculator() {
+  calculator.classList.toggle("maximized");
+  if (calculator.classList.contains("maximized")) {
+    // Store the original position and size
+    originalWidth = calculator.offsetWidth;
+    originalHeight = calculator.offsetHeight;
+    originalLeft = calculator.offsetLeft;
+    originalTop = calculator.offsetTop;
+    // Set the calculator to the maximum size and position
+    calculator.style.width = "100%";
+    calculator.style.height = "100%";
+    calculator.style.left = 0;
+    calculator.style.top = 0;
+  } else {
+    // Restore the original position and size
+    calculator.style.width = originalWidth + "px";
+    calculator.style.height = originalHeight + "px";
+    calculator.style.left = originalLeft + "px";
+    calculator.style.top = originalTop + "px";
+  }
+}
 
 // Function to close
 function closeCalculator(element, delay) {
@@ -171,21 +196,8 @@ minimizeBtn.addEventListener("click", () => {
   calculator.style.display = "none";
 });
 
-// Add event listener for maximize button
 maximizeBtn.addEventListener("click", () => {
-  if (!calculator.classList.contains("maximized")) {
-    calculator.style.height = "100%";
-    calculator.style.width = "100%";
-    calculator.style.left = 0;
-    calculator.style.top = 0;
-    calculator.classList.add("maximized");
-  } else {
-    calculator.style.height = "600px";
-    calculator.style.width = "350px";
-    calculator.style.left = "40%";
-    calculator.style.top = "13%";
-    calculator.classList.remove("maximized");
-  }
+  maximizeCalculator();
 });
 
 closeBtn.addEventListener("click", () => {
@@ -322,9 +334,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Bugs
 //Bug 3: set toFixed(4) decimal places for results, currently too many decimals
-// Bug 4: fix bug so maximize takes up 100 viewport, and pressing maximize again puts it at last size
-// bug 5: resizer not behaving how i want
-// bug 6: after calc is closed, clicking on calc logo should make calc reappear
+
 
 // TODO
 //Feat 1: Add history button with working history on new window --
