@@ -12,7 +12,7 @@ const resizers = document.querySelectorAll(".resizer");
 
 // Variables
 const minWidth = 300;
-const minHeight = 400;
+const minHeight = 500;
 const maxWidth = 1200;
 const maxHeight = 1000;
 let smallDisplayText = "";
