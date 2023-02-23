@@ -108,6 +108,29 @@ JS
 * Refactor: Deleted unneeded code lines and continued working on improving the resizer function.
 * Fix: Fixed the restore function for close, adding flex display to improve its appearance and usability.
 * Refactor: Simplified the code and finalized the resizer and moving logic to improve the calculator's stability and user experience.
+
+#### Feb 19, 2023:
+* Add: Added Railway font
+
+#### Feb 21, 2023:
+* Style: Changing style to make numbers grow and shrink responsively
+* Style: Changed theme more aesthetic, increased max width and height of calculator
+* Style: Edited min heights for top navbar, made more aesthetic changes
+* Refactor: Simplified style, got rid of keyframes, enlarges resizers
+* Style: Changed placeholder color
+* Bug: need to fix shrink responsiveness, growth works fine
+
+
+#### Feb 22, 2023:
+* Refactor: Changed var to percentages for more responsiveness
+* Fix: Fixed issue with NE resizer, grows going east and shrinks west now
+* Fix: Made calc cell btns responsive, did work around to achieve result
+* Fix: Truly fixed responsive growth adding align-self stretch on calc row
+* Fix: Had to fix bug where decimal did not work anymore, edited regex and else statement in operand function
+* Fix: Fixed = button no longer working due to removing its class name, simply added another param to buttons selector
+* Refactor: made top draggable portion more responsive by adjusting from topnavbar to portion of top of the whole calculator
+* Refactor: Got rid of some useless code, topnav and comments
+
 ------------
 
 ## Summary of Key Features:
@@ -164,7 +187,7 @@ JS
 * After researching and experimenting with different solutions, Discovered that setting align-self: stretch for the calculator rows resolved the issue and allowed for responsive growth in both the primary and cross axes. A simple solution in the end!
 * Additionally, to prevent the calculator buttons from growing outside of the parent container when the calculator is resized to its maximum width but minimum height, the padding was removed from the .calc-cell class. This allowed the buttons to resize proportionally to the container while still remaining within its bounds.
 
-##### Resizing Challenge (Hardest Part of all)
+##### Resizing and Dragging Challenge (Hardest Part of all)
 * Tried to resize the calculator by calculating the new width and height of the calculator based on the difference between the mouse position and the position of the handle clicked on.
 * Encountered difficulty when resizing the calculator in a direction that mirrored the handle clicked on, particularly with the ne and se handles.
 * Researched similar issues and looked for guidance in online forums, but didn't find a solution that fully addressed the problem.
@@ -175,5 +198,8 @@ JS
 * The updated code fixes this by using separate event listeners for moving and resizing the calculator.
 * The mousedown event on the top navigation bar triggers the code to move the calculator, while the mousedown event on the resize handle triggers the code to resize the calculator.
 * The code also checks for a single-click event on the top navigation bar to ensure that the calculator is only moved when the user intends to move it, and not when they double-click or click and drag.
+* Initially, the draggable area was set to the top navigation bar element, which was too narrow. When I tried increasing the size of the top navigation bar in CSS, the other elements shifted as well, which was undesirable. I needed to expand the effective active draggable area without shifting other elements.
+* I came up with a solution by checking the y-coordinate of the mouse click and verifying that it falls within a certain range at the top of the calculator.
+* This ensured that the calculator would only be moved when the user clicks within the top 8% of the calculator, allowing for a larger draggable area without affecting other elements.
 * With these updates, the calculator is only moved when the user intends to move it and resized when the user intends to resize it.
 * Thoroughly tested the solution and verified that the resizing functionality for the calculator was working as intended.
