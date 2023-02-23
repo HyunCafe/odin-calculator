@@ -5,6 +5,29 @@ HTML
 CSS
 JS
 
+## Summary of Key Features:
+
+### Display Features:
+* Large display for current value and result
+* Small display for previous value and operator
+* Decimal support
+
+### Operations:
+* Basic arithmetic operations (addition, subtraction, multiplication, division)
+* Ability to chain multiple operations (e.g. 2 + 2 + 2 + 2)
+* Equal button that performs the last calculation when pressed repeatedly
+* Delete button to remove the last input
+* Clear button to reset the calculator
+
+### User Interface:
+* Buttons with hover effect for visual feedback
+* Top navigation bar with minimize, hide, and close buttons
+* Ability to move the calculator around using the top navigation bar.
+* Resizing feature works like the Windows calculator, with the ability to resize the calculator by dragging from any corner and maintains aspect ratio.
+* Improved minimize and restore feature that remembers the last position of the calculator
+* Windows desktop simulation with a search box and enhanced hover effect over icons for aesthetics
+
+------------
 ## Project Timeline
 
 #### Feb 2, 2023
@@ -130,30 +153,6 @@ JS
 * Fix: Fixed = button no longer working due to removing its class name, simply added another param to buttons selector
 * Refactor: made top draggable portion more responsive by adjusting from topnavbar to portion of top of the whole calculator
 * Refactor: Got rid of some useless code, topnav and comments
-
-------------
-
-## Summary of Key Features:
-
-### Display Features:
-* Large display for current value and result
-* Small display for previous value and operator
-* Decimal support
-
-### Operations:
-* Basic arithmetic operations (addition, subtraction, multiplication, division)
-* Ability to chain multiple operations (e.g. 2 + 2 + 2 + 2)
-* Equal button that performs the last calculation when pressed repeatedly
-* Delete button to remove the last input
-* Clear button to reset the calculator
-
-### User Interface:
-* Buttons with hover effect for visual feedback
-* Top navigation bar with minimize, hide, and close buttons
-* Ability to move the calculator around using the top navigation bar.
-* Resizing feature works like the Windows calculator, with the ability to resize the calculator by dragging from any corner and maintains aspect ratio.
-* Improved minimize and restore feature that remembers the last position of the calculator
-* Windows desktop simulation with a search box and enhanced hover effect over icons for aesthetics
 
 ------------
 
