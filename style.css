@@ -72,12 +72,13 @@ body {
 }
 
 .top-nav-btn {
-  padding: 0em 0.3em;
+  padding: 0 .2em;
   border: 1px solid rgb(6, 114, 236);
   text-shadow: 0.1rem 0.1rem 0.1rem #3f009e;
   -webkit-background-clip: text;
   color: aliceblue;
   box-shadow: 0.1em 0.1em #76e1ff, -0.1em -0.1em #3f009e;
+  font-size: 75%;
 }
 
 .calc-text {

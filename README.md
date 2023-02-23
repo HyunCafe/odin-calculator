@@ -153,7 +153,7 @@ JS
 * Fix: Fixed = button no longer working due to removing its class name, simply added another param to buttons selector
 * Refactor: made top draggable portion more responsive by adjusting from topnavbar to portion of top of the whole calculator
 * Refactor: Got rid of some useless code, topnav and comments
-
+* Style: Changed font-size for topnav buttons so its more responsive
 ------------
 
 ## Challenges:
