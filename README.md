@@ -158,59 +158,60 @@ JS
 * Add: Added default size on page load so its uniform across view ports
 ------------
 
-## Challenges:
+#### Feb 23, 2023:
 
+## Challenges:
 ##### Main and Small Display Challenge
-* The main and small displays of the calculator posed a challenge in displaying the numbers and calculations in a clear and organized manner.
-* Initially, the small display was placed within the main display, which caused issues with the positioning and visibility of the numbers.
-* I tried to fix this by adjusting the position of the small display and changing its CSS properties, but this didn't fully resolve the issue.
-* I also experimented with different methods of displaying the numbers and calculations, including using separate displays for each and incorporating a history feature, but these approaches didn't fully meet the desired outcome.
-* Finally, I achieved the desired result by blending the borders of the main and small displays together and separating the two windows to mimic the layout of the Windows calculator, which provided a clear and organized way of displaying the numbers and calculations.
+When working on the calculator project, I encountered challenges with displaying the numbers and calculations on the main and small displays in a clear and organized manner. Initially, I had placed the small display within the main display, which caused issues with the positioning and visibility of the numbers. Despite my efforts to adjust the position of the small display and its CSS properties, this didn't fully resolve the issue.
+
+After researching, and experimenting with different solutions, I finally achieved the desired result by blending the borders of the main and small displays together and separating the two windows to mimic the layout of the Windows calculator. This provided a clear and organized way of displaying the numbers and calculations, and it resolved the issues that I had been facing. Overall, this was a challenging problem to solve, but it taught me a lot about how to manipulate CSS properties and use design principles to create a functional and visually appealing user interface.
 
 ##### Chaining Operations Challenge
-* Faced an issue with the ability to chain multiple operations (e.g. 2 + 2 + 2 + 2) together
-* Attempted to solve the issue by creating a single operation variable to hold the current operation being performed, and updating it as new numbers were entered
-* Explored using an array to hold the entered numbers and operations, and then iterating through the array to calculate the result
-* Found that both approaches did not fully solve the issue and added unnecessary complexity
-* Finally, achieved the desired result by keeping track of the current operation and number entered separately, and then storing the previous operation and number in separate variables when a new operation was initiated. This allowed for chaining multiple operations together, while also keeping the code simple and readable.
+When working on the calculator's ability to chain multiple operations together, I faced an issue where the calculator was not able to perform a series of operations (e.g. 2 + 2 + 2 + 2). I initially tried to solve this problem by creating a single operation variable to hold the current operation being performed and updating it as new numbers were entered. I also explored using an array to hold the entered numbers and operations, and then iterating through the array to calculate the result. However, both approaches did not fully solve the issue and added unnecessary complexity to the code.
+
+Finally, I was able to achieve the desired result by keeping track of the current operation and number entered separately, and then storing the previous operation and number in separate variables when a new operation was initiated. This allowed for chaining multiple operations together, while also keeping the code simple and readable. With this solution, the calculator was able to perform multiple operations in a chain, with each operation being performed correctly and the final result being calculated accurately.
 
 ##### Equal Button Challenge
-* Ran into an issue where pressing the equal button repeatedly did not perform the last calculation.
-* Tried several different solutions, including using a flag variable to keep track of the last calculation and adding an event listener to the equal button.
-* Eventually came up with a solution to store the last num2 value and calculate the result, and then check if num2 is falsy and if so, set it to the last num2 value before calculating the result again.
-* Final solution involved modifying the equalButton function to include this check and properly recalculate the last operation when the equal button is pressed repeatedly.
+I encountered an issue where pressing the equal button repeatedly did not perform the last calculation. I tried several different solutions, including using a flag variable to keep track of the last calculation and adding an event listener to the equal button, but none of these solutions fully addressed the problem.
+
+After some further experimentation and research (spoke to a mentor), I found a solution that involved storing the last num2 value and calculating the result. Then, I added a check to see if num2 is falsy, and if so, I set it to the last num2 value before recalculating the result.
+
+To implement this solution, I modified the equalButton function to include this check and properly recalculate the last operation when the equal button is pressed repeatedly. This final solution proved to be effective and solved the problem of the calculator not performing the last calculation when the equal button was pressed repeatedly.
 
 ##### Responsive Challenge
-* The initial issue was with the responsive growth of the calculator cells, which needed to stay within the parent container of the calculator.
-* First attempted to use media queries to adjust the cell size based on screen size, but this method was not working.
-* Tried using aspect-ratio to maintain a square shape for the cells, which worked but the growth rate exceeded the parent container.
-* Next, I tried using flex-basis for the cell size, which allowed for responsive growth in the primary axis, but the cells were not growing along the cross axis.
-* After researching and experimenting with different solutions, Discovered that setting align-self: stretch for the calculator rows resolved the issue and allowed for responsive growth in both the primary and cross axes. A simple solution in the end!
-* Additionally, to prevent the calculator buttons from growing outside of the parent container when the calculator is resized to its maximum width but minimum height, the padding was removed from the .calc-cell class. This allowed the buttons to resize proportionally to the container while still remaining within its bounds.
+When I encountered the issue of the responsive growth of the calculator cells exceeding the parent container, my initial approach was to use media queries to adjust the cell size based on screen size, but that solution did not work. I then tried using the aspect-ratio property to maintain a square shape for the cells, which worked but still caused the growth rate to exceed the parent container.
+
+I continued to experiment with different solutions and tried using flex-basis for the cell size, which allowed for responsive growth in the primary axis, but the cells were not growing along the cross axis. After researching and experimenting with different solutions, I discovered that setting align-self: stretch for the calculator rows resolved the issue and allowed for responsive growth in both the primary and cross axes. It was a simple solution that effectively addressed the issue.
+
+In addition to the above solution, I also needed to prevent the calculator buttons from growing outside of the parent container when the calculator is resized to its maximum width but minimum height. To accomplish this, I removed the padding from the .calc-cell class. This allowed the buttons to resize proportionally to the container while still remaining within its bounds.
 
 ##### Resizing and Dragging Challenge (Hardest Part of all)
-* Tried to resize the calculator by calculating the new width and height of the calculator based on the difference between the mouse position and the position of the handle clicked on.
-* Encountered difficulty when resizing the calculator in a direction that mirrored the handle clicked on, particularly with the ne and se handles.
-* Researched similar issues and looked for guidance in online forums, but didn't find a solution that fully addressed the problem.
-* Tried various solutions, including adding additional if statements and adjusting the code in different ways, but none of them fully addressed the problem.
-* Realized that the logic needed to be separated depending on which resizing corner was clicked on.
-* Added an additional else if statement to address the issue, which allowed the calculator to be resized in the intended direction.
-* The code now had a problem where the calculator was being moved and being resized when the user clicked on a resize handle.
-* The updated code fixes this by using separate event listeners for moving and resizing the calculator.
-* The mousedown event on the top navigation bar triggers the code to move the calculator, while the mousedown event on the resize handle triggers the code to resize the calculator.
-* The code also checks for a single-click event on the top navigation bar to ensure that the calculator is only moved when the user intends to move it, and not when they double-click or click and drag.
-* Initially, the draggable area was set to the top navigation bar element, which was too narrow. When I tried increasing the size of the top navigation bar in CSS, the other elements shifted as well, which was undesirable. I needed to expand the effective active draggable area without shifting other elements.
-* I came up with a solution by checking the y-coordinate of the mouse click and verifying that it falls within a certain range at the top of the calculator.
-* This ensured that the calculator would only be moved when the user clicks within the top 8% of the calculator, allowing for a larger draggable area without affecting other elements.
-* With these updates, the calculator is only moved when the user intends to move it and resized when the user intends to resize it.
-* Thoroughly tested the solution and verified that the resizing functionality for the calculator was working as intended.
+When I first attempted to implement resizing functionality for the calculator, I tried to calculate the new width and height of the calculator based on the difference between the mouse position and the position of the handle clicked on. However, I ran into difficulties when trying to resize the calculator in a direction that mirrored the handle clicked on, especially with the ne and se handles. I tried various solutions, including adding additional if statements and adjusting the code in different ways, but none of them fully addressed the problem.
 
+After researching the issue and seeking guidance from online forums, I realized that the logic needed to be separated depending on which resizing corner was clicked on. I added an additional else if statement to address the issue, which allowed the calculator to be resized in the intended direction.
+
+However, a new problem emerged where the calculator was being moved and resized when the user clicked on a resize handle. To fix this, I used separate event listeners for moving and resizing the calculator. The mousedown event on the top navigation bar now triggers the code to move the calculator, while the mousedown event on the resize handle triggers the code to resize the calculator.
+
+To ensure that the calculator is only moved when the user intends to move it, I added a check for a single-click event on the top navigation bar. Additionally, I needed to expand the active draggable area without shifting other elements. I accomplished this by checking the y-coordinate of the mouse click and verifying that it falls within a certain range at the top of the calculator. This ensures that the calculator is only moved when the user clicks within the top 8% of the calculator, allowing for a larger draggable area without affecting other elements.
+
+Finally, I thoroughly tested the solution and verified that the resizing functionality for the calculator was working as intended. 
 
 ##### Second Minimize Attempt Bug
-* When resizing the calculator and then trying to minimize it, or when trying to minimize a second attempt, the calculator would not minimize correctly.
-* Checked the browser console for errors or warnings, but found none.
-* Used the Chrome DevTools to inspect the element and found that the minimized class was being added correctly when trying to minimize the calculator after resizing it.
-* Noted that the minimizeCalculator() function wasn't working correctly and appeared to be the source of the issue.
-* Updated the minimizeCalculator() function to save the current position of the calculator before adding the minimized class, and then restored the original size of the calculator when the minimize button is clicked again.
-* Tried using the minimize button again after resizing the calculator, but it still wouldn't work.
-* By adding an anonymous arrow function to the minimizeBtn event listener and removing the minimizeCalculator() function, the calculator now minimizes correctly even after resizing it.
+When working on the calculator project, I noticed that there was an issue with minimizing the calculator after it had been resized, or upon 2nd minimize attempt. The calculator would not minimize correctly, and it seemed that the minimizeCalculator() function was not working as intended. I checked the browser console for errors or warnings, but found none.
+
+To investigate the issue, I used the Chrome DevTools to inspect the element and found that the minimized class was being added correctly when trying to minimize the calculator after resizing it. So I realized that the problem was not with the addition of the class, but with the minimizeCalculator() function itself.
+
+To fix the issue, I updated the minimizeCalculator() function to save the current position of the calculator before adding the minimized class. Then, when the minimize button is clicked again, the original size of the calculator is restored. However, even after updating the function, the calculator still wouldn't minimize correctly when it had been resized.
+
+Finally, I came up with a solution by adding an anonymous arrow function to the minimizeBtn event listener and removing the minimizeCalculator() function entirely. This solved the issue, and the calculator now minimizes correctly even after being resized. It is important to note that the calculator now saves its last current location and sizing simply because we are adding and removing the display style from none.
+
+##### Maximize Challenge
+After finishing the minimize challenge, I moved on to the maximize challenge. My initial idea was to simply expand the calculator to fill the screen when the maximize button was clicked, but I quickly realized that this approach would cause the calculator to be off-center.
+
+To solve this problem, I tried setting the left and top properties of the calculator to 0, which did center the calculator, but it didn't look good on smaller screens. So, I decided to center the calculator by setting its left and top properties to 50% and then using the transform property to translate it back to the center of the screen. This approach worked well and looked good on all screen sizes.
+
+Next, I noticed that when I restored the calculator to its original size, it would always return to the same position on the screen, which was not necessarily the position it was in before it was maximized. To solve this problem, I first tried setting a default size and position for the calculator and manually aligning it with the initial DOM load calculator position. While this worked, it was not very satisfying, as it didn't allow the calculator to return to its exact previous size and position.
+
+So, I researched how to save the calculator's last known position and size, and I found that I could use the offsetLeft, offsetTop, offsetWidth, and offsetHeight properties to do this. With this information, I was able to create a function that would save the calculator's original size and position, and then restore them when the maximize button was clicked again. I thoroughly tested this solution and was satisfied with the final result.
+
+Overall, I found the maximize challenge to be a fun and rewarding experience, as it allowed me to learn more about how to manipulate DOM elements and create more complex user interfaces.
