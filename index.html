@@ -14,67 +14,67 @@
 
   <body>
     <div class="github">
-      HyunCafe
+      <span class="github-username">HyunCafe</span>
       <a href="https://github.com/HyunCafe">
-        <img src="assets/githubIcon.png" alt="Github Logo"
-      /></a>
+        <img src="assets/githubIcon.png" alt="Github Logo" />
+      </a>
     </div>
-
-    <div class="calc-grid">
-      <div class="resizer ne"></div>
-      <div class="resizer se"></div>
-      <div class="resizer nw"></div>
-      <div class="resizer sw"></div>
+    <div class="calculator">
+      <div class="resizer resizer--ne"></div>
+      <div class="resizer resizer--se"></div>
+      <div class="resizer resizer--nw"></div>
+      <div class="resizer resizer--sw"></div>
       <div class="top-nav">
         <span class="calc-text">Calculator</span>
         <button class="history-btn" id="history-btn">
           <i class="material-icons">history</i>
         </button>
         <div class="size-buttons">
-          <button class="top-nav-btn" id="minimize">
+          <button class="top-nav-btn" id="minimize-btn">
             <span class="material-icons">minimize</span>
           </button>
-          <button class="top-nav-btn" id="maximize">
+          <button class="top-nav-btn" id="maximize-btn">
             <i class="material-icons">maximize</i>
           </button>
-          <button class="top-nav-btn" id="close">
+          <button class="top-nav-btn" id="close-btn">
             <span class="material-icons">close</span>
           </button>
         </div>
       </div>
-      <div class="small-display"></div>
-      <div class="display"></div>
-      <div class="calc-row top" id="top-row">
-        <button class="calc-cell" id="ac-btn">AC</button>
-        <button class="calc-cell" id="del-btn">Del</button>
-        <button class="calc-cell" id="perc-btn">%</button>
-        <button class="calc-cell" id="div-btn">/</button>
+      <div class="calculator-display small-display"></div>
+      <div class="calculator-display display"></div>
+      <div class="calculator-row top" id="top-row">
+        <button class="calculator-button" id="ac-btn">AC</button>
+        <button class="calculator-button" id="del-btn">Del</button>
+        <button class="calculator-button" id="perc-btn">%</button>
+        <button class="calculator-button" id="div-btn">/</button>
       </div>
-      <div class="calc-row">
-        <button class="calc-cell" id="7-btn">7</button>
-        <button class="calc-cell" id="8-btn">8</button>
-        <button class="calc-cell" id="9-btn">9</button>
-        <button class="calc-cell" id="x-btn">*</button>
+      <div class="calculator-row">
+        <button class="calculator-button" id="7-btn">7</button>
+        <button class="calculator-button" id="8-btn">8</button>
+        <button class="calculator-button" id="9-btn">9</button>
+        <button class="calculator-button" id="x-btn">*</button>
       </div>
-      <div class="calc-row">
-        <button class="calc-cell" id="4-btn">4</button>
-        <button class="calc-cell" id="5-btn">5</button>
-        <button class="calc-cell" id="6-btn">6</button>
-        <button class="calc-cell" id="min-btn">-</button>
+      <div class="calculator-row">
+        <button class="calculator-button" id="4-btn">4</button>
+        <button class="calculator-button" id="5-btn">5</button>
+        <button class="calculator-button" id="6-btn">6</button>
+        <button class="calculator-button" id="min-btn">-</button>
       </div>
-      <div class="calc-row">
-        <button class="calc-cell" id="1-btn">1</button>
-        <button class="calc-cell" id="2-btn">2</button>
-        <button class="calc-cell" id="3-btn">3</button>
-        <button class="calc-cell" id="plus-btn">+</button>
+      <div class="calculator-row">
+        <button class="calculator-button" id="1-btn">1</button>
+        <button class="calculator-button" id="2-btn">2</button>
+        <button class="calculator-button" id="3-btn">3</button>
+        <button class="calculator-button" id="plus-btn">+</button>
       </div>
-      <div class="calc-row">
-        <button class="calc-cell" id="0-btn">0</button>
-        <button class="calc-cell" id="dot-btn">.</button>
-        <button id="eq-btn">=</button>
+      <div class="calculator-row">
+        <button class="calculator-button" id="0-btn">0</button>
+        <button class="calculator-button" id="dot-btn">.</button>
+        <button class="calculator-button calculator-button--equal" id="eq-btn">
+          =
+        </button>
       </div>
     </div>
-
     <nav class="menu">
       <ul class="menu-list">
         <li class="menu-item">
@@ -114,7 +114,6 @@
         </li>
       </ul>
     </nav>
-
     <footer class="footer">
       <div class="bottomNavBar">
         <button class="bottom-nav-bar" type="button">
@@ -124,7 +123,6 @@
             alt="Windows Icon"
           />
         </button>
-
         <div class="search-box">
           <input type="text" placeholder="Type here to search" />
         </div>
@@ -135,14 +133,12 @@
             alt="Calculator Icon"
           />
         </button>
-
         <button class="bottom-nav-bar">
           <div class="localTime">11:11 AM</div>
           <div class="localDate">02/15/2023</div>
         </button>
       </div>
     </footer>
-
     <script src="script.js"></script>
   </body>
 </html>

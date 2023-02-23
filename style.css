@@ -40,7 +40,7 @@ body {
 }
 
 /* Calculator grid */
-.calc-grid {
+.calculator {
   display: flex;
   flex-wrap: wrap;
   background-color: transparent;
@@ -140,11 +140,11 @@ body {
 
 /* Calculator Buttons */
 
-.calc-row.top {
+.calculator-row.top {
   margin-top: -0.8em;
 }
 
-.calc-row {
+.calculator-row {
   display: flex;
   flex-grow: 1;
   align-self: stretch;
@@ -153,7 +153,7 @@ body {
   width: 100%;
 }
 
-.calc-cell {
+.calculator-button {
   display: flex;
   flex-basis: 25%;
   align-items: center;

@@ -1,13 +1,13 @@
 // DOM Selectors
-const buttons = document.querySelectorAll(".calc-cell, #eq-btn");
+const buttons = document.querySelectorAll(".calculator-button, #eq-btn");
 const display = document.querySelector(".display");
 const smallerDisplay = document.querySelector(".small-display");
-const calculator = document.querySelector(".calc-grid");
+const calculator = document.querySelector(".calculator");
 const historyBtn = document.querySelector("#history-btn");
-const minimizeBtn = document.querySelector("#minimize");
-const maximizeBtn = document.querySelector("#maximize");
+const minimizeBtn = document.querySelector("#minimize-btn");
+const maximizeBtn = document.querySelector("#maximize-btn");
 const isMaximized = calculator.classList.contains("maximized");
-const closeBtn = document.querySelector("#close");
+const closeBtn = document.querySelector("#close-btn");
 const resizers = document.querySelectorAll(".resizer");
 
 // Variables
@@ -334,7 +334,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Bugs
 //Bug 3: set toFixed(4) decimal places for results, currently too many decimals
-
 
 // TODO
 //Feat 1: Add history button with working history on new window --
