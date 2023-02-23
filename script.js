@@ -1,5 +1,6 @@
 // DOM Selectors
 const buttons = document.querySelectorAll(".calc-cell");
+
 const display = document.querySelector(".display");
 const smallerDisplay = document.querySelector(".small-display");
 const calculator = document.querySelector(".calc-grid");
@@ -59,13 +60,20 @@ function deleteButton() {
 function operands(e) {
   const value = e.target.textContent;
   if (operator) {
-    num2 += value;
-    displayResult(`${num1} ${operator} ${num2}`);
+    if (value === "." && num2.includes(".")) {
+    } else {
+      num2 += value;
+      displayResult(`${num1} ${operator} ${num2}`);
+    }
   } else {
-    num1 += value;
-    displayResult(num1);
+    if (value === "." && num1.includes(".")) {
+    } else {
+      num1 += value;
+      displayResult(num1);
+    }
   }
 }
+
 
 // Store and Display Operator Selection
 function operators(e) {
@@ -110,24 +118,26 @@ function calculate() {
 
 // Add Event Listener for all buttons
 buttons.forEach((button) => {
-  switch (button.textContent) {
-    case "AC":
+  switch (button.id) {
+    case "ac-btn":
       button.addEventListener("click", clearDisplay);
       break;
-    case "Del":
+    case "del-btn":
       button.addEventListener("click", deleteButton);
       break;
-    case "=":
+    case "eq-btn":
       button.addEventListener("click", equalButton);
       break;
     default:
-      if (button.textContent.match(/\d/)) {
+      if (button.textContent.match(/[0-9\.]/)) {
         button.addEventListener("click", operands);
       } else if (button.textContent.match(/[\+\-\*\%\/]/)) {
         button.addEventListener("click", operatorButtons);
       }
   }
 });
+
+
 
 // Function for operator button press
 function operatorButtons(e) {

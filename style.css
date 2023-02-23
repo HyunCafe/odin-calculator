@@ -36,7 +36,7 @@ body {
   height: 40px;
   top: 5em;
   left: 5em;
-  font-size: 1.1rem;
+  font-size: 110%;
 }
 
 /* Calculator grid */
@@ -46,8 +46,6 @@ body {
   background-color: transparent;
   width: 20%;
   height: 72%;
-  min-width: 300px;
-  min-height: 500px;
   max-width: 100%;
   padding: 0.5em;
   position: absolute;
@@ -66,8 +64,8 @@ body {
   top: -10px;
   left: 19px;
   width: 86%;
-  min-height: 2.3em;
-  height: 6%;
+  min-height: 2%;
+  height: 2%;
   display: flex;
   justify-content: space-between;
   z-index: 2;
@@ -80,7 +78,6 @@ body {
   -webkit-background-clip: text;
   color: aliceblue;
   box-shadow: 0.1em 0.1em #76e1ff, -0.1em -0.1em #3f009e;
-  font-size: 23%;
 }
 
 /* Main Calc Display */
@@ -91,11 +88,12 @@ body {
   align-items: flex-end;
   border-bottom: 2px solid rgb(6, 114, 236);
   border-radius: 0.5em;
-  font-size: 2rem;
+  font-size: 200%;
   padding: 0.5em;
   width: 100%;
   max-width: 100%;
-  min-height: 20%;
+  height: 18%;
+  min-height: 18%;
   box-shadow: 0em 0em #76e1ff;
 }
 
@@ -110,9 +108,10 @@ body {
   border-bottom-color: transparent;
   border-top: 2px solid rgb(6, 114, 236);
   border-radius: 0.5em;
-  font-size: 1.2rem;
+  font-size: 100%;
   width: 100%;
-  min-height: 10%;
+  min-height: 5%;
+  height: 5%;
   margin: 0;
   padding: 0.5em;
   box-shadow: 0em 0em #76e1ff;
@@ -133,7 +132,6 @@ body {
 }
 
 /* Calculator Buttons */
-
 .calc-row {
   display: flex;
   flex-grow: 1;
@@ -149,9 +147,8 @@ body {
   align-items: center;
   justify-content: center;
   align-items: center;
-  font-size: 1.5rem;
-  padding: 0.62em;
-  margin: 1px 2px;
+  font-size: 100%;
+  margin: 2px 2px;
   border-radius: 0.3em;
   border: 1px solid rgb(6, 114, 236);
   color: aliceblue;
@@ -163,9 +160,8 @@ body {
 /* Equal Button */
 #eq-btn {
   flex-basis: 50%;
-  font-size: 1.5rem;
-  padding: 0.62em;
-  margin: 1px 2px;
+  font-size: 100%;
+  margin: 2px 2px;
   border-radius: 0.3em;
   border: 1px solid rgb(6, 114, 236);
   color: aliceblue;
@@ -290,7 +286,7 @@ button:active {
   background-color: transparent;
   color: aliceblue;
   border: none;
-  font-size: 1.2em;
+  font-size: 120%;
   outline: none;
 }
 

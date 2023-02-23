@@ -162,6 +162,7 @@ JS
 * Tried using aspect-ratio to maintain a square shape for the cells, which worked but the growth rate exceeded the parent container.
 * Next, I tried using flex-basis for the cell size, which allowed for responsive growth in the primary axis, but the cells were not growing along the cross axis.
 * After researching and experimenting with different solutions, Discovered that setting align-self: stretch for the calculator rows resolved the issue and allowed for responsive growth in both the primary and cross axes. A simple solution in the end!
+* Additionally, to prevent the calculator buttons from growing outside of the parent container when the calculator is resized to its maximum width but minimum height, the padding was removed from the .calc-cell class. This allowed the buttons to resize proportionally to the container while still remaining within its bounds.
 
 ##### Resizing Challenge (Hardest Part of all)
 * Tried to resize the calculator by calculating the new width and height of the calculator based on the difference between the mouse position and the position of the handle clicked on.
