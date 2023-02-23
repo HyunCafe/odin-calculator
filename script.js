@@ -3,7 +3,6 @@ const buttons = document.querySelectorAll(".calc-cell, #eq-btn");
 const display = document.querySelector(".display");
 const smallerDisplay = document.querySelector(".small-display");
 const calculator = document.querySelector(".calc-grid");
-const topNav = document.querySelector(".top-nav");
 const historyBtn = document.querySelector("#history-btn");
 const minimizeBtn = document.querySelector("#minimize");
 const maximizeBtn = document.querySelector("#maximize");
@@ -282,13 +281,13 @@ function notNegative(value) {
   return Math.max(value, 0);
 }
 
-// Move calculator using TopNav bar hold
+// Move calculator using Top portion of calc
 calculator.addEventListener("mousedown", mousedown);
 function mousedown(e) {
   // Only move the calculator when the mouse is clicked once on the calculator's top section
   const calculatorTop = calculator.getBoundingClientRect().top;
   const calculatorHeight = calculator.getBoundingClientRect().height;
-  const topSectionHeight = calculatorHeight * 0.08; // change the percentage here
+  const topSectionHeight = calculatorHeight * 0.08;
   if (e.clientY < calculatorTop + topSectionHeight && e.detail === 1) {
     isMouseDown = true;
     const rect = calculator.getBoundingClientRect();
