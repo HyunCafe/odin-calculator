@@ -157,21 +157,10 @@ function equalButton() {
   if (!num2) num2 = lastNum2;
 }
 
-// Function to minimize
-function minimizeCalculator() {
-  // Get the current position of the calculator before adding the minimized class
-  let rect = calculator.getBoundingClientRect();
-  positionX = rect.x;
-  positionY = rect.y;
-  // Add the minimized class to the calculator
-  calculator.classList.add("minimized");
-}
-
 // Function to maximize
 function maximizeCalculator() {
   calculator.style.height = "100%";
   calculator.style.width = "100%";
-  maximizeBtn.style.transform = "rotate(0deg)";
 }
 
 // Function to close
@@ -185,12 +174,14 @@ function closeCalculator(element, delay) {
 }
 
 // Add Event Listener for the Top Nav Features
-minimizeBtn.addEventListener("click", minimizeCalculator);
-maximizeBtn.addEventListener("click", maximizeCalculator);
-closeBtn.addEventListener("click", () => {
-  closeCalculator(calculator, 500);
+minimizeBtn.addEventListener("click", () => {
+  calculator.style.display = "none";
 });
 
+maximizeBtn.addEventListener("click", maximizeCalculator);
+closeBtn.addEventListener("click", () => {
+  calculator.style.display = "none";
+});
 
 // Add event listener to calcLogo element to restore calculator
 document.querySelector(".calcLogo").addEventListener("click", function () {
@@ -320,13 +311,11 @@ document.addEventListener("DOMContentLoaded", () => {
   calculator.style.height = "600px";
 });
 
-
 // Bugs
 //Bug 3: set toFixed(4) decimal places for results, currently too many decimals
 // Bug 4: fix bug so maximize takes up 100 viewport, and pressing maximize again puts it at last size
 // bug 5: resizer not behaving how i want
 // bug 6: after calc is closed, clicking on calc logo should make calc reappear
-
 
 // TODO
 //Feat 1: Add history button with working history on new window --

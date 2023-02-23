@@ -73,7 +73,7 @@ body {
 }
 
 .top-nav-btn {
-  padding: 0 .2em;
+  padding: 0 0.2em;
   border: 1px solid rgb(6, 114, 236);
   text-shadow: 0.1rem 0.1rem 0.1rem #3f009e;
   -webkit-background-clip: text;
@@ -141,7 +141,7 @@ body {
 /* Calculator Buttons */
 
 .calc-row.top {
-  margin-top: -.8em;
+  margin-top: -0.8em;
 }
 
 .calc-row {
@@ -193,20 +193,6 @@ button:active {
   box-shadow: 0 0 0.2em 0.1em #76e1ff;
   text-shadow: 0.1rem 0.1rem 0.1rem #1870f5;
   transform: scale(1);
-}
-
-/* Styles for the minimized calculator */
-.calc-grid.minimized {
-  display: none;
-}
-
-/* Styles for the minimized calculator button */
-#minimize-btn.minimized {
-  transform: rotate(0);
-}
-
-#minimize-btn.minimized::after {
-  content: "Restore";
 }
 
 /* the Resize portion for corners of calc */

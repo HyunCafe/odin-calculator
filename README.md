@@ -204,3 +204,13 @@ JS
 * This ensured that the calculator would only be moved when the user clicks within the top 8% of the calculator, allowing for a larger draggable area without affecting other elements.
 * With these updates, the calculator is only moved when the user intends to move it and resized when the user intends to resize it.
 * Thoroughly tested the solution and verified that the resizing functionality for the calculator was working as intended.
+
+
+##### Second Minimize Attempt Bug
+* When resizing the calculator and then trying to minimize it, or when trying to minimize a second attempt, the calculator would not minimize correctly.
+* Checked the browser console for errors or warnings, but found none.
+* Used the Chrome DevTools to inspect the element and found that the minimized class was being added correctly when trying to minimize the calculator after resizing it.
+* Noted that the minimizeCalculator() function wasn't working correctly and appeared to be the source of the issue.
+* Updated the minimizeCalculator() function to save the current position of the calculator before adding the minimized class, and then restored the original size of the calculator when the minimize button is clicked again.
+* Tried using the minimize button again after resizing the calculator, but it still wouldn't work.
+* By adding an anonymous arrow function to the minimizeBtn event listener and removing the minimizeCalculator() function, the calculator now minimizes correctly even after resizing it.
