@@ -1,6 +1,5 @@
 // DOM Selectors
-const buttons = document.querySelectorAll(".calc-cell");
-
+const buttons = document.querySelectorAll(".calc-cell, #eq-btn");
 const display = document.querySelector(".display");
 const smallerDisplay = document.querySelector(".small-display");
 const calculator = document.querySelector(".calc-grid");
