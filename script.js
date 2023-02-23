@@ -6,6 +6,7 @@ const calculator = document.querySelector(".calc-grid");
 const historyBtn = document.querySelector("#history-btn");
 const minimizeBtn = document.querySelector("#minimize");
 const maximizeBtn = document.querySelector("#maximize");
+const isMaximized = calculator.classList.contains("maximized");
 const closeBtn = document.querySelector("#close");
 const resizers = document.querySelectorAll(".resizer");
 
@@ -21,8 +22,6 @@ let num1 = "";
 let num2 = "";
 let operator = "";
 let result = "";
-let positionX = 0;
-let positionY = 0;
 
 // Main Display Function
 function displayResult(value) {
@@ -157,12 +156,6 @@ function equalButton() {
   if (!num2) num2 = lastNum2;
 }
 
-// Function to maximize
-function maximizeCalculator() {
-  calculator.style.height = "100%";
-  calculator.style.width = "100%";
-}
-
 // Function to close
 function closeCalculator(element, delay) {
   let rect = calculator.getBoundingClientRect();
@@ -178,7 +171,23 @@ minimizeBtn.addEventListener("click", () => {
   calculator.style.display = "none";
 });
 
-maximizeBtn.addEventListener("click", maximizeCalculator);
+// Add event listener for maximize button
+maximizeBtn.addEventListener("click", () => {
+  if (!calculator.classList.contains("maximized")) {
+    calculator.style.height = "100%";
+    calculator.style.width = "100%";
+    calculator.style.left = 0;
+    calculator.style.top = 0;
+    calculator.classList.add("maximized");
+  } else {
+    calculator.style.height = "600px";
+    calculator.style.width = "350px";
+    calculator.style.left = "40%";
+    calculator.style.top = "13%";
+    calculator.classList.remove("maximized");
+  }
+});
+
 closeBtn.addEventListener("click", () => {
   calculator.style.display = "none";
 });
