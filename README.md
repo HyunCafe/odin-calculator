@@ -1,9 +1,13 @@
 # odin-calculator
-final project for fundamental portion of TOP
-Feat:
-HTML
-CSS
-JS
+My final project for the fundamentals portion of TOP is a fully-functional calculator built with pure HTML, CSS, and JavaScript, without the use of any frameworks. This project demonstrates my skills in building complex UI components using vanilla technologies, and showcases my ability to create an intuitive user experience with visual and interactive elements.
+
+What sets my calculator apart from other projects is the attention to detail and the focus on emulating the behavior of a real-world calculator as well as thorough documentation. The calculator features a large display for the current value and result, as well as a small display for the previous value and operator. It supports basic arithmetic operations like addition, subtraction, multiplication, and division, and also allows for chaining multiple operations. 
+
+In terms of user interface, the calculator features buttons with hover effects for visual feedback, and a top navigation bar with minimize, hide, and close buttons, allowing users to easily move, minimize, or close the calculator. The resizable feature works like the Windows calculator, allowing users to resize the calculator by dragging from any corner, while maintaining aspect ratio. The improved minimize and restore feature remembers the last position and size of the calculator, allowing for a seamless user experience.
+
+I also added some unique features to further enhance the experience, such as the Windows desktop simulation, complete with a search box and enhanced hover effects over icons. Additionally, the right-click menu shows up at the user's location, just like on the Windows desktop, rather than as a static menu, creating a more realistic experience.
+
+Overall, this project required a lot of hard work, creativity, and attention to detail. It showcases my ability to create high-quality, production-ready projects using only pure HTML, CSS, and JavaScript, without relying on external frameworks.
 
 ## Summary of Key Features:
 
