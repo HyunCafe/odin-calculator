@@ -10,7 +10,7 @@ const maximizeBtn = document.querySelector("#maximize-btn");
 const isMaximized = calculator.classList.contains("maximized");
 const closeBtn = document.querySelector("#close-btn");
 const resizers = document.querySelectorAll(".resizer");
-const menu = document.querySelector('.menu');
+const menu = document.querySelector(".menu");
 
 // Variables
 const minWidth = 300;
@@ -28,7 +28,7 @@ let originalWidth = calculator.offsetWidth;
 let originalHeight = calculator.offsetHeight;
 let originalLeft = calculator.offsetLeft;
 let originalTop = calculator.offsetTop;
-menu.style.display = 'none';
+menu.style.display = "none";
 
 // Main Display Function
 function displayResult(value) {
@@ -330,18 +330,18 @@ function mousedown(e) {
 }
 
 // Menu Right Click Simulator
-document.addEventListener('contextmenu', (event) => {
+document.addEventListener("contextmenu", (event) => {
   // Show the menu at the position of the right-click
-  menu.style.display = 'block';
-  menu.style.left = `${event.clientX}px`;
-  menu.style.top = `${event.clientY}px`;
-  document.addEventListener('click', hideMenu);
+  menu.style.display = "block";
+  menu.style.left = `${event.pageX}px`;
+  menu.style.top = `${event.pageY}px`;
+  document.addEventListener("click", hideMenu);
 });
 
 function hideMenu(event) {
   if (!menu.contains(event.target)) {
-    menu.style.display = 'none';
-    document.removeEventListener('click', hideMenu);
+    menu.style.display = "none";
+    document.removeEventListener("click", hideMenu);
   }
 }
 

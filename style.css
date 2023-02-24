@@ -229,6 +229,7 @@ button:active {
 
 /* Windows Desktop Right-Click Menu Simulator */
 .menu {
+  position: absolute;
   min-width: 14%;
   max-width: 14%;
   padding: 0.25rem 0;
