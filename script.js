@@ -13,6 +13,8 @@ const resizers = document.querySelectorAll(".resizer");
 const menu = document.querySelector(".menu");
 
 // Variables
+const menuWidth = menu.offsetWidth;
+const menuHeight = menu.offsetHeight;
 const minWidth = 300;
 const minHeight = 500;
 const maxWidth = 1200;
@@ -333,17 +335,24 @@ function mousedown(e) {
 document.addEventListener("contextmenu", (event) => {
   // Show the menu at the position of the right-click
   menu.style.display = "block";
-  menu.style.left = `${event.pageX}px`;
-  menu.style.top = `${event.pageY}px`;
+  menu.style.left = `${event.pageX - (menuWidth / 15)}px`;
+  menu.style.top = `${event.pageY - (menuHeight / 18)}px`;
   document.addEventListener("click", hideMenu);
 });
 
+
+// Hide Menu Function
 function hideMenu(event) {
   if (!menu.contains(event.target)) {
     menu.style.display = "none";
     document.removeEventListener("click", hideMenu);
   }
 }
+
+// Prevent Browser right click from showing so my feature can be seen
+window.addEventListener("contextmenu", function(e) {
+  e.preventDefault();
+}, false);
 
 // Default size on page load
 document.addEventListener("DOMContentLoaded", () => {

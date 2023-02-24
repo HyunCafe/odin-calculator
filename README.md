@@ -30,7 +30,7 @@ Overall, this project required a lot of hard work/persistance, creativity, and a
 * Resizing feature works like the Windows calculator, with the ability to resize the calculator by dragging from any corner and maintains aspect ratio.
 * Improved minimize and restore feature that remembers the last position and size of the calculator
 * Maximize button that expands the calculator to fill the screen and remembers the last position and size of the calculator
-* Right click menu that shows up where the user last clicked, like the Windows desktop right-click menu.
+* Right click menu that shows up where the user last clicked, like the Windows desktop right-click menu. (Disabled Browser Right Click so this feature can be seen)
 * Windows desktop simulation with a search box and enhanced hover effect over icons for aesthetics
 
 ------------
@@ -176,6 +176,7 @@ Overall, this project required a lot of hard work/persistance, creativity, and a
 * Fix maximize feature to store last location and size and restore on the 2nd click
 * Add feature for right click menu to show on user location, but encounter issues
 * Fix right click menu issue simply by changing menu css to absolute position
+* Fix: Adjust right-click menu positioning to be centered on click location and disabled browser right-click menu
 
 
 ## Challenges:
