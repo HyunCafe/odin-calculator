@@ -8,6 +8,7 @@
   font-family: "Oswald", sans-serif;
   font-size: 1em;
   font-weight: 800;
+  user-select: none;
 }
 
 /* Body styles */

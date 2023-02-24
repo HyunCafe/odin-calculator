@@ -179,6 +179,7 @@ Overall, this project required a lot of hard work/persistance, creativity, and a
 * Add feature for right click menu to show on user location, but encounter issues
 * Fix right click menu issue simply by changing menu css to absolute position
 * Fix: Adjust right-click menu positioning to be centered on click location and disabled browser right-click menu
+* Fix: Made it so user can't highlight text which ruins the immersive experience
 
 
 ## Challenges:
