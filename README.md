@@ -7,7 +7,7 @@ In terms of user interface, the calculator features buttons with hover effects f
 
 I also added some unique features to further enhance the experience, such as the Windows desktop simulation, complete with a search box and enhanced hover effects over icons. Additionally, the right-click menu shows up at the user's location, just like on the Windows desktop, rather than as a static menu, creating a more realistic experience.
 
-Overall, this project required a lot of hard work, creativity, and attention to detail. It showcases my ability to create high-quality, production-ready projects using only pure HTML, CSS, and JavaScript, without relying on external frameworks.
+Overall, this project required a lot of hard work/persistance, creativity, and attention to detail. It showcases my ability to create high-quality, production-ready projects using only pure HTML, CSS, and JavaScript, without relying on external frameworks.
 
 ## Summary of Key Features:
 
