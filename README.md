@@ -159,6 +159,18 @@ JS
 ------------
 
 #### Feb 23, 2023:
+* Add fake windows right click settings
+* Add CSS styling and material icon for the right click sim
+* Add spacer separator for aesthetics to better mimic windows right click menu
+* Refactor code with BEM naming conventions
+* Format readme for easier reading
+* Refactor bulletins format to story form, add and resolve a challenge
+* Fix issue with maximize button that defaults to domload calc position on the 2nd click
+* Fix issue with calc not minimizing after the 2nd attempt
+* Fix maximize feature to store last location and size and restore on the 2nd click
+* Add feature for right click menu to show on user location, but encounter issues
+* Fix right click menu issue simply by changing menu css to absolute position
+
 
 ## Challenges:
 
