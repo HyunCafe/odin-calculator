@@ -24,7 +24,9 @@ JS
 * Top navigation bar with minimize, hide, and close buttons
 * Ability to move the calculator around using the top navigation bar.
 * Resizing feature works like the Windows calculator, with the ability to resize the calculator by dragging from any corner and maintains aspect ratio.
-* Improved minimize and restore feature that remembers the last position of the calculator
+* Improved minimize and restore feature that remembers the last position and size of the calculator
+* Maximize button that expands the calculator to fill the screen and remembers the last position and size of the calculator
+* Right click menu that shows up where the user last clicked, like the Windows desktop right-click menu.
 * Windows desktop simulation with a search box and enhanced hover effect over icons for aesthetics
 
 ------------
