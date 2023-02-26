@@ -311,7 +311,7 @@ function mousedown(e) {
     const rect = calculator.getBoundingClientRect();
     const overflow = {
       x: e.clientX - rect.x,
-      y: e.clientY - rect.y,
+      y: e.clientY - rect.y
     };
     document.addEventListener("mousemove", mousemove);
     function mousemove(e) {
@@ -335,11 +335,10 @@ function mousedown(e) {
 document.addEventListener("contextmenu", (event) => {
   // Show the menu at the position of the right-click
   menu.style.display = "block";
-  menu.style.left = `${event.pageX - (menuWidth / 15)}px`;
-  menu.style.top = `${event.pageY - (menuHeight / 18)}px`;
+  menu.style.left = `${event.pageX - menuWidth / 15}px`;
+  menu.style.top = `${event.pageY - menuHeight / 18}px`;
   document.addEventListener("click", hideMenu);
 });
-
 
 // Hide Menu Function
 function hideMenu(event) {
@@ -350,33 +349,42 @@ function hideMenu(event) {
 }
 
 // Prevent Browser right click from showing so my feature can be seen
-window.addEventListener("contextmenu", function(e) {
-  e.preventDefault();
-}, false);
-
+window.addEventListener(
+  "contextmenu",
+  function (e) {
+    e.preventDefault();
+  },
+  false
+);
 
 // Get Time and Date for footer
 function updateLocalDateTime() {
   const now = new Date();
   // Format the date and update the DOM
-  const dateElement = document.querySelector('.localDate');
-  const dateOptions = { year: 'numeric', month: '2-digit', day: '2-digit' };
-  const formattedDate = now.toLocaleDateString('en-US', dateOptions).replace(/\//g, '/');
+  const dateElement = document.querySelector(".localDate");
+  const dateOptions = { year: "numeric", month: "2-digit", day: "2-digit" };
+  const formattedDate = now
+    .toLocaleDateString("en-US", dateOptions)
+    .replace(/\//g, "/");
   dateElement.textContent = formattedDate;
   // Format the time and update the DOM
-  const timeElement = document.querySelector('.localTime');
-  const timeOptions = { hour: 'numeric', minute: '2-digit' };
-  const formattedTime = now.toLocaleTimeString('en-US', timeOptions).replace(/\s+/g, '').toUpperCase();
+  const timeElement = document.querySelector(".localTime");
+  const timeOptions = { hour: "numeric", minute: "2-digit" };
+  const formattedTime = now
+    .toLocaleTimeString("en-US", timeOptions)
+    .replace(/\s+/g, "")
+    .toUpperCase();
   timeElement.textContent = formattedTime;
 }
 updateLocalDateTime();
 setInterval(updateLocalDateTime, 30000);
-
-// Default size on page load
-document.addEventListener("DOMContentLoaded", () => {
-  calculator.style.width = "350px";
-  calculator.style.height = "600px";
-});
++(
+  // Default size on page load
+  document.addEventListener("DOMContentLoaded", () => {
+    calculator.style.width = "350px";
+    calculator.style.height = "6+00px";
+  })
+);
 
 // Bugs
 //Bug 3: set toFixed(4) decimal places for results, currently too many decimals
