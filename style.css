@@ -28,16 +28,28 @@ body {
   overflow: hidden;
 }
 
-/* GitHub logo */
-.github {
-  position: fixed;
+/* Desktop Icons */
+.nav-icons-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0.5em;
+  left: 0.5em;
+}
+
+.nav-link {
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
-  height: 40px;
-  top: 5em;
-  left: 5em;
-  font-size: 110%;
+  margin: 0.8em;
+  background-color: transparent;
+  border: none;
+  color: aliceblue;
+}
+
+.nav-icon-img {
+  height: 42px;
+  width: 42px;
 }
 
 /* Calculator grid */
