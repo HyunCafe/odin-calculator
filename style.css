@@ -28,6 +28,32 @@ body {
   overflow: hidden;
 }
 
+/* Start Menu Overlay */
+.start-window {
+  width: 25em;
+  height: 35em;
+  position: fixed;
+  left: 0;
+  bottom: 40px;
+  background-color: rgba(21, 21, 21, 0.9);
+  transition: all 0.1s ease-in-out;
+}
+
+.start-window__column {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.start-window__column.column-one {
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.hidden {
+  /* display: none; */
+}
+
 /* Desktop Icons */
 .nav-icons-container {
   display: flex;

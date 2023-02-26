@@ -11,6 +11,7 @@ const isMaximized = calculator.classList.contains("maximized");
 const closeBtn = document.querySelector("#close-btn");
 const resizers = document.querySelectorAll(".resizer");
 const menu = document.querySelector(".menu");
+const windLogo = document.querySelector(".windLogo");
 
 // Variables
 const menuWidth = menu.offsetWidth;
@@ -358,6 +359,15 @@ window.addEventListener(
   },
   false
 );
+
+// Start Menu Hide and Show
+function showLogo() {
+  windLogo.classList.remove("hidden");
+}
+
+function hideLogo() {
+  windLogo.classList.add("hidden");
+}
 
 // Get Time and Date for footer
 function updateLocalDateTime() {
