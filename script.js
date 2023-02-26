@@ -1,3 +1,5 @@
+'use strict';
+
 // DOM Selectors
 const body = document.body;
 const buttons = document.querySelectorAll(".calculator-button, #eq-btn");
