@@ -292,6 +292,23 @@ button:active {
 /* Bottom Navbar Buttons */
 .bottom-nav-bar {
   display: flex;
+  gap: 0.5em;
+  background-color: transparent;
+  border: none;
+}
+
+.bottom-nav-bar-icon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5em;
+  background-color: transparent;
+  border: none;
+  color: aliceblue;
+}
+
+.bottom-nav-bar-time {
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
