@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 // DOM Selectors
 const body = document.body;
@@ -366,9 +366,10 @@ window.addEventListener(
 const windOverlay = document.querySelector(".start-window");
 
 function toggleOverlay() {
-  windOverlay.style.display = windOverlay.style.display === "block" ? "none" : "block";
+  windOverlay.style.display =
+    windOverlay.style.display === "block" ? "none" : "block";
 }
-document.addEventListener("click", toggleOverlay);
+windLogo.addEventListener("click", toggleOverlay);
 
 // Get Time and Date for footer
 function updateLocalDateTime() {
