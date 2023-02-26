@@ -363,13 +363,12 @@ window.addEventListener(
 );
 
 // Start Menu Hide and Show
-function showLogo() {
-  windLogo.classList.remove("hidden");
-}
+const windOverlay = document.querySelector(".start-window");
 
-function hideLogo() {
-  windLogo.classList.add("hidden");
+function toggleOverlay() {
+  windOverlay.style.display = windOverlay.style.display === "block" ? "none" : "block";
 }
+document.addEventListener("click", toggleOverlay);
 
 // Get Time and Date for footer
 function updateLocalDateTime() {
