@@ -354,6 +354,24 @@ window.addEventListener("contextmenu", function(e) {
   e.preventDefault();
 }, false);
 
+
+// Get Time and Date for footer
+function updateLocalDateTime() {
+  const now = new Date();
+  // Format the date and update the DOM
+  const dateElement = document.querySelector('.localDate');
+  const dateOptions = { year: 'numeric', month: '2-digit', day: '2-digit' };
+  const formattedDate = now.toLocaleDateString('en-US', dateOptions).replace(/\//g, '/');
+  dateElement.textContent = formattedDate;
+  // Format the time and update the DOM
+  const timeElement = document.querySelector('.localTime');
+  const timeOptions = { hour: 'numeric', minute: '2-digit' };
+  const formattedTime = now.toLocaleTimeString('en-US', timeOptions).replace(/\s+/g, '').toUpperCase();
+  timeElement.textContent = formattedTime;
+}
+updateLocalDateTime();
+setInterval(updateLocalDateTime, 30000);
+
 // Default size on page load
 document.addEventListener("DOMContentLoaded", () => {
   calculator.style.width = "350px";
