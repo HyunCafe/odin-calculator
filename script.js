@@ -210,10 +210,12 @@ closeBtn.addEventListener("click", () => {
 });
 
 // Add event listener to calcLogo element to restore calculator
-document.querySelector(".calcLogo").addEventListener("click", function () {
-  calculator.classList.remove("minimized");
-  calculator.classList.remove("closed");
-  calculator.style.display = "flex";
+document.querySelectorAll(".calculator-link, .calcLogo").forEach((element) => {
+  element.addEventListener("click", () => {
+    calculator.classList.remove("minimized");
+    calculator.classList.remove("closed");
+    calculator.style.display = "flex";
+  });
 });
 
 // Resize Corner Logic
@@ -378,13 +380,12 @@ function updateLocalDateTime() {
 }
 updateLocalDateTime();
 setInterval(updateLocalDateTime, 30000);
-+(
-  // Default size on page load
-  document.addEventListener("DOMContentLoaded", () => {
-    calculator.style.width = "350px";
-    calculator.style.height = "6+00px";
-  })
-);
+
+// Default size on page load
+document.addEventListener("DOMContentLoaded", () => {
+  calculator.style.width = "350px";
+  calculator.style.height = "6+00px";
+});
 
 // Bugs
 //Bug 3: set toFixed(4) decimal places for results, currently too many decimals
