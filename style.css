@@ -365,7 +365,7 @@ button:active {
 
 /* Bottom Navbar */
 .bottomNavBar {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -390,7 +390,6 @@ button:active {
   display: flex;
   gap: 0.5em;
   background-color: transparent;
-  border: none;
 }
 
 .bottom-nav-bar-icon {
@@ -435,7 +434,8 @@ button:active {
   color: rgba(240, 248, 255, 0.8);
 }
 
-.calcLogo {
-  position: relative;
-  left: 0;
+.calc {
+  position: fixed;
+  left: 280px;
+  bottom: 2px;
 }
