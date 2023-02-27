@@ -397,7 +397,7 @@ setInterval(updateLocalDateTime, 30000);
 // Default size on page load
 document.addEventListener("DOMContentLoaded", () => {
   calculator.style.width = "350px";
-  calculator.style.height = "6+00px";
+  calculator.style.height = "600px";
 });
 
 // Bugs
