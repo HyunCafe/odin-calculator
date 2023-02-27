@@ -435,6 +435,7 @@ button:active {
 }
 
 .calc {
+  border:none;
   position: fixed;
   left: 280px;
   bottom: 2px;
