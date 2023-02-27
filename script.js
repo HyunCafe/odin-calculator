@@ -33,6 +33,7 @@ let originalWidth = calculator.offsetWidth;
 let originalHeight = calculator.offsetHeight;
 let originalLeft = calculator.offsetLeft;
 let originalTop = calculator.offsetTop;
+let isMouseDown = false;
 menu.style.display = "none";
 
 // Main Display Function
