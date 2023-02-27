@@ -434,19 +434,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Bugs
 //Bug 3: set toFixed(4) decimal places for results, currently too many decimals
+//Bug main : Make it responsive for mobile as well
 
 // TODO
-//Feat 1: Add history button with working history on new window --
-// to fix this issue I think i will just add the history button outside of the display
-// but for aesthetics I need to create a top bar, I will copy the windows default
-// Calculator layout for this
+
 //Feat 2: cute gif/animation play around the top borders of the calculator
 //Feat 3: Re-add feature of:
 // Check if the display text is equal to infinity
 // if num > 20 Convert the result to exponential notation
 // If the length of the result is less than or equal to 20
 // If length >20 Display last 15 chars of the result preceded by "..."
-// Feat: Add Desktop Icon for my Github Profile
-// Feat: Add Desktop Icon for Calculator
 
-// Feat:
