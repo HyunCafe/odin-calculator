@@ -190,6 +190,24 @@ function maximizeCalculator() {
   }
 }
 
+// History Function
+
+// open a new window the size of the current calculator on history button press
+// Stores X amount of the last calculations done that produces a value from chaining equations or operators
+//  have it scrollable and take up 3/4th of the calculator body
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Function to close
 function closeCalculator(element, delay) {
   let rect = calculator.getBoundingClientRect();
