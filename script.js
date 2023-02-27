@@ -7,6 +7,8 @@ const display = document.querySelector(".display");
 const smallerDisplay = document.querySelector(".small-display");
 const calculator = document.querySelector(".calculator");
 const historyBtn = document.querySelector("#history-btn");
+const historyOverlay = document.querySelector(".history-window");
+const historyList = document.querySelector(".history-list");
 const minimizeBtn = document.querySelector("#minimize-btn");
 const maximizeBtn = document.querySelector("#maximize-btn");
 const isMaximized = calculator.classList.contains("maximized");
@@ -22,6 +24,7 @@ const minWidth = 300;
 const minHeight = 500;
 const maxWidth = 1200;
 const maxHeight = 1000;
+let history = [];
 let smallDisplayText = "";
 let previousValue = null;
 let currentValue = null;
@@ -168,6 +171,29 @@ function equalButton() {
   // Ability to recalculate last operation with pressing = alone
   if (!num2) num2 = lastNum2;
 }
+
+// History Function
+
+// open a new window the size of the current calculator on history button press
+// Stores X amount of the last calculations done that produces a value from chaining equations or operators
+//  have it scrollable and take up 3/4th of the calculator body
+// have the calculator dark by 30% when history button is pressed as well
+
+function addToHistory(result) {
+  historyList;
+}
+
+// Event listener for the history button
+historyBtn.addEventListener("click", () => {
+  toggleHistoryOverlay();
+});
+
+function toggleHistoryOverlay() {
+  historyOverlay.style.display =
+    historyOverlay.style.display === "block" ? "none" : "block";
+}
+
+// Function for Maximize
 function maximizeCalculator() {
   calculator.classList.toggle("maximized");
   if (calculator.classList.contains("maximized")) {
@@ -189,24 +215,6 @@ function maximizeCalculator() {
     calculator.style.top = originalTop + "px";
   }
 }
-
-// History Function
-
-// open a new window the size of the current calculator on history button press
-// Stores X amount of the last calculations done that produces a value from chaining equations or operators
-//  have it scrollable and take up 3/4th of the calculator body
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Function to close
 function closeCalculator(element, delay) {
@@ -384,11 +392,11 @@ window.addEventListener(
 // Start Menu Hide and Show
 const windOverlay = document.querySelector(".start-window");
 
-function toggleOverlay() {
+function toggleWindowsOverlay() {
   windOverlay.style.display =
     windOverlay.style.display === "block" ? "none" : "block";
 }
-windLogo.addEventListener("click", toggleOverlay);
+windLogo.addEventListener("click", toggleWindowsOverlay);
 
 // Get Time and Date for footer
 function updateLocalDateTime() {
