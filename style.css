@@ -41,16 +41,42 @@ body {
 }
 
 .start-window__column {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
 }
 
 .start-window__column.column-one {
-  justify-content: flex-end;
+  bottom: 2%;
+  left: 2%;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-start;
   align-items: center;
 }
 
+.button {
+  margin: 0.5em;
+  color: white;
+  background-color: transparent;
+  border: none;
+}
+
+.button:hover {
+  transform: scale(1.3);
+}
+
+.start-window__column.column-two {
+  left: 50%;
+  right: 0;
+  overflow: auto;
+  padding: 10px;
+}
+
+.icons-start {
+  vertical-align: -5px;
+  margin-top: 1em;
+}
 
 /* Desktop Icons */
 .nav-icons-container {
