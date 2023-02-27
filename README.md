@@ -24,6 +24,7 @@ Overall, this project required a lot of hard work/persistance, creativity, and a
 * Equal button that performs the last calculation when pressed repeatedly
 * Delete button to remove the last input
 * Clear button to reset the calculator
+* History function that shows the history of arithmetic calculations in an overlay, similar to the Windows calculator.
 
 ### User Interface:
 * Buttons with hover effect for visual feedback
@@ -34,6 +35,9 @@ Overall, this project required a lot of hard work/persistance, creativity, and a
 * Maximize button that expands the calculator to fill the screen and remembers the last position and size of the calculator
 * Right click menu that shows up where the user last clicked, like the Windows desktop right-click menu. (Disabled Browser Right Click so this feature can be seen)
 * Windows desktop simulation with a search box and enhanced hover effect over icons for aesthetics
+* Desktop icon simulation look, with a calculator desktop icon that restores the calculator if it was minimized or closed
+* Start date and start time shown in real time like the desktop in Windows
+* Window logo showing a simulated overlay like the Windows start menu does
 
 ------------
 ## Project Timeline
@@ -181,6 +185,35 @@ Overall, this project required a lot of hard work/persistance, creativity, and a
 * Fix: Adjust right-click menu positioning to be centered on click location and disabled browser right-click menu
 * Fix: Made it so user can't highlight text which ruins the immersive experience
 
+#### Feb 24, 2023:
+* Update README.md with latest changes
+
+#### Feb 26, 2023:
+
+* Refactor: Remove unused letter in code
+* Fix: Add definition for 'ismousedown' variable required in strict mode
+* Validator: Run and fix issues found by HTML validator
+* Add: Implement material icons and style fake overlay for start menu
+* Fix: Correct toggle behavior for overlay in start menu
+* Fix: Fix toggle behavior for overlay in start menu
+* Add: Add strict mode and implement overlay function for start menu
+* Style: Work on overlay style for start menu
+* Add: Implement HTML layout for start menu popup
+* Add: Add desktop icon for calculator and implement restore feature
+* Refactor: Remove unnecessary code
+* Add: Format code with prettier and add desktop icons
+* Add: Implement wifi and speaker icons and style them
+* Add: Implement JS to get real time and date
+
+####  Feb 27, 2023:
+* Feat: Work on implementing history feature, including writing out pseudo code
+* Add: Implement styling for history overlay and position relative to calculator
+* Add: Implement history overlay toggle functionality and rename 'windowoverlay' function
+* Feat: Finish implementing history feature, making it similar to Windows desktop calculator
+* Fix: Correct CSS selector to target calculator button for Windows 10 style positioning
+* Add: Add GIF to README.md to demonstrate functionality
+* Remove: Remove unused images
+* Style: removed border from calc logo
 
 ## Challenges:
 
