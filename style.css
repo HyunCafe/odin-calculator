@@ -390,6 +390,7 @@ button:active {
   display: flex;
   gap: 0.5em;
   background-color: transparent;
+  border: none;
 }
 
 .bottom-nav-bar-icon {
@@ -435,7 +436,6 @@ button:active {
 }
 
 .calc {
-  border:none;
   position: fixed;
   left: 280px;
   bottom: 2px;
