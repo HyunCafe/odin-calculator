@@ -125,6 +125,10 @@ function calculate() {
   smallDisplay(smallDisplayText);
   num1 = result;
   num2 = "";
+  if (result) {
+    history.push(`${n1} ${operator} ${n2} = ${result}`);
+    addToHistory(`${n1} ${operator} ${n2} = ${result}`);
+  }
   return result;
 }
 
@@ -179,8 +183,10 @@ function equalButton() {
 //  have it scrollable and take up 3/4th of the calculator body
 // have the calculator dark by 30% when history button is pressed as well
 
-function addToHistory(result) {
-  historyList;
+function addToHistory(entry) {
+  const listItem = document.createElement("li");
+  listItem.textContent = entry;
+  historyList.appendChild(listItem);
 }
 
 // Event listener for the history button
@@ -442,5 +448,5 @@ document.addEventListener("DOMContentLoaded", () => {
 // If length >20 Display last 15 chars of the result preceded by "..."
 // Feat: Add Desktop Icon for my Github Profile
 // Feat: Add Desktop Icon for Calculator
-// Feat: Add Fake menu for windows logo press
+
 // Feat:
