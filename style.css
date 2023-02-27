@@ -78,6 +78,24 @@ body {
   margin-top: 1em;
 }
 
+/* Start Menu Overlay */
+.start-window {
+  width: 25em;
+  height: 35em;
+  position: fixed;
+  left: 0;
+  bottom: 40px;
+  background-color: rgba(21, 21, 21, 0.9);
+  transition: all 0.1s ease-in-out;
+  display: none;
+}
+
+.start-window__column {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
 /* Desktop Icons */
 .nav-icons-container {
   display: flex;
@@ -104,6 +122,7 @@ body {
 
 /* Calculator grid */
 .calculator {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   background-color: transparent;
@@ -118,6 +137,18 @@ body {
   box-shadow: 1px 1px 17px 1px rgb(255, 255, 255, 0.7);
   backdrop-filter: blur(14px) brightness(35%);
   transition: display 0.2s ease-out;
+}
+
+/* History Button Overlay */
+.history-window {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70%;
+  overflow: auto;
+  background-color: rgba(21, 21, 21, 0.9);
+  transition: all 0.1s ease-in-out;
+  /* display: none; */
 }
 
 /* Top Calc Nav Bar */
@@ -202,7 +233,6 @@ body {
 }
 
 /* Calculator Buttons */
-
 .calculator-row.top {
   margin-top: -0.8em;
 }

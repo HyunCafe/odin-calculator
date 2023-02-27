@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Odin calc Project</title>
-    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"/>
+      rel="stylesheet"
+    />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
-      rel="stylesheet"/>
+      rel="stylesheet"
+    />
   </head>
 
   <body>
@@ -23,7 +25,8 @@
           <img
             class="nav-icon-img"
             src="assets/githubIcon.png"
-            alt="GitHub Logo"/>
+            alt="GitHub Logo"
+          />
         </a>
       </button>
       <button class="nav-link mycomputer-link" type="button">
@@ -32,25 +35,27 @@
           class="nav-icon-img"
           src="assets/mycomputer.png"
           alt="My Computer Logo"
-       />
+        />
       </button>
       <button class="nav-link recyclebin-link" type="button">
         <span class="nav-link-text">Recycle Bin</span>
-        <img class="nav-icon-img" src="assets/bin.png" alt="Recycle Bin Logo"/>
+        <img class="nav-icon-img" src="assets/bin.png" alt="Recycle Bin Logo" />
       </button>
       <button class="nav-link chrome-link" type="button">
         <span class="nav-link-text">Google Chrome</span>
         <img
           class="nav-icon-img"
           src="assets/chrome.png"
-          alt="Google Chrome Logo"/>
+          alt="Google Chrome Logo"
+        />
       </button>
       <button class="nav-link calculator-link" type="button">
         <span class="nav-link-text">Calculator</span>
         <img
           class="nav-icon-img"
           src="assets/calculator.png"
-          alt="Calculator Logo"/>
+          alt="Calculator Logo"
+        />
       </button>
     </div>
 
@@ -58,16 +63,22 @@
     <div class="start-window hidden" id="start-window">
       <div class="start-window__column column-one">
         <div class="start-window__icon icon-power">
-          <button class="button"><i class="material-icons">power_settings_new</i></button>
+          <button class="button">
+            <i class="material-icons">power_settings_new</i>
+          </button>
         </div>
         <div class="start-window__icon icon-settings">
           <button class="button"><i class="material-icons">settings</i></button>
         </div>
         <div class="start-window__icon icon-pictures">
-          <button class="button"><i class="material-icons">photo_library</i></button>
+          <button class="button">
+            <i class="material-icons">photo_library</i>
+          </button>
         </div>
         <div class="start-window__icon icon-documents">
-          <button class="button"><i class="material-icons">description</i></button>
+          <button class="button">
+            <i class="material-icons">description</i>
+          </button>
         </div>
         <div class="start-window__icon icon-user">
           <button class="button"><i class="material-icons">person</i></button>
@@ -108,9 +119,10 @@
               <span class="start-window__item-title">Google</span>
             </div>
           </div>
-          </div>
         </div>
       </div>
+    </div>
+
     <!-- Main Calculator Section -->
     <div class="calculator">
       <div class="resizer ne"></div>
@@ -167,6 +179,10 @@
           =
         </button>
       </div>
+      <!-- History Display Section -->
+      <div class="history-window hidden">
+        <ul class="history-list"></ul>
+      </div>
     </div>
 
     <!-- Right Click Desktop Menu Section -->
@@ -211,16 +227,18 @@
           <img
             src="assets/windowsLogo.png"
             class="windLogo"
-            alt="Windows Icon"/>
+            alt="Windows Icon"
+          />
         </button>
         <div class="search-box">
-          <input type="text" placeholder="Type here to search"/>
+          <input type="text" placeholder="Type here to search" />
         </div>
         <button class="bottom-nav-bar">
           <img
             src="assets/calculator.png"
             class="calcLogo"
-            alt="Calculator Icon"/>
+            alt="Calculator Icon"
+          />
         </button>
         <div class="bottom-nav-bar">
           <button class="bottom-nav-bar-icon">
@@ -230,8 +248,8 @@
             <i class="material-icons">wifi</i>
           </button>
           <button class="bottom-nav-bar-time">
-            <span class="localTime"></span> 
-            <span class="localDate"></span> 
+            <span class="localTime"></span>
+            <span class="localDate"></span>
           </button>
         </div>
       </div>
