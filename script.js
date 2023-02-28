@@ -119,6 +119,7 @@ function calculate() {
     default:
       result = "";
   }
+
   // Displays the result, updates the smaller display, sets result as new num1 and resets num2.
   displayResult(result);
   smallDisplayText = `${n1} ${operator} ${n2} =`;
@@ -157,11 +158,6 @@ buttons.forEach((button) => {
 function operatorButtons(e) {
   // Reuse the last operator to keep recalculating the result for repeat operators press.
   if (previousValue && operator && num2) {
-    if (equalsPressed) {
-      num1 = result;
-      num2 = null;
-      equalsPressed = false;
-    }
     result = calculate();
     currentValue = result;
     operator = e.target.innerText;
@@ -175,15 +171,15 @@ function operatorButtons(e) {
 
 // Function for equal button press
 function equalButton() {
-  let lastNum2 = num2;
-  result = calculate();
-  // Calculate the result and display it
-  result = calculate();
-  display.textContent = result;
-  smallDisplay(`${previousValue} ${operator} ${num2} =`);
+  if (num2 === "") {
+    // If there is no second operand, the result should be the first operand
+    result = +num1;
+  } else {
+    result = calculate();
+  }
+  num1 = result;
+  num2 = "";
   equalsPressed = true;
-  // Ability to recalculate last operation with pressing = alone
-  if (!num2) num2 = lastNum2;
 }
 
 // History Function
@@ -373,7 +369,6 @@ function mousedown(e) {
   }
 }
 
-// Menu Right Click Simulator
 document.addEventListener("contextmenu", (event) => {
   // Show the menu at the position of the right-click
   menu.style.display = "block";
