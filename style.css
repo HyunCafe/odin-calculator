@@ -440,3 +440,57 @@ button:active {
   left: 280px;
   bottom: 2px;
 }
+
+/* Responsive for Mobile */
+
+@media only screen and (max-width: 500px) {
+  /* For mobile screens with width up to 500px */
+  * {
+    font-size: 1em;
+  }
+  body {
+    background-image: url("assets/bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-width: initial;
+  }
+
+  .start-window {
+    width: 17em;
+    height: 32em;
+    position: fixed;
+    left: 0;
+    bottom: 40px;
+  }
+
+  .nav-icons-container {
+    font-size: 0.4em;
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  .bottomNavBar {
+    height: 3em;
+  }
+
+  .bottom-nav-bar-icon,
+  .bottom-nav-bar-time {
+    font-size: 1rem;
+  }
+
+  .bottomNavBar .windLogo,
+  .bottomNavBar .calcLogo {
+    height: 28px;
+  }
+
+  .calcLogo {
+    display: none;
+  }
+
+  .search-box input[type="text"] {
+    font-size: 1rem;
+  }
+}
