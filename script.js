@@ -65,10 +65,19 @@ function clearDisplay() {
 
 // Function to Delete Last Input on Main Display
 function deleteButton() {
-  display.textContent = display.textContent.slice(
-    0,
-    display.textContent.length - 1
-  );
+  if (operator) {
+    // If an operator has been selected, remove the last digit from num2
+    num2 = num2.toString().slice(0, -1);
+    displayResult(`${num1} ${operator} ${num2}`);
+  } else {
+    // If no operator has been selected, remove the last digit from num1
+    num1 = num1.toString().slice(0, -1);
+    // If num1 is now empty, set it to 0
+    if (num1 === "") {
+      num1 = "0";
+    }
+    displayResult(num1);
+  }
 }
 
 // Handle Input of Operand (Number) Values
