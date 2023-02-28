@@ -464,7 +464,24 @@ button:active {
   }
 
   .nav-icons-container {
-    font-size: 0.4em;
+    font-size: 0.7em;
+  }
+  .menu {
+    position: absolute;
+    min-width: 44%;
+    max-width: 44%;
+    padding: 0.15rem 0;
+    margin: 0.2rem;
+  }
+
+  .menu-item-title {
+    font-size: 0.8rem;
+  }
+
+  .menu-item--spacer {
+    border-bottom: 1px solid rgb(230, 225, 225);
+    margin: 0;
+    padding: 0;
   }
 
   .footer {
