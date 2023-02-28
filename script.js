@@ -462,6 +462,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Bugs
 //Bug 3: set toFixed(4) decimal places for results, currently too many decimals
 //Bug main : Make it responsive for mobile as well
+// bug 4: fix chaining operators to show up in small window like windows calc
 
 // TODO
 
