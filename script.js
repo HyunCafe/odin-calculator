@@ -32,6 +32,7 @@ let num1 = "";
 let num2 = "";
 let operator = "";
 let result = "";
+let equalsPressed = false;
 let originalWidth = calculator.offsetWidth;
 let originalHeight = calculator.offsetHeight;
 let originalLeft = calculator.offsetLeft;
@@ -157,6 +158,11 @@ buttons.forEach((button) => {
 function operatorButtons(e) {
   // Reuse the last operator to keep recalculating the result for repeat operators press.
   if (previousValue && operator && num2) {
+    if (equalsPressed) {
+      num1 = result;
+      num2 = null;
+      equalsPressed = false;
+    }
     result = calculate();
     currentValue = result;
     operator = e.target.innerText;
@@ -172,17 +178,16 @@ function operatorButtons(e) {
 function equalButton() {
   let lastNum2 = num2;
   result = calculate();
+  // Calculate the result and display it
+  result = calculate();
+  display.textContent = result;
+  smallDisplay(`${previousValue} ${operator} ${num2} =`);
+  equalsPressed = true;
   // Ability to recalculate last operation with pressing = alone
   if (!num2) num2 = lastNum2;
 }
 
 // History Function
-
-// open a new window the size of the current calculator on history button press
-// Stores X amount of the last calculations done that produces a value from chaining equations or operators
-//  have it scrollable and take up 3/4th of the calculator body
-// have the calculator dark by 30% when history button is pressed as well
-
 function addToHistory(entry) {
   const listItem = document.createElement("li");
   listItem.textContent = entry;
@@ -445,8 +450,5 @@ document.addEventListener("DOMContentLoaded", () => {
 // If the length of the result is less than or equal to 20
 // If length >20 Display last 15 chars of the result preceded by "..."
 
-
 // Mentor Reviews
 // Issue #1 The "Del" button does not work properly, as it only changes the display without changing the actual input.
-
-// Issue #2 When entering an equation such as "2*2=", the correct answer is displayed (4). However, if the user then types "2=", the display shows 16 instead of 8. This may indicate that some of the logic intended for the "=" button is being repeated for other operators such as "".
