@@ -445,3 +445,8 @@ document.addEventListener("DOMContentLoaded", () => {
 // If the length of the result is less than or equal to 20
 // If length >20 Display last 15 chars of the result preceded by "..."
 
+
+// Mentor Reviews
+// Issue #1 The "Del" button does not work properly, as it only changes the display without changing the actual input.
+
+// Issue #2 When entering an equation such as "2*2=", the correct answer is displayed (4). However, if the user then types "2=", the display shows 16 instead of 8. This may indicate that some of the logic intended for the "=" button is being repeated for other operators such as "".
