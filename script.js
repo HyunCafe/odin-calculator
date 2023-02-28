@@ -92,7 +92,6 @@ function operands(e) {
 function operators(e) {
   operator = e.target.textContent;
   num1 = result || num1;
-  num2 = "";
   displayResult(`${num1} ${operator}`);
   smallDisplay(`${operator}`);
 }
