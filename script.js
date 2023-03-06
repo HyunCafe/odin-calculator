@@ -137,8 +137,10 @@ function calculate() {
   num1 = result;
   num2 = "";
   if (result) {
-    history.push(`${n1} ${operator} ${n2} = ${result}`);
-    addToHistory(`${n1} ${operator} ${n2} = ${result}`);
+    let resultEquation = `${n1} ${operator} ${n2} =`;
+    let resultAnswer = `${result}`;
+    history.push(`${resultEquation} ${resultAnswer}`);
+    addToHistory(`${resultEquation} ${resultAnswer}`);
   }
   return result;
 }
@@ -214,7 +216,7 @@ function equalButton() {
 function addToHistory(entry) {
   const listItem = document.createElement("li");
   listItem.textContent = entry;
-  historyList.appendChild(listItem);
+  historyList.append(listItem);
 }
 
 // Event listener for the history button
