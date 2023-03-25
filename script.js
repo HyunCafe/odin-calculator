@@ -437,14 +437,14 @@ windLogo.addEventListener("click", toggleWindowsOverlay);
 function updateLocalDateTime() {
   const now = new Date();
   // Format the date and update the DOM
-  const dateElement = document.querySelector(".localDate");
+  const dateElement = document.querySelector(".bottom-nav-bar__local-date");
   const dateOptions = { year: "numeric", month: "2-digit", day: "2-digit" };
   const formattedDate = now
     .toLocaleDateString("en-US", dateOptions)
     .replace(/\//g, "/");
   dateElement.textContent = formattedDate;
   // Format the time and update the DOM
-  const timeElement = document.querySelector(".localTime");
+  const timeElement = document.querySelector(".bottom-nav-bar__local-time");
   const timeOptions = { hour: "numeric", minute: "2-digit" };
   const formattedTime = now
     .toLocaleTimeString("en-US", timeOptions)

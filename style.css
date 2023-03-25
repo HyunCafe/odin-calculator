@@ -364,7 +364,7 @@ button:active {
 }
 
 /* Bottom Navbar */
-.bottomNavBar {
+.footer__bottom-nav-bar {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -380,8 +380,8 @@ button:active {
 }
 
 /* Bottom Navbar Logos */
-.bottomNavBar .windLogo,
-.bottomNavBar .calcLogo {
+.footer__bottom-nav-bar .windLogo,
+.footer__bottom-nav-bar .calcLogo {
   height: 32px;
 }
 
@@ -393,7 +393,7 @@ button:active {
   border: none;
 }
 
-.bottom-nav-bar-icon {
+.bottom-nav-bar__icon {
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -443,7 +443,7 @@ button:active {
 
 /* Responsive for Mobile */
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 880px) {
   /* For mobile screens with width up to 500px */
   * {
     font-size: 1em;
@@ -489,17 +489,17 @@ button:active {
     bottom: 0;
     width: 100%;
   }
-  .bottomNavBar {
+  .footer__bottom-nav-bar {
     height: 3em;
   }
 
-  .bottom-nav-bar-icon,
+  .bottom-nav-bar__icon,
   .bottom-nav-bar-time {
     font-size: 1rem;
   }
 
-  .bottomNavBar .windLogo,
-  .bottomNavBar .calcLogo {
+  .footer__bottom-nav-bar .windLogo,
+  .footer__bottom-nav-bar .calcLogo {
     height: 28px;
   }
 

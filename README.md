@@ -215,6 +215,8 @@ Overall, this project required a lot of hard work/persistance, creativity, and a
 * Remove: Remove unused images
 * Style: removed border from calc logo
 
+####  March 25, 2023:
+* Add: added breakpoints and refactor to BEM on footer
 ## Challenges:
 
 ------------
