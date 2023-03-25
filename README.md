@@ -10,6 +10,9 @@ I also added some unique features to further enhance the experience, such as the
 Overall, this project required a lot of hard work/persistance, creativity, and attention to detail. It showcases my ability to create high-quality, production-ready projects using only pure HTML, CSS, and JavaScript, without relying on external frameworks.
 
 ![Project Animation](assets/Animation.gif)
+<p align="center">
+<a href="https://hyuncafe.github.io/odin-calculator/" target="_blank">Live Link</a>
+</p>
 
 ## Summary of Key Features:
 
