@@ -1,4 +1,4 @@
-# odin-calculator
+# odin-calculator (10 weeks into my coding journey)
 My final project for the fundamentals portion of TOP is a fully-functional calculator built with pure HTML, CSS, and JavaScript, without the use of any frameworks. This project demonstrates my skills in building complex UI components using vanilla technologies, and showcases my ability to create an intuitive user experience with visual and interactive elements.
 
 What sets my calculator apart from other projects is the attention to detail and the focus on emulating the behavior of a real-world calculator as well as thorough documentation. The calculator features a large display for the current value and result, as well as a small display for the previous value and operator. It supports basic arithmetic operations like addition, subtraction, multiplication, and division, and also allows for chaining multiple operations. 
