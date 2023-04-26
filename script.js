@@ -284,8 +284,6 @@ document.querySelectorAll(".calculator-link, .calcLogo").forEach((element) => {
   });
 });
 
-// Resize Corner Logic
-
 // Function to Resize Calculator
 for (let resizer of resizers) {
   resizer.addEventListener("mousedown", startResize);
@@ -369,35 +367,82 @@ function notNegative(value) {
 
 // Move calculator using Top portion of calc
 calculator.addEventListener("mousedown", mousedown);
+calculator.addEventListener("touchstart", mousedown, { passive: false });
+
 function mousedown(e) {
-  // Only move the calculator when the mouse is clicked once on the calculator's top section
+  e.preventDefault();
+  let isMouseDown = true;
+  let clientX, clientY;
+
+  if (e.type === "mousedown") {
+    clientX = e.clientX;
+    clientY = e.clientY;
+  } else if (e.type === "touchstart") {
+    clientX = e.touches[0].clientX;
+    clientY = e.touches[0].clientY;
+  }
+
   const calculatorTop = calculator.getBoundingClientRect().top;
   const calculatorHeight = calculator.getBoundingClientRect().height;
   const topSectionHeight = calculatorHeight * 0.08;
-  if (e.clientY < calculatorTop + topSectionHeight && e.detail === 1) {
-    isMouseDown = true;
+  if (clientY < calculatorTop + topSectionHeight) {
     const rect = calculator.getBoundingClientRect();
     const overflow = {
-      x: e.clientX - rect.x,
-      y: e.clientY - rect.y
+      x: clientX - rect.x,
+      y: clientY - rect.y
     };
-    document.addEventListener("mousemove", mousemove);
+    document.addEventListener("mousemove", mousemove, { passive: false });
+    document.addEventListener("touchmove", mousemove, { passive: false });
+
     function mousemove(e) {
-      // If mouse is down, move the calculator
+      e.preventDefault();
+      if (e.type === "mousemove") {
+        clientX = e.clientX;
+        clientY = e.clientY;
+      } else if (e.type === "touchmove") {
+        clientX = e.touches[0].clientX;
+        clientY = e.touches[0].clientY;
+      }
+      // If mouse is down or touch event, move the calculator
       if (isMouseDown) {
-        calculator.style.left = notNegative(e.clientX - overflow.x) + "px";
-        calculator.style.top = notNegative(e.clientY - overflow.y) + "px";
+        let newX = notNegative(clientX - overflow.x);
+        let newY = notNegative(clientY - overflow.y);
+
+        let maxX =
+          calculator.parentElement.clientWidth - calculator.clientWidth;
+        let maxY =
+          calculator.parentElement.clientHeight - calculator.clientHeight;
+
+        if (newX < 0) newX = 0;
+        if (newY < 0) newY = 0;
+        if (newX > maxX) newX = maxX;
+        if (newY > maxY) newY = maxY;
+
+        calculator.style.left = newX + "px";
+        calculator.style.top = newY + "px";
       }
     }
+
     document.addEventListener("mouseup", mouseup);
-    // Function for handling mouse up event
+    document.addEventListener("touchend", mouseup);
+
+    // Function for handling mouse up or touch end events
     function mouseup() {
       document.removeEventListener("mousemove", mousemove);
       document.removeEventListener("mouseup", mouseup);
+      document.removeEventListener("touchmove", mousemove);
+      document.removeEventListener("touchend", mouseup);
       isMouseDown = false;
     }
   }
 }
+
+document.addEventListener("click", (e) => {
+  // If the clicked element is not the start menu or any of its children
+  if (!windOverlay.contains(e.target) && e.target !== windLogo) {
+    windOverlay.style.display = "none";
+  }
+});
 
 document.addEventListener("contextmenu", (event) => {
   // Show the menu at the position of the right-click
