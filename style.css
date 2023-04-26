@@ -16,7 +16,6 @@ body {
   background-image: url("assets/bg.png");
   background-size: cover;
   min-height: 100vh;
-  min-width: 100vh;
   height: 100%;
   width: 100%;
   display: flex;
@@ -26,7 +25,9 @@ body {
   padding-bottom: 2rem;
   color: aliceblue;
   overflow: hidden;
+  position: fixed;
 }
+
 
 /* Start Menu Overlay */
 .start-window {
@@ -444,15 +445,64 @@ button:active {
 /* Responsive for Mobile */
 
 @media only screen and (max-width: 880px) {
-  /* For mobile screens with width up to 500px */
   * {
     font-size: 1em;
   }
+
   body {
     background-image: url("assets/bg.png");
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
     min-width: initial;
+    
+  }
+
+  /* Calculator grid */
+  .calculator {
+    max-height: 50%;
+    max-width: 60%;
+  }
+
+  /* Top Calc Nav Bar */
+  .top-nav-btn {
+    font-size: 12px;
+  }
+
+  /* Top Calc Nav Bar */
+  .top-nav {
+    width: 86%;
+    min-height: 5%;
+  }
+
+  .size-buttons {
+    padding-right: 0.5em;
+  }
+
+  .calc-text {
+    position: relative;
+    left: -30px;
+  }
+
+  .material-icons {
+    font-size: 130% !important;
+  }
+
+  /* Main Calc Display */
+  .display {
+    font-size: 130%;
+  }
+
+  /* Small Calc Display */
+  .small-display {
+    font-size: 90%;
+  }
+
+  /* History button */
+  .history-list > li {
+    font-size: 110%;
   }
 
   .start-window {
@@ -466,6 +516,7 @@ button:active {
   .nav-icons-container {
     font-size: 0.7em;
   }
+
   .menu {
     position: absolute;
     min-width: 44%;
@@ -489,13 +540,14 @@ button:active {
     bottom: 0;
     width: 100%;
   }
+
   .footer__bottom-nav-bar {
     height: 3em;
   }
 
   .bottom-nav-bar__icon,
   .bottom-nav-bar-time {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 
   .footer__bottom-nav-bar .windLogo,
@@ -505,6 +557,10 @@ button:active {
 
   .calcLogo {
     display: none;
+  }
+
+  .search-box {
+    width: 40%;
   }
 
   .search-box input[type="text"] {
