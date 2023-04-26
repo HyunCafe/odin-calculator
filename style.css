@@ -28,7 +28,6 @@ body {
   position: fixed;
 }
 
-
 /* Start Menu Overlay */
 .start-window {
   width: 25em;
@@ -457,7 +456,6 @@ button:active {
     background-attachment: fixed;
     height: 100vh;
     min-width: initial;
-    
   }
 
   /* Calculator grid */
