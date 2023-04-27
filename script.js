@@ -150,18 +150,23 @@ buttons.forEach((button) => {
   switch (button.id) {
     case "ac-btn":
       button.addEventListener("click", clearDisplay);
+      button.addEventListener("touchstart", clearDisplay, { passive: false });
       break;
     case "del-btn":
       button.addEventListener("click", deleteButton);
+      button.addEventListener("touchstart", deleteButton, { passive: false });
       break;
     case "eq-btn":
       button.addEventListener("click", equalButton);
+      button.addEventListener("touchstart", equalButton, { passive: false });
       break;
     default:
       if (button.textContent.match(/[0-9\.]/)) {
         button.addEventListener("click", operands);
+        button.addEventListener("touchstart", operands, { passive: false });
       } else if (button.textContent.match(/[\+\-\*\%\/]/)) {
         button.addEventListener("click", operatorButtons);
+        button.addEventListener("touchstart", operatorButtons, { passive: false });
       }
   }
 });
