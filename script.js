@@ -228,6 +228,9 @@ function addToHistory(entry) {
 historyBtn.addEventListener("click", () => {
   toggleHistoryOverlay();
 });
+historyBtn.addEventListener("touchstart", () => {
+  toggleHistoryOverlay();
+});
 
 function toggleHistoryOverlay() {
   historyOverlay.style.display =
@@ -244,8 +247,8 @@ function maximizeCalculator() {
     originalLeft = calculator.offsetLeft;
     originalTop = calculator.offsetTop;
     // Set the calculator to the maximum size and position
-    calculator.style.width = "100%";
-    calculator.style.height = "100%";
+    calculator.style.width = "100vw";
+    calculator.style.height = "100vh";
     calculator.style.left = 0;
     calculator.style.top = 0;
   } else {
@@ -257,26 +260,25 @@ function maximizeCalculator() {
   }
 }
 
-// Function to close
-function closeCalculator(element, delay) {
-  let rect = calculator.getBoundingClientRect();
-  setTimeout(() => {
-    element.style.display = "none";
-  }, delay);
-  // Add the minimized class to the calculator
-  calculator.classList.add("closed");
-}
-
 // Add Event Listener for the Top Nav Features
 minimizeBtn.addEventListener("click", () => {
+  calculator.style.display = "none";
+});
+minimizeBtn.addEventListener("touchstart", () => {
   calculator.style.display = "none";
 });
 
 maximizeBtn.addEventListener("click", () => {
   maximizeCalculator();
 });
+maximizeBtn.addEventListener("touchstart", () => {
+  maximizeCalculator();
+});
 
 closeBtn.addEventListener("click", () => {
+  calculator.style.display = "none";
+});
+closeBtn.addEventListener("touchstart", () => {
   calculator.style.display = "none";
 });
 
@@ -372,7 +374,7 @@ function notNegative(value) {
 
 // Move calculator using Top portion of calc
 calculator.addEventListener("mousedown", mousedown);
-calculator.addEventListener("touchstart", mousedown, { passive: false });
+calculator.addEventListener("touchstart", mousedown);
 
 function mousedown(e) {
   e.preventDefault();
@@ -505,11 +507,31 @@ function updateLocalDateTime() {
 updateLocalDateTime();
 setInterval(updateLocalDateTime, 30000);
 
-// Default size on page load
-document.addEventListener("DOMContentLoaded", () => {
-  calculator.style.width = "350px";
-  calculator.style.height = "600px";
-});
+
+// Update viewport real time on calculator sized based on viewport adjustments
+function setCalculatorSize() {
+  const mobileWidth = 230;
+  const mobileHeight = 400;
+  const desktopWidth = 350;
+  const desktopHeight = 600;
+
+  // Check if the screen width is less than or equal to 880px (mobile breakpoint)
+  if (window.innerWidth <= 880) {
+    calculator.style.width = mobileWidth + "px";
+    calculator.style.height = mobileHeight + "px";
+  } else {
+    calculator.style.width = desktopWidth + "px";
+    calculator.style.height = desktopHeight + "px";
+  }
+}
+
+// Set the initial size
+document.addEventListener("DOMContentLoaded", setCalculatorSize);
+
+// Listen for viewport width changes
+const mediaQuery = window.matchMedia("(max-width: 880px)");
+mediaQuery.addEventListener("change", setCalculatorSize);
+
 
 // Bugs
 //Bug 3: set toFixed(4) decimal places for results, currently too many decimals
