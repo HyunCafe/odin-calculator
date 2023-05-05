@@ -139,6 +139,12 @@ body {
   transition: display 0.2s ease-out;
 }
 
+.calculator.maximized {
+  width: 100vw;
+  height: 100vh;
+  max-height: none;
+}
+
 /* History Button Overlay */
 .history-window {
   position: absolute;
@@ -239,6 +245,7 @@ body {
   -webkit-background-clip: text;
   color: aliceblue;
   border: none;
+  z-index: 3;
 }
 
 .history-btn:active {
@@ -458,15 +465,11 @@ button:active {
     min-width: initial;
   }
 
-  /* Calculator grid */
-  .calculator {
-    max-height: 50%;
-    max-width: 60%;
-  }
 
   /* Top Calc Nav Bar */
   .top-nav-btn {
     font-size: 12px;
+    z-index: 3;
   }
 
   /* Top Calc Nav Bar */
